@@ -5,3 +5,4 @@ export { default as Booking } from "./Booking";
 export { default as Brands } from "./Brands";
 export { default as Team } from "./Team";
 export { default as Contact } from "./Contact";
+export { default as Header } from "./Header";

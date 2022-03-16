@@ -59,7 +59,7 @@ const Features = () => {
   return (
     <div
       id="key-features"
-      className="px-3 lg:px-0 w-full lg:container mx-auto flex flex-col lg:min-h-screen  justify-center pt-8 lg:pt-0 "
+      className="px-3  w-full lg:px-20 mx-auto flex flex-col lg:min-h-screen  justify-center pt-8 lg:pt-0 "
     >
       <div className="font-montserrat text-4xl lg:text-6xl font-bold w-full text-left">
         Key Features
@@ -74,7 +74,7 @@ const Features = () => {
           const cardAnimate = {
             easing: "linear",
             offset: "150",
-            duration: index * 400,
+            duration: index * 200,
           };
           return (
             <div
@@ -88,7 +88,7 @@ const Features = () => {
               data-aos-offset={cardAnimate.offset}
               data-aos-duration={!isPhone ? cardAnimate.duration : 1000}
             >
-              <div className="border-2 w-full border-gray-200 p-4 lg:p-5 rounded-xl h-48 lg:h-64 flex flex-col justify-between shadow-xl">
+              <div className="border-2 w-full bg-gray-800 text-white border-gray-200 p-4 lg:p-5 rounded-xl h-48 lg:h-64 flex flex-col justify-between shadow-xl">
                 <div
                   className={`" text-4xl p-2 rounded-full w-min bg-opacity-50 " ${
                     feature.id % 2 == 0 ? "bg-blue-200" : "bg-red-200"

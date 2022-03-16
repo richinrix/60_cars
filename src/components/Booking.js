@@ -22,7 +22,7 @@ const Booking = () => {
   const [bookingOption, setBookingOption] = useState("cityride");
   const [bookingTime, setBookingTime] = useState("now"); //now or later
   const [bookingDate, setBookingDate] = useState(minDate); // sets the limit of days the user can book
-  const [phoneNumber, setPhoneNumber] = useState(null);
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [name, setName] = useState(null);
   const [pickup, setPickup] = useState("");
   const [drop, setDrop] = useState("");
@@ -51,7 +51,7 @@ const Booking = () => {
           console.log(error);
         });
     } else {
-      // setPickupSuggestions([]);
+      setPickupSuggestions([]);
     }
   }, [pickup]);
   useEffect(() => {
@@ -61,17 +61,16 @@ const Booking = () => {
       headers: {},
     };
 
-    if (pickup.trim() !== "") {
+    if (drop.trim() !== "") {
       axios(config)
         .then(function (response) {
           setDropSuggestions(response.data.features);
-          // console.log(pickup, pickupSuggestions);
         })
         .catch(function (error) {
           console.log(error);
         });
     } else {
-      setDrop([]);
+      setDropSuggestions([]);
     }
   }, [drop]);
   // * form submit\
@@ -86,7 +85,7 @@ const Booking = () => {
   const submitQuery = (e) => {
     e.preventDefault();
     if (checkForm()) setShowQuerySent(true);
-    console.log(checkForm(), pickup, drop, phoneNumber);
+    // console.log(checkForm(), pickup, drop, phoneNumber);
 
     setTimeout(() => {
       setShowQuerySent(false);
@@ -132,88 +131,93 @@ const Booking = () => {
         action=""
         className="flex-col flex justify-between text-xs lg:text-sm"
       >
-        <div className=" grid grid-cols-6 relative  items-center bg-white rounded-md px-3">
+        <div className=" hover:bg-gray-200 focus:bg-gray-200 grid grid-cols-6 relative  items-center bg-white rounded-md px-3">
           <div className="uppercase col-span-1 border-black border-r-1 pr-3">
             Pickup
           </div>
           <input
-            className=" col-span-5 mx-2 my-1 py-1 bg-opacity-90 outline-none w-full "
+            className=" col-span-5 mx-2 my-1 py-1 bg-opacity-90 outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
             type="text"
-            // value={pickup}
-            onFocus={(e) => setSuggestPickup(true)}
-            onBlur={(e) => setSuggestPickup(false)}
-            onChange={(e) => setPickup(e.target.value)}
+            value={pickup}
+            // onFocus={(e) => setSuggestPickup(true)}
+            // onBlur={(e) => setSuggestPickup(false)}
+            onChange={(e) => {
+              setSuggestPickup(true);
+              setPickup(e.target.value);
+            }}
           />
-          {suggestPickup && (
+          {suggestPickup && pickupSuggestions.length > 0 && (
             <div
-              class="absolute bg-white z-10  px-3  w-full flex flex-col"
+              class="absolute bg-gray-100  py-2 z-10  px-3  w-full flex flex-col"
               style={{ top: "90%" }}
             >
-              {pickupSuggestions.length > 0 &&
-                pickupSuggestions.map((result) => {
-                  let suggestion = result.properties;
-                  if (suggestion.state_code == "KA")
-                    return (
-                      <div
-                        // value={suggestion.name}
-                        className="flex justify-between cursor-pointer "
-                        onClick={(e) => setPickup(suggestion.name)}
-                      >
-                        <div>{suggestion.name}</div>
-                        <div>{suggestion.address_line2}</div>
-                      </div>
-                    );
-                })}
+              {pickupSuggestions.map((result) => {
+                let suggestion = result.properties;
+                if (suggestion.state_code == "KA")
+                  return (
+                    <div
+                      // value={suggestion.name}
+                      className="flex  justify-between cursor-pointer "
+                      onClick={(e) => {
+                        setPickup(suggestion.name);
+                        setSuggestPickup(false);
+                      }}
+                      // onTouchStart={(e) => console.log(suggestion.name)}
+                    >
+                      <div>{suggestion.name}</div>
+                      <div>{suggestion.address_line2}</div>
+                    </div>
+                  );
+              })}
             </div>
           )}
-          {/* <div class                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         */}
         </div>
-        <div className=" grid grid-cols-6 relative mt-2 items-center bg-white rounded-md px-3">
+        <div className=" hover:bg-gray-200 focus:bg-gray-200 grid grid-cols-6 relative mt-2 items-center bg-white rounded-md px-3">
           <div className="uppercase col-span-1 border-black border-r-1 pr-3">
             Drop
           </div>
           <input
-            className=" col-span-5 mx-2 my-1 py-1  outline-none w-full "
-            // value={drop}
-            onFocus={(e) => setSuggestDrop(true)}
-            onBlur={(e) => setSuggestDrop(false)}
-            onChange={(e) => setDrop(e.target.value)}
+            className=" col-span-5 mx-2 my-1 py-1  outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
             type="text"
+            value={drop}
+            // onFocus={(e) => setSuggestDrop(true)}
+            // onBlur={(e) => setSuggestDrop(false)}
+            onChange={(e) => {
+              setSuggestDrop(true);
+              setDrop(e.target.value);
+            }}
           />
-          {suggestDrop && (
+          {suggestDrop && dropSuggestions.length > 0 && (
             <div
-              class="absolute bg-white z-10  px-3  w-full flex flex-col"
+              class="absolute bg-gray-100  py-2 z-10  px-3  w-full flex flex-col"
               style={{ top: "90%" }}
             >
-              {dropSuggestions.length > 0 &&
-                dropSuggestions.map((result) => {
-                  let suggestion = result.properties;
-                  console.log(suggestion.name);
-                  if (suggestion.state_code == "KA")
-                    return (
-                      <div
-                        // value={suggestion.name}
-                        className="flex justify-between cursor-pointer "
-                        onClick={(e) =>
-                          setDrop(
-                            suggestion.name + "," + suggestion.address_line2
-                          )
-                        }
-                      >
-                        <div>{suggestion.name}</div>
-                        <div>{suggestion.address_line2}</div>
-                      </div>
-                    );
-                })}
+              {dropSuggestions.map((result) => {
+                let suggestion = result.properties;
+                if (suggestion.state_code == "KA")
+                  return (
+                    <div
+                      // value={suggestion.name}
+                      className="flex  justify-between cursor-pointer "
+                      onClick={(e) => {
+                        setDrop(suggestion.name);
+                        setSuggestDrop(false);
+                      }}
+                    >
+                      <div>{suggestion.name}</div>
+                      <div>{suggestion.address_line2}</div>
+                    </div>
+                  );
+              })}
             </div>
           )}
         </div>
-        <div className=" grid grid-cols-6 mt-2 items-center bg-white rounded-md px-3">
+        <div className="hover:bg-gray-200 focus:bg-gray-200 grid grid-cols-6 mt-2 items-center bg-white rounded-md px-3">
           <div className="uppercase col-span-1 border-black border-r-1 pr-3">
             When
           </div>
           <select
-            className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full "
+            className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full  hover:bg-gray-200 focus:bg-gray-200"
             name=""
             id=""
             onChange={(e) => setBookingTime(e.target.value)}
@@ -223,29 +227,30 @@ const Booking = () => {
           </select>
         </div>
         {bookingTime == "later" ? (
-          <div className=" grid grid-cols-12 mt-2 items-center bg-white rounded-md px-3">
+          <div className=" grid grid-cols-12 mt-2 items-center bg-white rounded-md px-3 hover:bg-gray-200 focus:bg-gray-200">
             <div className="uppercase col-span-2 border-black border-r-1 pr-3">
               Date
             </div>
             <input
-              className=" col-span-5 mx-2 my-1 py-1 pr-2  rounded-md outline-none w-full "
+              className=" col-span-5 lg:col-span-5 mx-2 my-1 py-1 pr-2  rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
               type="time"
               placeholder="Time"
             />
+            <div class="col-span-1 lg:hidden"></div>
             <input
-              className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full "
+              className=" col-span-4 lg:col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
               type="date"
               min={new Date().toISOString().split("T")[0]}
               max={minDate}
             />
           </div>
         ) : null}
-        <div className=" grid grid-cols-6 mt-2 items-center bg-white rounded-md px-3">
+        <div className=" grid grid-cols-6 mt-2 items-center bg-white rounded-md px-3 hover:bg-gray-200 focus:bg-gray-200">
           <div className="uppercase col-span-1 border-black border-r-1 pr-3">
             Car
           </div>
           <select
-            className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full "
+            className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full  hover:bg-gray-200 focus:bg-gray-200"
             name=""
             id=""
             // onChange={(e) => setCarType(e.target.value)}
@@ -257,12 +262,12 @@ const Booking = () => {
             <option value="Luxury">Luxury</option>
           </select>
         </div>
-        <div className=" grid grid-cols-6 mt-2 items-center bg-white rounded-md px-3">
-          <div className="uppercase col-span-1 border-black border-r-1 pr-3">
+        <div className=" grid grid-cols-6 mt-2 items-center bg-white rounded-md px-3 hover:bg-gray-200 focus:bg-gray-200">
+          <div className="uppercase col-span-1 border-black border-r-1 pr-3 ">
             Phone
           </div>
           <input
-            className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full "
+            className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
             type=""
             onChange={(e) => setPhoneNumber(e.target.value)}
           />

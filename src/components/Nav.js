@@ -45,8 +45,8 @@ const mobNavOptions = [
     icon: <AiOutlineCar />,
   },
   {
-    name: "Features",
-    slug: "#key-features",
+    name: "Services",
+    slug: "#our-services",
     icon: <MdOutlineFeaturedPlayList />,
   },
   {
@@ -75,8 +75,8 @@ const Nav = (props) => {
   };
 
   return (
-    <div className=" lg:container  mx-auto   ">
-      <div className=" hidden md:inline-block w-full  py-3">
+    <div className="    lg:px-20 mx-auto   ">
+      <div className=" hidden lg:inline-block w-full  py-3">
         <div className="block md:float-left">
           <a href="/">
             <span className="cursor-pointer text-4xl font-bold text-black font-leagueSpartan">

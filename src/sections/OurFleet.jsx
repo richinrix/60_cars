@@ -31,7 +31,7 @@ const fleet = [
     id: 3,
     name: "MUV",
     icon: "/images/fleet-icons/suv.png",
-    image: "/images/fleet-cars/suv/kia-carnival.webp",
+    image: "/images/fleet-cars/innova-crysta.png",
     features: "ac, cashless",
     tagline: "The MUV is a compact car that is great for the city.",
     description:
@@ -44,7 +44,7 @@ const fleet = [
     features: "ac, cashless",
 
     tagline: "The Mini is a compact car that is great for the city.",
-    image: "/images/fleet-cars/merc.png",
+    image: "/images/fleet-cars/toyota--corolla.webp",
     description:
       "    A regular comfortable AC hatchback that becomes your everyday dependable ride. An economical option for daily commute.",
   },
@@ -66,7 +66,7 @@ const OurFleet = () => {
   return (
     <div
       id="our-fleet"
-      className="  py-8 lg:pt-24 px-3 lg:px-0 lg:container mx-auto  grid-cols-4 lg:flex lg:flex-col lg:items-center justify-center w-full  lg:mt-10 lg:h-90vh "
+      className="  py-8 lg:pt-24 px-3 lg:px-20  mx-auto  grid-cols-4 lg:flex lg:flex-col lg:items-center justify-center w-full  lg:mt-10 lg:h-90vh "
     >
       <div className="font-leagueSpartan  text-4xl lg:text-6xl font-bold w-full text-left">
         Our Fleet

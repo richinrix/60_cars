@@ -17,7 +17,7 @@ const LandingSection = () => {
 
       <div
         id="home"
-        className=" lg:px-0 px-3  lg:container  mx-auto   h-90vh lg:h-90vh lg:grid lg:grid-cols-2 bg-no-repeat bg-cover "
+        className=" px-3 lg:px-20  mx-auto   h-90vh lg:h-90vh lg:grid lg:grid-cols-2 bg-no-repeat bg-cover "
         style={{
           // backgroundImage: `url("./images/map.png")`,
           zIndex: "10",
