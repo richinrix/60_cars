@@ -17,10 +17,10 @@ const About = () => {
       </div>
 
       <div class="lg:px-0 mx-auto ">
-        <div class="px-3 lg:px-0 lg:container mx-auto w-full  relative">
+        <div class="px-3 lg:px-0   md:container mx-auto w-full  relative">
           {/* landing section */}
           <div class="h-auto lg:h-90vh flex flex-col justify-between   py-6 lg:py-20 w-full relative">
-            <div class="text-xl lg:text-9xl font-bold w-1/2 font-montserrat ">
+            <div class="text-xl lg:text-9xl font-bold w-1/2 font-leagueSpartan ">
               About Us
             </div>
 
@@ -52,8 +52,8 @@ const About = () => {
             </div>
           </div>
           {/* section 2 */}
-          <div class="h-auto lg:h-screen flex flex-col justify-between py-6 lg:py-20 w-full relative">
-            <div class=" font-montserrat text-xl lg:text-9xl font-bold w-full text-right ">
+          <div class="   flex flex-col justify-between py-6 lg:py-20 w-full relative">
+            <div class=" font-leagueSpartan text-xl lg:text-9xl font-bold w-full text-right ">
               Why We Do <br />
               What We Do
             </div>
@@ -84,7 +84,7 @@ const About = () => {
           </div>
           {/* section 3 :tech */}
           <div class="h-auto lg:h-screen flex flex-col justify-between py-6 lg:py-20 w-full relative">
-            <div class=" font-montserrat text-xl lg:text-9xl font-bold w-full ">
+            <div class=" font-leagueSpartan text-xl lg:text-9xl font-bold w-full ">
               Payments
             </div>
             <div class="w-full flex items-center justify-between">

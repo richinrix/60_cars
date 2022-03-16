@@ -96,7 +96,7 @@ const Features = () => {
                 >
                   {feature.icon}
                 </div>
-                <div className=" w-full text-md lg:text-2xl font-bold leading-none lg:leading-none">
+                <div className=" w-full text-base  lg:text-2xl font-bold leading-none lg:leading-none">
                   {feature.title}
                 </div>
               </div>
