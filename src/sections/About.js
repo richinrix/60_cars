@@ -3,18 +3,29 @@ import { Nav, HeaderAnnouncement, Team } from "../components/";
 
 const About = () => {
   const Tab = () => <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>;
-  return (
-    <div className="overflow-x-clip">
-      {/* nav */}
-      <div class="py-4 font-extrabold bg-white text-4xl w-screen flex lg:hidden justify-center items-center ">
+  const Header = () => (
+    <>
+      <div class="  z-10 lg:hidden">
+        <HeaderAnnouncement />
+      </div>
+      <div class="py-4 font-leagueSpartan font-extrabold bg-gray-400 text-4xl w-screen flex lg:hidden justify-center items-center ">
         60 Cars
       </div>
       <div className="fixed bottom-0 lg:sticky  lg:top-0 z-10">
-        <HeaderAnnouncement />
+        <div class="hidden lg:block">
+          <HeaderAnnouncement />
+        </div>
+
         <div class=" mx-auto bg-white lg:bg-opacity-50 lg:backdrop-blur-sm w-full">
-          <Nav current="about" />
+          <Nav current={"about"} />
         </div>
       </div>
+    </>
+  );
+  return (
+    <div className="overflow-x-clip">
+      {/* nav */}
+      {Header()}
 
       <div class="lg:px-0 mx-auto ">
         <div class="px-3 lg:px-20 mx-auto w-full  relative">
@@ -172,7 +183,7 @@ const About = () => {
           </div>
         </div>
         {/* team section */}
-        <div class="bg-black">
+        <div class="px-3 lg:px-20 mx-auto w-full  relative bg-black">
           <Team />
         </div>
       </div>

@@ -131,7 +131,10 @@ const Booking = () => {
         action=""
         className="flex-col flex justify-between text-xs lg:text-sm"
       >
-        <div className=" hover:bg-gray-200 focus:bg-gray-200 grid grid-cols-6 relative  items-center bg-white rounded-md px-3">
+        <div
+          className=" hover:bg-gray-200 focus:bg-gray-200 grid grid-cols-6 relative  items-center bg-white rounded-md px-3"
+          onClick={(e) => setSuggestDrop(false)}
+        >
           <div className="uppercase col-span-1 border-black border-r-1 pr-3">
             Pickup
           </div>
@@ -172,7 +175,10 @@ const Booking = () => {
             </div>
           )}
         </div>
-        <div className=" hover:bg-gray-200 focus:bg-gray-200 grid grid-cols-6 relative mt-2 items-center bg-white rounded-md px-3">
+        <div
+          className=" hover:bg-gray-200 focus:bg-gray-200 grid grid-cols-6 relative mt-2 items-center bg-white rounded-md px-3"
+          onClick={(e) => setSuggestPickup(false)}
+        >
           <div className="uppercase col-span-1 border-black border-r-1 pr-3">
             Drop
           </div>
@@ -212,7 +218,13 @@ const Booking = () => {
             </div>
           )}
         </div>
-        <div className="hover:bg-gray-200 focus:bg-gray-200 grid grid-cols-6 mt-2 items-center bg-white rounded-md px-3">
+        <div
+          className="hover:bg-gray-200 focus:bg-gray-200 grid grid-cols-6 mt-2 items-center bg-white rounded-md px-3"
+          onClick={(e) => {
+            setSuggestDrop(false);
+            setSuggestPickup(false);
+          }}
+        >
           <div className="uppercase col-span-1 border-black border-r-1 pr-3">
             When
           </div>
@@ -227,7 +239,13 @@ const Booking = () => {
           </select>
         </div>
         {bookingTime == "later" ? (
-          <div className=" grid grid-cols-12 mt-2 items-center bg-white rounded-md px-3 hover:bg-gray-200 focus:bg-gray-200">
+          <div
+            onClick={(e) => {
+              setSuggestDrop(false);
+              setSuggestPickup(false);
+            }}
+            className=" grid grid-cols-12 mt-2 items-center bg-white rounded-md px-3 hover:bg-gray-200 focus:bg-gray-200"
+          >
             <div className="uppercase col-span-2 border-black border-r-1 pr-3">
               Date
             </div>
@@ -245,14 +263,23 @@ const Booking = () => {
             />
           </div>
         ) : null}
-        <div className=" grid grid-cols-6 mt-2 items-center bg-white rounded-md px-3 hover:bg-gray-200 focus:bg-gray-200">
+        <div
+          onClick={(e) => {
+            setSuggestDrop(false);
+            setSuggestPickup(false);
+          }}
+          className=" grid grid-cols-6 mt-2 items-center bg-white rounded-md px-3 hover:bg-gray-200 focus:bg-gray-200"
+        >
           <div className="uppercase col-span-1 border-black border-r-1 pr-3">
             Car
           </div>
           <select
+            onClick={(e) => {
+              setSuggestDrop(false);
+              setSuggestPickup(false);
+            }}
             className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full  hover:bg-gray-200 focus:bg-gray-200"
-            name=""
-            id=""
+
             // onChange={(e) => setCarType(e.target.value)}
           >
             <option value="Standard">Standard</option>
@@ -262,7 +289,13 @@ const Booking = () => {
             <option value="Luxury">Luxury</option>
           </select>
         </div>
-        <div className=" grid grid-cols-6 mt-2 items-center bg-white rounded-md px-3 hover:bg-gray-200 focus:bg-gray-200">
+        <div
+          onClick={(e) => {
+            setSuggestDrop(false);
+            setSuggestPickup(false);
+          }}
+          className=" grid grid-cols-6 mt-2 items-center bg-white rounded-md px-3 hover:bg-gray-200 focus:bg-gray-200"
+        >
           <div className="uppercase col-span-1 border-black border-r-1 pr-3 ">
             Phone
           </div>
@@ -280,7 +313,13 @@ const Booking = () => {
         </div>
       </form>
       {/* button */}
-      <div className="flex justify-center w-full mt-2 ">
+      <div
+        onClick={(e) => {
+          setSuggestDrop(false);
+          setSuggestPickup(false);
+        }}
+        className="flex justify-center w-full mt-2 "
+      >
         <button
           onClick={submitQuery}
           className="bg-black  w-1/2 text-white px-4 py-2 rounded-md"
