@@ -51,7 +51,10 @@ const Contact = () => {
             ))}
           </div>
         </div>
-        <div class="lg:block hidden h-52 bg-white w-1"></div>
+        <div
+          class="lg:block hidden h-64 bg-white "
+          style={{ width: "1px" }}
+        ></div>
         <div class="w-full lg:w-5/12 flex flex-col ">
           <div class="font-bold text-base">For Reservations / Business</div>
           <div class="text-sm pl-2">
@@ -71,7 +74,7 @@ const Contact = () => {
               </a>
             </div>
           </div>
-          <div class="font-bold text-base mt-4  ">For Support </div>
+          <div class="font-bold text-base mt-4   ">For Support </div>
           <div class="text-sm pl-2">
             <div class="flex items-center my-2  ">
               <AiOutlinePhone className="text-xl mx-2" />
