@@ -1,32 +1,53 @@
 import React from "react";
-
+import Person1 from "../images/person/man1.png";
+import Person2 from "../images/person/man2.png";
+import Person3 from "../images/person/woman.png";
 const Team = () => {
   return (
-    <div className="px-3 lg:px-0 lg:container mx-auto relative lg:min-h-screen w-full bg-black text-white flex flex-col justify-center py-10">
+    <div className="px-3 lg:px-0  mx-auto relative  w-full bg-black text-white flex flex-col justify-center pt-10 pb-10 lg:min-h-screen lg:py-10">
       <div class=" font-leagueSpartan text-2xl lg:text-8xl font-bold mb-10">
-        Management Team
+        Directors
       </div>
-      <div class="flex flex-row justify-between w-full">
-        <div class="w-1/2 lg:pr-16 ">
-          <div class="text-center lg:text-left text-base lg:text-2xl">
-            Founder & Chief Execution Officer{" "}
+      {/* <div class="text-xl lg:text-4xl font-leagueSpartan">Directors</div> */}
+      <div class="flex flex-wrap items-end lg:flex-row justify-between w-full">
+        <div class="my-2  mx-auto ">
+          <div class="text-center lg:text-left text-base lg:text-2xl  font-bold">
+            Primary Director
           </div>
-          <div class="  mx-auto w-32 lg:w-64 h-32 lg:h-72 my-4 bg-red-100 rounded-xl"></div>
-          <div class="text-xl w-full text-center"> Yeshwanth Chauhan</div>
+          <img
+            src={Person1}
+            class="  mx-auto w-32 lg:w-64 h-32 lg:h-64 my-4  rounded-xl"
+          ></img>
+          <div class="text-sm lg:text-xl w-full text-center">
+            {" "}
+            Mr Yeshwanth Chauhan
+          </div>
         </div>
-        <div class="w-1/2 lg:pl-16 ">
-          <div class="text-center lg:text-left text-base lg:text-2xl">
+        <div class="my-2  mx-auto">
+          <div class="text-center lg:text-left text-base lg:text-2xl font-bold">
+            Secondary Director
+          </div>
+          <img
+            src={Person3}
+            class="  mx-auto w-32 lg:w-64 h-32 lg:h-64 my-4  rounded-xl"
+          ></img>
+          <div class="text-sm lg:text-xl w-full text-center">
+            {" "}
+            Mrs Sulochana
+          </div>
+        </div>
+        <div class="my-2   mx-auto">
+          <div class="text-center lg:text-left text-base lg:text-2xl font-bold">
             Chief Operating Officer
           </div>
-          <div class="  mx-auto w-32 lg:w-64 h-32 lg:h-72 my-4 bg-red-100 rounded-xl"></div>
-          <div class="text-xl w-full text-center"> Salman Shariff</div>
-        </div>
-        <div class="w-1/2 lg:pl-16 ">
-          <div class="text-center lg:text-left text-base lg:text-2xl">
-            Chief Operating Officer
+          <img
+            src={Person2}
+            class="  mx-auto w-32 lg:w-64 h-32 lg:h-64 my-4  rounded-xl"
+          ></img>
+          <div class="text-sm lg:text-xl w-full text-center">
+            {" "}
+            Mr Salman Shariff
           </div>
-          <div class="  mx-auto w-32 lg:w-64 h-32 lg:h-72 my-4 bg-red-100 rounded-xl"></div>
-          <div class="text-xl w-full text-center"> Salman Shariff</div>
         </div>
       </div>
     </div>

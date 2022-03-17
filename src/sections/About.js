@@ -1,15 +1,18 @@
 import React from "react";
 import { Nav, HeaderAnnouncement, Team } from "../components/";
+import { Contact } from "../sections/";
 
 const About = () => {
   const Tab = () => <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>;
   const Header = () => (
     <>
-      <div class="  z-10 lg:hidden">
-        <HeaderAnnouncement />
-      </div>
-      <div class="py-4 font-leagueSpartan font-extrabold bg-gray-400 text-4xl w-screen flex lg:hidden justify-center items-center ">
-        60 Cars
+      <div class="fixed z-50 lg:hidden">
+        <div class="   lg:hidden ">
+          <HeaderAnnouncement />
+        </div>
+        <div class="  py-2 font-leagueSpartan  font-extrabold bg-gray-400 bg-opacity-40 backdrop-blur-md   text-4xl w-screen flex lg:hidden justify-center items-center ">
+          60 Cars
+        </div>
       </div>
       <div className="fixed bottom-0 lg:sticky  lg:top-0 z-10">
         <div class="hidden lg:block">
@@ -17,7 +20,7 @@ const About = () => {
         </div>
 
         <div class=" mx-auto bg-white lg:bg-opacity-50 lg:backdrop-blur-sm w-full">
-          <Nav current={"about"} />
+          <Nav current="about" />
         </div>
       </div>
     </>
@@ -172,12 +175,56 @@ const About = () => {
               <div className="  text-xs pl-5 lg:pl-0 lg:text-xl w-full lg:w-3/5 self-end lg:my-8 text-justify py-10 border-t-2 border-black">
                 <span class="font-bold">South Indian Region</span>
                 <br />
-                <br />
                 Bengaluru, Chennai, Hyderabad, Cochin, Coimbatore, Vizag,
                 Kakinada, Vellore, Puducherry, Thanjavur, Thiruchirapalli,
                 Tirunelveli, Madurai, Gulbarga, Belgaum, Hubli, Hospet,
                 Davangere, Dharwad, Trivandrum, Kasaragod, Salem, Mangalore,
                 Mysore, Tuti corin, Hosur, Vijayawada, Tirupathi and Karimnagar.
+                <br />
+                <div class="w-full flex flex-col lg:flex-row  lg:justify-between lg:items-center">
+                  <div className="mt-2">
+                    <span class="font-bold">Nort Indian Region</span>
+                    <br />
+                    Delhi
+                  </div>
+
+                  <div className="mt-2">
+                    <span class="font-bold">East Indian Region</span>
+                    <br />
+                    Kolkata
+                  </div>
+                  <div className="mt-2">
+                    <span class="font-bold">West Indian Region</span>
+                    <br />
+                    Mumbai , pune
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* head offices */}
+          <div class="h-auto  flex flex-col justify-between py-6  w-full relative">
+            <div class="text-xl lg:text-9xl font-bold w-full text-right ">
+              Our Head Offices
+            </div>
+            <div class="flex justify-between">
+              <div className="my-6 text-xs lg:text-xl w-full lg:w-3/5 pr-5  lg:pr-0 self-start text-justify py-10 border-t-2 border-black">
+                <span className="font-bold font-leagueSpartan mr-2">1 </span>
+                YESH 60 CARS Private Limited, 22 Bagaluru Cross, Near BSF, Uday
+                Nagar, Yelahanka, Bangalore (N), Karnataka - 560064, India
+                <br />
+                <br />
+                <span className="font-bold font-leagueSpartan mr-2">2 </span>
+                Chikkanahalli, Begur Airport road (kempegowda international
+                airport,BLR)
+              </div>
+              <div class="lg:w-1/3  h-full  p-5">
+                <div
+                  class="w-full h-full rounded-md bg-cover bg-no-repeat bg-center"
+                  style={{
+                    backgroundImage: `url("/images/about/dart-target.jpg")`,
+                  }}
+                ></div>
               </div>
             </div>
           </div>
@@ -186,6 +233,10 @@ const About = () => {
         <div class="px-3 lg:px-20 mx-auto w-full  relative bg-black">
           <Team />
         </div>
+
+        {/* <div class="bg-black">
+          <Contact />
+        </div> */}
       </div>
     </div>
   );

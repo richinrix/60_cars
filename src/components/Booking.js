@@ -97,7 +97,7 @@ const Booking = () => {
   };
 
   return (
-    <div className="   rounded-md py-3 px-3 flex flex-col md:w-4/5  backdrop-blur-sm bg-white/30">
+    <div className="   rounded-md py-3 px-3 flex flex-col md:w-4/5  backdrop-blur-sm   bg-white/30">
       {/* nav */}
       <div class="justify-around flex border-b pb-3 border-black mb-5 text-sm lg:text-lg">
         <div
@@ -132,14 +132,14 @@ const Booking = () => {
         className="flex-col flex justify-between text-xs lg:text-sm"
       >
         <div
-          className=" hover:bg-gray-200 focus:bg-gray-200 grid grid-cols-6 relative  items-center bg-white rounded-md px-3"
+          className="  hover:bg-gray-200 focus:bg-gray-200 grid grid-cols-6 relative  items-center bg-white rounded-md px-3"
           onClick={(e) => setSuggestDrop(false)}
         >
           <div className="uppercase col-span-1 border-black border-r-1 pr-3">
             Pickup
           </div>
           <input
-            className=" col-span-5 mx-2 my-1 py-1 bg-opacity-90 outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
+            className="   col-span-5 mx-2 my-1 py-1 bg-opacity-90 outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
             type="text"
             value={pickup}
             // onFocus={(e) => setSuggestPickup(true)}
@@ -244,19 +244,19 @@ const Booking = () => {
               setSuggestDrop(false);
               setSuggestPickup(false);
             }}
-            className=" grid grid-cols-12 mt-2 items-center bg-white rounded-md px-3 hover:bg-gray-200 focus:bg-gray-200"
+            className=" grid grid-cols-12 mt-2 items-center  bg-white rounded-md px-3 hover:bg-gray-200 focus:bg-gray-200"
           >
             <div className="uppercase col-span-2 border-black border-r-1 pr-3">
               Date
             </div>
             <input
-              className=" col-span-5 lg:col-span-5 mx-2 my-1 py-1 pr-2  rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
+              className=" px-2 col-span-5 lg:col-span-3 mx-2 my-1 py-1 pr-2  rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
               type="time"
               placeholder="Time"
             />
-            <div class="col-span-1 lg:hidden"></div>
+            <div class="col-span-1 lg:col-span-3 "></div>
             <input
-              className=" col-span-4 lg:col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
+              className=" pl-2 col-span-4 lg:col-span-4 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
               type="date"
               min={new Date().toISOString().split("T")[0]}
               max={minDate}
@@ -329,7 +329,7 @@ const Booking = () => {
       </div>
       {showQuerySent && (
         <div className=" max-w-max self-center text-center bg-green-600 px-2 text-white rounded-md my-2">
-          We will get back to you in 5-10mins!
+          We will get back to you in 5-10 minutes!
         </div>
       )}
     </div>

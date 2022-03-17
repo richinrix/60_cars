@@ -7,16 +7,19 @@ import {
   Features,
   Services,
   Contact,
+  Clients,
 } from "./sections/";
 function App() {
   const [activeSection, setActiveSection] = useState("home");
   const Header = () => (
     <>
-      <div class="  z-10 lg:hidden">
-        <HeaderAnnouncement />
-      </div>
-      <div class="py-4 font-leagueSpartan font-extrabold bg-gray-400 text-4xl w-screen flex lg:hidden justify-center items-center ">
-        60 Cars
+      <div class="fixed z-50 lg:hidden">
+        <div class="   lg:hidden ">
+          <HeaderAnnouncement />
+        </div>
+        <div class="  py-2 font-leagueSpartan  font-extrabold bg-gray-400 bg-opacity-40 backdrop-blur-md   text-4xl w-screen flex lg:hidden justify-center items-center ">
+          60 Cars
+        </div>
       </div>
       <div className="fixed bottom-0 lg:sticky  lg:top-0 z-10">
         <div class="hidden lg:block">
@@ -38,6 +41,7 @@ function App() {
         <Brands setActiveSection={setActiveSection} />
         <Features setActiveSection={setActiveSection} />
         <Services setActiveSection={setActiveSection} />
+        <Clients setActiveSection={setActiveSection} />
         <div class="bg-black">
           <Contact setActiveSection={setActiveSection} />
         </div>

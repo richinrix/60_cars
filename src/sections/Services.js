@@ -25,7 +25,7 @@ const services = [
   },
   {
     id: 3,
-    title: "Long term car hire",
+    title: "PAN India and seamless booking",
     icon: <AiTwotoneCar />,
   },
   {
@@ -53,7 +53,7 @@ const Services = () => {
   return (
     <div
       id="our-services"
-      className="px-3  w-full lg:px-20 mx-auto flex flex-col lg:min-h-screen  justify-center pt-8 lg:pt-0 "
+      className="px-3 w-full lg:px-20 mx-auto flex flex-col lg:min-h-screen overflow-y-clip justify-center pt-20 lg:pt-0 "
     >
       <div className="font-montserrat text-4xl lg:text-6xl font-bold w-full text-left">
         Our Services
@@ -74,6 +74,7 @@ const Services = () => {
             <div
               className={`" w-1/2 px-2 lg:w-1/6 lg:h-full flex  flex-col my-2 lg:pr-3  "
                 ${index === 0 ? "lg:pr-3 " : "  lg:pr-3"}
+
             `}
               // data-aos-once
               data-aos="slide-up"
@@ -82,7 +83,7 @@ const Services = () => {
               data-aos-offset={cardAnimate.offset}
               data-aos-duration={!isPhone ? cardAnimate.duration : 1000}
             >
-              <div className="border-2 w-full bg-gray-800 text-white border-gray-200 p-4 lg:p-5 rounded-xl h-48 lg:h-64 flex flex-col justify-between shadow-xl">
+              <div className=" w-full bg-gray-800 text-white   p-4 lg:p-5 rounded-xl h-48 lg:h-64 flex flex-col justify-between lg:shadow-xl">
                 <div
                   className={`" text-4xl p-2 rounded-full w-min bg-opacity-50 " ${
                     feature.id % 2 == 0 ? "bg-blue-200" : "bg-red-200"
