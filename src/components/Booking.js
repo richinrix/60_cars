@@ -6,6 +6,8 @@
 // transparent and blurred bg card
 import moment from "moment";
 import React, { useState, useEffect } from "react";
+import { submitForm } from "../services/slack";
+import { submitOrder } from "../services/graphCMS";
 const axios = require("axios");
 const Booking = () => {
   const bookingDateRange = 14;
@@ -23,7 +25,8 @@ const Booking = () => {
   const [bookingTime, setBookingTime] = useState("now"); //now or later
   const [bookingDate, setBookingDate] = useState(minDate); // sets the limit of days the user can book
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [name, setName] = useState(null);
+  const [bookingLaterTime, setBookingLaterTime] = useState();
+  const [bookingLaterDate, setBookingLaterDate] = useState();
   const [pickup, setPickup] = useState("");
   const [drop, setDrop] = useState("");
   // * auto suggestions
@@ -159,13 +162,11 @@ const Booking = () => {
                 if (suggestion.state_code == "KA")
                   return (
                     <div
-                      // value={suggestion.name}
                       className="flex  justify-between cursor-pointer "
                       onClick={(e) => {
                         setPickup(suggestion.name);
                         setSuggestPickup(false);
                       }}
-                      // onTouchStart={(e) => console.log(suggestion.name)}
                     >
                       <div>{suggestion.name}</div>
                       <div>{suggestion.address_line2}</div>
@@ -253,11 +254,13 @@ const Booking = () => {
               className=" px-2 col-span-5 lg:col-span-3 mx-2 my-1 py-1 pr-2  rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
               type="time"
               placeholder="Time"
+              onChange={(e) => setBookingLaterTime(e.target.value)}
             />
             <div class="col-span-1 lg:col-span-3 "></div>
             <input
               className=" pl-2 col-span-4 lg:col-span-4 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
               type="date"
+              onChange={(e) => setBookingLaterDate(e.target.value)}
               min={new Date().toISOString().split("T")[0]}
               max={minDate}
             />

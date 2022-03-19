@@ -31,7 +31,7 @@ const About = () => {
       {Header()}
 
       <div class="lg:px-0 mx-auto ">
-        <div class="px-3 lg:px-20 mx-auto w-full  relative">
+        <div class="px-3 lg:px-20 pt-32 lg:pt-0  mx-auto w-full  relative">
           {/* landing section */}
           <div class="h-auto lg:h-90vh flex flex-col justify-between   py-6 lg:py-20 w-full relative">
             <div class="text-xl lg:text-9xl font-bold w-1/2 font-leagueSpartan ">
@@ -230,7 +230,7 @@ const About = () => {
           </div>
         </div>
         {/* team section */}
-        <div class="px-3 lg:px-20 mx-auto w-full  relative bg-black">
+        <div class="px-3 lg:px-20 pb-20 lg:pb-0 mx-auto w-full  relative bg-black">
           <Team />
         </div>
 

@@ -2,13 +2,14 @@ import React from "react";
 import { AiOutlinePhone } from "react-icons/ai";
 import { MdMail } from "react-icons/md";
 import { CgInstagram, CgFacebook } from "react-icons/cg";
+import { RiWhatsappFill } from "react-icons/ri";
 import { BsTwitter } from "react-icons/bs";
 const socialMedia = [
   {
-    name: "Facebook",
-    icon: <CgFacebook />,
-    link: "https://www.facebook.com/60cars/",
-    color: "bg-blue-400",
+    name: "Whatsapp",
+    icon: <RiWhatsappFill />,
+    link: "https://wa.me/9178722620158",
+    color: "bg-green-400",
   },
   {
     name: "Instagram",

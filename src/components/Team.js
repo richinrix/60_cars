@@ -36,7 +36,7 @@ const Team = () => {
             Mrs Sulochana
           </div>
         </div>
-        <div class="my-2   mx-auto">
+        <div class="my-4 lg:my-2   mx-auto">
           <div class="text-center lg:text-left text-base lg:text-2xl font-bold">
             Chief Operating Officer
           </div>
