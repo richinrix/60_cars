@@ -36,26 +36,31 @@ const categories = [
 const mobNavOptions = [
   {
     name: "Home",
+    origin: "Home",
     slug: "#",
     icon: <AiFillHome />,
   },
   {
     name: "Fleet",
+    origin: "Our Fleet",
     slug: "#our-fleet",
     icon: <AiOutlineCar />,
   },
   {
     name: "Services",
+    origin: "Our Services",
     slug: "#our-services",
     icon: <MdOutlineFeaturedPlayList />,
   },
   {
     name: "Contact",
+    origin: "Contact Us",
     slug: "#contact",
     icon: <IoIosCall />,
   },
   {
     name: "About",
+    origin: "About",
     slug: "about",
     icon: <MdInfo />,
   },
@@ -93,7 +98,7 @@ const Nav = (props) => {
               mt-2 ml-7 px-1  cursor-pointer font-semibold md:float-right 
               ${
                 activeSection.toLowerCase() === category.name.toLowerCase()
-                  ? " text-black"
+                  ? " text-red-500"
                   : " text-gray-700"
               }
               `}
@@ -104,78 +109,7 @@ const Nav = (props) => {
           ))}
         </div>
       </div>
-      {/* Mobile Nav */}
-      <div className=" hidden  text-white bg-black  overflow-hidden px-5 z-50 w-full justify-between items-center h-auto">
-        <a href="/" className="ml-2">
-          <div class="h-10 w-10 bg-white"></div>
-          {/* <img src={LOGO} alt="Mirius Logo" width="160px" /> */}
-        </a>
-        <nav
-          id="sideMenu"
-          className="text-xl sideMenu  fixed py-32 text-center bg-black  inset-y-0 right-0 transform transition items-center translate-x-full duration-500 ease-in-out uppercase min-h-screen w-full flex z-10 flex-col justify-around min-w-screen"
-        >
-          {mobNavOptions.map((category, index) => (
-            <div
-              key={index}
-              className="block w-full text-center"
-              onClick={() => {
-                resize();
-                // handleToggle();
-              }}
-              // onClick={handleToggle} // close navbar
-            >
-              <a onClick={handleToggle} href={`/${category.slug}`}>
-                {category.name}
-              </a>
-            </div>
-          ))}
-        </nav>
-        <button onClick={handleToggle} className="z-50 flex " id="sideButton">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="70"
-            height="70"
-            viewBox="0 0 200 200"
-          >
-            <g stroke-width="6.5" stroke-linecap="round">
-              <path
-                d="M72 82.286h28.75"
-                fill="#00100"
-                fill-rule="evenodd"
-                stroke="#fff"
-              />
-              <path
-                d="M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554"
-                fill="none"
-                stroke="#ffffff"
-              />
-              <path
-                d="M72 125.143h28.75"
-                fill="#ffffff"
-                fill-rule="evenodd"
-                stroke="#fff"
-              />
-              <path
-                d="M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554"
-                fill="none"
-                stroke="#fff"
-              />
-              <path
-                d="M100.75 82.286h28.75"
-                fill="#009100"
-                fill-rule="evenodd"
-                stroke="#fff"
-              />
-              <path
-                d="M100.75 125.143h28.75"
-                fill="#ff0"
-                fill-rule="evenodd"
-                stroke="#fff"
-              />
-            </g>
-          </svg>
-        </button>
-      </div>
+      {/* mobile nav */}
       <div className="  lg:hidden flex items-center  w-screen  p-3">
         <div className=" text-xs w-full flex justify-between ">
           {mobNavOptions.map((category, index) => (
@@ -184,13 +118,24 @@ const Nav = (props) => {
               href={`/${category.slug}`}
               key={index}
             >
-              <div className="text-2xl my-1">{category.icon}</div>
+              <div
+                className={`text-2xl my-1
+                  
+              ${
+                activeSection.toLowerCase() === category.origin.toLowerCase()
+                  ? " text-brandRed"
+                  : " text-gray-700 "
+              }
+                `}
+              >
+                {category.icon}
+              </div>
               <span
                 className={` mx-1
                
               ${
-                activeSection === category.slug
-                  ? " text-black"
+                activeSection.toLowerCase() === category.name.toLowerCase()
+                  ? " text-black font-bold"
                   : " text-gray-700 "
               }
               `}

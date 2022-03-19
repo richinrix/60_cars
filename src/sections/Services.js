@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { VisibilityObserver, useVisibility } from "reactjs-visibility";
+
 // icons
 import { VscPerson } from "react-icons/vsc";
 import { MdLocalAirport } from "react-icons/md";
@@ -6,9 +8,6 @@ import { AiTwotoneCar } from "react-icons/ai";
 import { SiGumroad } from "react-icons/si";
 import { GiHorizonRoad } from "react-icons/gi";
 import { MdOutlineGroups } from "react-icons/md";
-// aos animation
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const services = [
   {
@@ -44,15 +43,23 @@ const services = [
     icon: <MdOutlineGroups />,
   },
 ];
-const Services = () => {
+const Services = (props) => {
   const isPhone = window.innerWidth < 700;
-  useEffect(() => {
-    AOS.init();
-  });
+  const options = {};
 
+  const handleChangeVisibility = (visible) => {
+    if (visible) {
+      props.setActiveSection("our services");
+    }
+  };
+  const { ref, visible } = useVisibility({
+    onChangeVisibility: handleChangeVisibility,
+    options,
+  });
   return (
     <div
       id="our-services"
+      ref={ref}
       className="px-3 w-full lg:px-20 mx-auto flex flex-col lg:min-h-screen overflow-y-clip justify-center pt-20 lg:pt-0 "
     >
       <div className="font-montserrat text-4xl lg:text-6xl font-bold w-full text-left">

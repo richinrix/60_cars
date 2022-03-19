@@ -1,7 +1,33 @@
 [
   {
+    "name": "Reliance Industry",
+    "logo": "images/clientsLogos/reliance-industry.jpg"
+  },
+  {
+    "name": "viacom18",
+    "logo": "images/clientsLogos/viacom18.png"
+  },
+
+  {
+    "name": "Reliance Fresh",
+    "logo": "images/clientsLogos/reliance-fresh.jpg"
+  },
+  {
+    "name": "essel group",
+    "logo": "images/clientsLogos/essel-group.jpg"
+  },
+
+  {
+    "name": "Make My Trip",
+    "logo": "images/clientsLogos/makemytripBlue.png"
+  },
+  {
     "name": "CAT",
     "logo": "images/clientsLogos/caterpillar.png"
+  },
+  {
+    "name": "XEROX",
+    "logo": "images/clientsLogos/xerox.png"
   },
   {
     "name": "Reliance Industry",
@@ -30,30 +56,8 @@
     "logo": "images/clientsLogos/caterpillar.png"
   },
   {
-    "name": "Reliance Industry",
-    "logo": "images/clientsLogos/reliance-industry.jpg"
-  },
-  {
-    "name": "viacom18",
-    "logo": "images/clientsLogos/viacom18.png"
-  },
-
-  {
-    "name": "Reliance Fresh",
-    "logo": "images/clientsLogos/reliance-fresh.jpg"
-  },
-  {
-    "name": "essel group",
-    "logo": "images/clientsLogos/essel-group.jpg"
-  },
-
-  {
-    "name": "Make My Trip",
-    "logo": "images/clientsLogos/makemytripBlue.png"
-  },
-  {
-    "name": "CAT",
-    "logo": "images/clientsLogos/caterpillar.png"
+    "name": "XEROX",
+    "logo": "images/clientsLogos/xerox.png"
   },
   {
     "name": "Reliance Industry",
@@ -82,30 +86,8 @@
     "logo": "images/clientsLogos/caterpillar.png"
   },
   {
-    "name": "Reliance Industry",
-    "logo": "images/clientsLogos/reliance-industry.jpg"
-  },
-  {
-    "name": "viacom18",
-    "logo": "images/clientsLogos/viacom18.png"
-  },
-
-  {
-    "name": "Reliance Fresh",
-    "logo": "images/clientsLogos/reliance-fresh.jpg"
-  },
-  {
-    "name": "essel group",
-    "logo": "images/clientsLogos/essel-group.jpg"
-  },
-
-  {
-    "name": "Make My Trip",
-    "logo": "images/clientsLogos/makemytripBlue.png"
-  },
-  {
-    "name": "CAT",
-    "logo": "images/clientsLogos/caterpillar.png"
+    "name": "XEROX",
+    "logo": "images/clientsLogos/xerox.png"
   },
   {
     "name": "Reliance Industry",
@@ -134,30 +116,8 @@
     "logo": "images/clientsLogos/caterpillar.png"
   },
   {
-    "name": "Reliance Industry",
-    "logo": "images/clientsLogos/reliance-industry.jpg"
-  },
-  {
-    "name": "viacom18",
-    "logo": "images/clientsLogos/viacom18.png"
-  },
-
-  {
-    "name": "Reliance Fresh",
-    "logo": "images/clientsLogos/reliance-fresh.jpg"
-  },
-  {
-    "name": "essel group",
-    "logo": "images/clientsLogos/essel-group.jpg"
-  },
-
-  {
-    "name": "Make My Trip",
-    "logo": "images/clientsLogos/makemytripBlue.png"
-  },
-  {
-    "name": "CAT",
-    "logo": "images/clientsLogos/caterpillar.png"
+    "name": "XEROX",
+    "logo": "images/clientsLogos/xerox.png"
   },
   {
     "name": "Reliance Industry",
@@ -186,30 +146,8 @@
     "logo": "images/clientsLogos/caterpillar.png"
   },
   {
-    "name": "Reliance Industry",
-    "logo": "images/clientsLogos/reliance-industry.jpg"
-  },
-  {
-    "name": "viacom18",
-    "logo": "images/clientsLogos/viacom18.png"
-  },
-
-  {
-    "name": "Reliance Fresh",
-    "logo": "images/clientsLogos/reliance-fresh.jpg"
-  },
-  {
-    "name": "essel group",
-    "logo": "images/clientsLogos/essel-group.jpg"
-  },
-
-  {
-    "name": "Make My Trip",
-    "logo": "images/clientsLogos/makemytripBlue.png"
-  },
-  {
-    "name": "CAT",
-    "logo": "images/clientsLogos/caterpillar.png"
+    "name": "XEROX",
+    "logo": "images/clientsLogos/xerox.png"
   },
   {
     "name": "Reliance Industry",
@@ -238,30 +176,8 @@
     "logo": "images/clientsLogos/caterpillar.png"
   },
   {
-    "name": "Reliance Industry",
-    "logo": "images/clientsLogos/reliance-industry.jpg"
-  },
-  {
-    "name": "viacom18",
-    "logo": "images/clientsLogos/viacom18.png"
-  },
-
-  {
-    "name": "Reliance Fresh",
-    "logo": "images/clientsLogos/reliance-fresh.jpg"
-  },
-  {
-    "name": "essel group",
-    "logo": "images/clientsLogos/essel-group.jpg"
-  },
-
-  {
-    "name": "Make My Trip",
-    "logo": "images/clientsLogos/makemytripBlue.png"
-  },
-  {
-    "name": "CAT",
-    "logo": "images/clientsLogos/caterpillar.png"
+    "name": "XEROX",
+    "logo": "images/clientsLogos/xerox.png"
   },
   {
     "name": "Reliance Industry",
@@ -288,6 +204,130 @@
   {
     "name": "CAT",
     "logo": "images/clientsLogos/caterpillar.png"
+  },
+  {
+    "name": "XEROX",
+    "logo": "images/clientsLogos/xerox.png"
+  },
+  {
+    "name": "Reliance Industry",
+    "logo": "images/clientsLogos/reliance-industry.jpg"
+  },
+  {
+    "name": "viacom18",
+    "logo": "images/clientsLogos/viacom18.png"
+  },
+
+  {
+    "name": "Reliance Fresh",
+    "logo": "images/clientsLogos/reliance-fresh.jpg"
+  },
+  {
+    "name": "essel group",
+    "logo": "images/clientsLogos/essel-group.jpg"
+  },
+
+  {
+    "name": "Make My Trip",
+    "logo": "images/clientsLogos/makemytripBlue.png"
+  },
+  {
+    "name": "CAT",
+    "logo": "images/clientsLogos/caterpillar.png"
+  },
+  {
+    "name": "XEROX",
+    "logo": "images/clientsLogos/xerox.png"
+  },
+  {
+    "name": "Reliance Industry",
+    "logo": "images/clientsLogos/reliance-industry.jpg"
+  },
+  {
+    "name": "viacom18",
+    "logo": "images/clientsLogos/viacom18.png"
+  },
+
+  {
+    "name": "Reliance Fresh",
+    "logo": "images/clientsLogos/reliance-fresh.jpg"
+  },
+  {
+    "name": "essel group",
+    "logo": "images/clientsLogos/essel-group.jpg"
+  },
+
+  {
+    "name": "Make My Trip",
+    "logo": "images/clientsLogos/makemytripBlue.png"
+  },
+  {
+    "name": "CAT",
+    "logo": "images/clientsLogos/caterpillar.png"
+  },
+  {
+    "name": "XEROX",
+    "logo": "images/clientsLogos/xerox.png"
+  },
+  {
+    "name": "Reliance Industry",
+    "logo": "images/clientsLogos/reliance-industry.jpg"
+  },
+  {
+    "name": "viacom18",
+    "logo": "images/clientsLogos/viacom18.png"
+  },
+
+  {
+    "name": "Reliance Fresh",
+    "logo": "images/clientsLogos/reliance-fresh.jpg"
+  },
+  {
+    "name": "essel group",
+    "logo": "images/clientsLogos/essel-group.jpg"
+  },
+
+  {
+    "name": "Make My Trip",
+    "logo": "images/clientsLogos/makemytripBlue.png"
+  },
+  {
+    "name": "CAT",
+    "logo": "images/clientsLogos/caterpillar.png"
+  },
+  {
+    "name": "XEROX",
+    "logo": "images/clientsLogos/xerox.png"
+  },
+  {
+    "name": "Reliance Industry",
+    "logo": "images/clientsLogos/reliance-industry.jpg"
+  },
+  {
+    "name": "viacom18",
+    "logo": "images/clientsLogos/viacom18.png"
+  },
+
+  {
+    "name": "Reliance Fresh",
+    "logo": "images/clientsLogos/reliance-fresh.jpg"
+  },
+  {
+    "name": "essel group",
+    "logo": "images/clientsLogos/essel-group.jpg"
+  },
+
+  {
+    "name": "Make My Trip",
+    "logo": "images/clientsLogos/makemytripBlue.png"
+  },
+  {
+    "name": "CAT",
+    "logo": "images/clientsLogos/caterpillar.png"
+  },
+  {
+    "name": "XEROX",
+    "logo": "images/clientsLogos/xerox.png"
   },
   {
     "name": "Reliance Industry",

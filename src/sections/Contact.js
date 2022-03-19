@@ -1,44 +1,74 @@
 import React from "react";
+import { useVisibility } from "reactjs-visibility";
+// icons
 import { AiOutlinePhone } from "react-icons/ai";
 import { MdMail } from "react-icons/md";
 import { CgInstagram, CgFacebook } from "react-icons/cg";
 import { RiWhatsappFill } from "react-icons/ri";
 import { BsTwitter } from "react-icons/bs";
+import { ImLocation } from "react-icons/im";
 const socialMedia = [
   {
     name: "Whatsapp",
     icon: <RiWhatsappFill />,
-    link: "https://wa.me/9178722620158",
+    link: "https://wa.me/918722620158",
     color: "bg-green-400",
   },
   {
     name: "Instagram",
     icon: <CgInstagram />,
-    link: "https://www.instagram.com/60cars/",
+    link: "https://www.instagram.com/60_cars/",
     color: "bg-pink-400",
   },
   {
     name: "Twitter",
     icon: <BsTwitter />,
-    link: "https://twitter.com/60cars",
+    link: "https://twitter.com/60_cars",
     color: "bg-blue-400",
   },
 ];
-const Contact = () => {
+const Contact = (props) => {
+  const options = {
+    rootMargin: "-100px",
+  };
+
+  const handleChangeVisibility = (visible) => {
+    if (visible) {
+      props.setActiveSection("contact us");
+      props.check("contact");
+    }
+  };
+  const { ref, visible } = useVisibility({
+    onChangeVisibility: handleChangeVisibility,
+    options,
+  });
   return (
     <>
       <div
+        ref={ref}
         id="contact"
         className="lg:px-20 mb-5  mx-auto lg:py-20 py-7   flex flex-col lg:flex-row px-3 lg:items-center   justify-between text-white  "
       >
         <div class="flex flex-col w-full lg:w-5/12 justify-center">
           <div class="  font-bold text-xl lg:text-5xl font-leagueSpartan">
+            {/* <lord-icon
+              src="https://cdn.lordicon.com/zpxybbhl.json"
+              trigger="loop"
+              style="width:250px;height:250px"
+            ></lord-icon> */}
             Get in touch with us
           </div>
-          <div class="text-sm my-2">
+          <a
+            // href="https://maps.google.com/maps?q=13.1042887%2C77.6025789&z=17&hl=en"
+            target="_blank"
+            noopener={true}
+            rel="noopener noreferrer"
+            class="text-sm my-2 "
+          >
+            <ImLocation className="text-brandRed inline-block  mr-1" />
             YESH 60 CARS Private Limited, 22 Bagaluru Cross, Near BSF, Uday
             Nagar, Yelahanka, Bangalore (N), Karnataka - 560064, India
-          </div>
+          </a>
           <div class="flex items-center my-2  w-full">
             {socialMedia.map((social) => (
               <a

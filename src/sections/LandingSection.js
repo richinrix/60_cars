@@ -3,10 +3,22 @@ import React from "react";
 import CarImg from "../images/car8.png";
 import WheelImg from "../images/wheel.png";
 import { Booking, Brands } from "../components/";
+import { VisibilityObserver, useVisibility } from "reactjs-visibility";
 
-const LandingSection = () => {
+const LandingSection = (props) => {
+  const options = {};
+
+  const handleChangeVisibility = (visible) => {
+    if (visible) {
+      props.setActiveSection("home");
+    }
+  };
+  const { ref, visible } = useVisibility({
+    onChangeVisibility: handleChangeVisibility,
+    options,
+  });
   return (
-    <div className="relative ">
+    <div ref={ref} className="relative ">
       <div
         class="bg-no-repeat bg-cover w-screen h-90vh lg:h-90vh absolute"
         style={{

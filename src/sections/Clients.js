@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper";
+import { useVisibility } from "reactjs-visibility";
+
 // json importing
 import clients from "../JSON/clients.json";
 // const clients = [
@@ -86,10 +88,21 @@ import clients from "../JSON/clients.json";
 //   },
 // ];
 
-const Clients = () => {
+const Clients = (props) => {
   const isPhone = window.innerWidth < 768;
+  const options = {};
+
+  const handleChangeVisibility = (visible) => {
+    if (visible) {
+      props.setActiveSection("contact");
+    }
+  };
+  const { ref, visible } = useVisibility({
+    onChangeVisibility: handleChangeVisibility,
+    options,
+  });
   return (
-    <div className=" px-3 lg:px-20 my-10 ">
+    <div ref={ref} className=" px-3 lg:px-20 my-10 ">
       <div class="text-4xl lg:text-7xl font-leagueSpartan font-bold">
         Clients we are proud to serve
       </div>

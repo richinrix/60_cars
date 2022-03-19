@@ -104,9 +104,9 @@ const About = () => {
             <div class="w-full flex items-center justify-between">
               <div class="lg:w-1/3  h-full  p-5 my-6 ">
                 <div
-                  class="w-full h-full rounded-md bg-cover bg-no-repeat bg-center"
+                  class="w-full h-full rounded-md bg-cover bg-no-repeat bg-left"
                   style={{
-                    backgroundImage: `url("/images/about/keyboard.jpg")`,
+                    backgroundImage: `url("/images/about/about-payments.jpg")`,
                   }}
                 ></div>
               </div>
@@ -160,14 +160,14 @@ const About = () => {
             </div>
           </div>
           {/* south network */}
-          <div class="h-auto  flex flex-col justify-between py-6 lg:py-20 w-full relative">
+          <div class="h-auto lg:h-screen  flex flex-col justify-between py-6 lg:py-20 w-full relative">
             <div class="text-xl lg:text-9xl font-bold w-full ">Our Network</div>
             <div class="w-full flex items-center justify-between">
               <div class="lg:w-1/3  h-full  p-5 my-6 ">
                 <div
                   class="w-full h-full rounded-md bg-cover bg-no-repeat bg-center"
                   style={{
-                    backgroundImage: `url("/images/about/keyboard.jpg")`,
+                    backgroundImage: `url("/images/about/about-network.jpg")`,
                   }}
                 ></div>
               </div>
@@ -203,7 +203,7 @@ const About = () => {
             </div>
           </div>
           {/* head offices */}
-          <div class="h-auto  flex flex-col justify-between py-6  w-full relative">
+          <div class="h-auto lg:h-80vh  flex flex-col justify-between py-6  w-full relative">
             <div class="text-xl lg:text-9xl font-bold w-full text-right ">
               Our Head Offices
             </div>
@@ -215,6 +215,20 @@ const About = () => {
                 <br />
                 <br />
                 <span className="font-bold font-leagueSpartan mr-2">2 </span>
+                #940/103/1612, Marutinagar,Kogilu Main Road,Opp. indian Oil
+                Petrol Bunk, Yelehanka, Bengaluru -560064
+                <br />
+                <br />
+                <a
+                  href="#940/103/1612, Marutinagar,Kogilu Main Road,Opp. indian Oil
+                Petrol Bunk, Yelehanka, Bengaluru -560064"
+                  target="_blank"
+                  noopener={true}
+                  rel="noopener noreferrer"
+                  class="font-bold font-leagueSpartan mr-2"
+                >
+                  3
+                </a>
                 Chikkanahalli, Begur Airport road (kempegowda international
                 airport,BLR)
               </div>
@@ -222,7 +236,7 @@ const About = () => {
                 <div
                   class="w-full h-full rounded-md bg-cover bg-no-repeat bg-center"
                   style={{
-                    backgroundImage: `url("/images/about/dart-target.jpg")`,
+                    backgroundImage: `url("/images/about/about-location.jpg")`,
                   }}
                 ></div>
               </div>

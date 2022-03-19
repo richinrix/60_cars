@@ -5,7 +5,7 @@ import Person3 from "../images/person/woman.png";
 const Team = () => {
   return (
     <div className="px-3 lg:px-0  mx-auto relative  w-full bg-black text-white flex flex-col justify-center pt-10 pb-10 lg:min-h-screen lg:py-10">
-      <div class=" font-leagueSpartan text-2xl lg:text-8xl font-bold mb-10">
+      <div class=" font-leagueSpartan text-2xl lg:text-7xl font-bold mb-5 lg:mb-10">
         Directors
       </div>
       {/* <div class="text-xl lg:text-4xl font-leagueSpartan">Directors</div> */}
@@ -36,18 +36,21 @@ const Team = () => {
             Mrs Sulochana
           </div>
         </div>
-        <div class="my-4 lg:my-2   mx-auto">
-          <div class="text-center lg:text-left text-base lg:text-2xl font-bold">
-            Chief Operating Officer
-          </div>
-          <img
-            src={Person2}
-            class="  mx-auto w-32 lg:w-64 h-32 lg:h-64 my-4  rounded-xl"
-          ></img>
-          <div class="text-sm lg:text-xl w-full text-center">
-            {" "}
-            Mr Salman Shariff
-          </div>
+      </div>
+      <div class=" lg:mt-10 mt-5 font-leagueSpartan text-2xl lg:text-7xl font-bold mb-5 lg:mb-10">
+        Management Team
+      </div>
+      <div class="my-4 lg:my-2   mx-auto">
+        <div class="text-center lg:text-left text-base lg:text-2xl font-bold">
+          Chief Operating Officer
+        </div>
+        <img
+          src={Person2}
+          class="  mx-auto w-32 lg:w-64 h-32 lg:h-64 my-4  rounded-xl"
+        ></img>
+        <div class="text-sm lg:text-xl w-full text-center">
+          {" "}
+          Mr Salman Shariff
         </div>
       </div>
     </div>

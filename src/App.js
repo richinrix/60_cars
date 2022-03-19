@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Nav, HeaderAnnouncement, Brands, Header } from "./components/";
 import {
   LandingSection,
@@ -9,8 +9,26 @@ import {
   Contact,
   Clients,
 } from "./sections/";
+import { VisibilityObserver, useVisibility } from "reactjs-visibility";
+// aos animation
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { act } from "react-dom/test-utils";
+
 function App() {
   const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    AOS.init();
+  });
+  useEffect(() => {
+    console.log(activeSection);
+  }, [activeSection]);
+  const check = (section) => {
+    // setActiveSection(section);
+    console.log("check", section);
+  };
+
   const Header = () => (
     <>
       <div class="fixed z-50 lg:hidden">
@@ -39,11 +57,13 @@ function App() {
         <LandingSection setActiveSection={setActiveSection} />
         <OurFleet setActiveSection={setActiveSection} />
         <Brands setActiveSection={setActiveSection} />
-        <Features setActiveSection={setActiveSection} />
+        <div>
+          <Features setActiveSection={setActiveSection} />
+        </div>
         <Services setActiveSection={setActiveSection} />
         <Clients setActiveSection={setActiveSection} />
         <div class="bg-black">
-          <Contact setActiveSection={setActiveSection} />
+          <Contact setActiveSection={setActiveSection} check={check} />
         </div>
       </div>
     </div>

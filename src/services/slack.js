@@ -4,23 +4,45 @@ import { submitOrder } from "./graphCMS";
 
 // ! dev webhook
 const webhookUrl =
-  "https://hooks.slack.com/services/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";
+  "https://hooks.slack.com/services/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";
+
 // ! official webhook
 // const webhookUrl ="https://hooks.slack.com/services/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";
 
-export const submitForm = async (content) => {
-  const { name, phone, message } = content;
+export const submitSlack = async (content) => {
+  const {
+    pickup,
+    drop,
+    phoneNumber,
+    bookingOption,
+    bookingTime,
+    bookingLaterTime,
+    bookingLaterDate,
+  } = content;
   let date = new Date();
   let dateString = date.toLocaleDateString();
   let timeString = date.toLocaleTimeString();
+  // const data = {
+  //   text: `\n>*New Booking*
+  //     -\` Name:  \` ${name}
+  //     -\` Email: \` ${phone}
+  //     -Message: ${message}
+  //     -:date: Booking Date: ${dateString}
+  //     -:clock1: Booking Time: ${timeString}`,
+  // };
   const data = {
-    text: `\n>*New Booking* 
-      -\` Name:  \` ${name} 
-      -\` Email: \` ${phone} 
-      -Message: ${message} 
-      -:date: Booking Date: ${dateString} 
+    text: `\n>*New Booking*
+      -\` Pickup: \` ${pickup}
+      -\` Drop: \` ${drop}
+      -\` Phone: \` ${phoneNumber}
+      -\` Booking Option: \` ${bookingOption}
+      -\` Booking Time: \` ${bookingTime}
+      -\` Booking Later Time: \` ${bookingLaterTime}
+      -\` Booking Later Date: \` ${bookingLaterDate}
+      -:date: Booking Date: ${dateString}
       -:clock1: Booking Time: ${timeString}`,
   };
+
   //* slack webhook
   let res = await axios.post(webhookUrl, JSON.stringify(data), {
     withCredentials: false,

@@ -1,18 +1,13 @@
 import React, { useEffect } from "react";
+import { useVisibility } from "reactjs-visibility";
+
 // icons
-import {
-  Ri24HoursFill,
-  RiSecurePaymentLine,
-  RiCustomerService2Fill,
-} from "react-icons/ri";
+import { RiCustomerService2Fill } from "react-icons/ri";
 import { HiLightningBolt } from "react-icons/hi";
 import { BsFillPersonCheckFill } from "react-icons/bs";
 import { FcInspection } from "react-icons/fc";
 import { IoIosTime } from "react-icons/io";
 import { MdCleanHands } from "react-icons/md";
-// aos animation
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 const features = [
   {
@@ -50,14 +45,22 @@ const features = [
     icon: <MdCleanHands />,
   },
 ];
-const Features = () => {
+const Features = (props) => {
   const isPhone = window.innerWidth < 700;
-  useEffect(() => {
-    AOS.init();
-  });
+  const options = {};
 
+  const handleChangeVisibility = (visible) => {
+    if (visible) {
+      props.setActiveSection("key features");
+    }
+  };
+  const { ref, visible } = useVisibility({
+    onChangeVisibility: handleChangeVisibility,
+    options,
+  });
   return (
     <div
+      ref={ref}
       id="key-features"
       className="px-3 overflow-y-clip w-full lg:px-20 mx-auto flex flex-col lg:min-h-screen  justify-center pt-8 lg:pt-0 "
     >

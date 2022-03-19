@@ -2,28 +2,25 @@
 // auto suggestions
 //  Graphcms query triggers
 //  Slack integration
-//  get back to us message on booking
-// transparent and blurred bg card
 import moment from "moment";
 import React, { useState, useEffect } from "react";
-import { submitForm } from "../services/slack";
+import { submitSlack } from "../services/slack";
 import { submitOrder } from "../services/graphCMS";
 const axios = require("axios");
 const Booking = () => {
   const bookingDateRange = 14;
   // date
   const currentDay = new Date();
-  let minDate =
+  let maxDate =
     currentDay.getFullYear() +
     "-" +
     (parseInt(currentDay.getMonth()) + 1) +
     "-" +
     (parseInt(currentDay.getDate()) + bookingDateRange);
-  minDate = moment(minDate).format("YYYY-MM-DD");
+  maxDate = moment(maxDate).format("YYYY-MM-DD");
   // * inputs
-  const [bookingOption, setBookingOption] = useState("cityride");
+  const [bookingOption, setBookingOption] = useState("cityride"); // citry ride or outstation
   const [bookingTime, setBookingTime] = useState("now"); //now or later
-  const [bookingDate, setBookingDate] = useState(minDate); // sets the limit of days the user can book
   const [phoneNumber, setPhoneNumber] = useState("");
   const [bookingLaterTime, setBookingLaterTime] = useState();
   const [bookingLaterDate, setBookingLaterDate] = useState();
@@ -87,16 +84,29 @@ const Booking = () => {
   };
   const submitQuery = (e) => {
     e.preventDefault();
-    if (checkForm()) setShowQuerySent(true);
     // console.log(checkForm(), pickup, drop, phoneNumber);
+    if (checkForm()) {
+      const data = {
+        pickup,
+        drop,
+        phoneNumber,
+        bookingOption,
+        bookingTime,
+        bookingLaterTime,
+        bookingLaterDate,
+      };
 
-    setTimeout(() => {
-      setShowQuerySent(false);
-      document.getElementById("bookingForm").reset();
-      setPickup("");
-      setDrop("");
-      setPhoneNumber("");
-    }, 10000);
+      setShowQuerySent(true);
+      // submitting to slack
+      submitSlack(data);
+      setTimeout(() => {
+        setShowQuerySent(false);
+        document.getElementById("bookingForm").reset();
+        setPickup("");
+        setDrop("");
+        setPhoneNumber("");
+      }, 10000);
+    }
   };
 
   return (
@@ -251,18 +261,18 @@ const Booking = () => {
               Date
             </div>
             <input
-              className=" px-2 col-span-5 lg:col-span-3 mx-2 my-1 py-1 pr-2  rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
+              className=" px-2 col-span-4 lg:col-span-3 mx-2 my-1 py-1 pr-2  rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
               type="time"
               placeholder="Time"
               onChange={(e) => setBookingLaterTime(e.target.value)}
             />
             <div class="col-span-1 lg:col-span-3 "></div>
             <input
-              className=" pl-2 col-span-4 lg:col-span-4 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
+              className="   col-span-5 lg:col-span-4 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
               type="date"
               onChange={(e) => setBookingLaterDate(e.target.value)}
               min={new Date().toISOString().split("T")[0]}
-              max={minDate}
+              max={maxDate}
             />
           </div>
         ) : null}
