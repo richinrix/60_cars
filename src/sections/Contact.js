@@ -1,9 +1,8 @@
 import React from "react";
-import { useVisibility } from "reactjs-visibility";
 // icons
 import { AiOutlinePhone } from "react-icons/ai";
 import { MdMail } from "react-icons/md";
-import { CgInstagram, CgFacebook } from "react-icons/cg";
+import { CgInstagram } from "react-icons/cg";
 import { RiWhatsappFill } from "react-icons/ri";
 import { BsTwitter } from "react-icons/bs";
 import { ImLocation } from "react-icons/im";
@@ -28,34 +27,15 @@ const socialMedia = [
   },
 ];
 const Contact = (props) => {
-  const options = {
-    rootMargin: "-100px",
-  };
-
-  const handleChangeVisibility = (visible) => {
-    if (visible) {
-      props.setActiveSection("contact us");
-      props.check("contact");
-    }
-  };
-  const { ref, visible } = useVisibility({
-    onChangeVisibility: handleChangeVisibility,
-    options,
-  });
   return (
     <>
       <div
-        ref={ref}
+        // ref={ref}
         id="contact"
         className="lg:px-20 mb-5  mx-auto lg:py-20 py-7   flex flex-col lg:flex-row px-3 lg:items-center   justify-between text-white  "
       >
         <div class="flex flex-col w-full lg:w-5/12 justify-center">
           <div class="  font-bold text-xl lg:text-5xl font-leagueSpartan">
-            {/* <lord-icon
-              src="https://cdn.lordicon.com/zpxybbhl.json"
-              trigger="loop"
-              style="width:250px;height:250px"
-            ></lord-icon> */}
             Get in touch with us
           </div>
           <a
@@ -75,7 +55,7 @@ const Contact = (props) => {
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                class={`text-3xl   rounded-md hover:text-white hover:bg-black hover:border-white border-black border-2 mr-8  text-black p-1 ${social.color}`}
+                class={`text-3xl   rounded-md hover:text-white hover:bg-gray-800 hover:border-white border-gray-800 border-2 mr-8  text-gray-800 p-1 ${social.color}`}
               >
                 {social.icon}
               </a>

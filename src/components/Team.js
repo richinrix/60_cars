@@ -4,7 +4,7 @@ import Person2 from "../images/person/man2.png";
 import Person3 from "../images/person/woman.png";
 const Team = () => {
   return (
-    <div className="px-3 lg:px-0  mx-auto relative  w-full bg-black text-white flex flex-col justify-center pt-10 pb-10 lg:min-h-screen lg:py-10">
+    <div className="px-3 lg:px-0  mx-auto relative  w-full  text-white flex flex-col justify-center pt-10 pb-10 lg:min-h-screen lg:py-10">
       <div class=" font-leagueSpartan text-2xl lg:text-7xl font-bold mb-5 lg:mb-10">
         Directors
       </div>

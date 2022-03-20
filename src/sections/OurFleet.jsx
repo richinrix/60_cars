@@ -5,7 +5,6 @@ import { FaFan } from "react-icons/fa";
 import { BsFillCreditCard2BackFill } from "react-icons/bs";
 // tooltip
 import ReactTooltip from "react-tooltip";
-import { useVisibility } from "reactjs-visibility";
 const fleet = [
   {
     id: 1,
@@ -61,23 +60,11 @@ const fleet = [
   },
 ];
 const OurFleet = (props) => {
-  const options = {};
-
-  const handleChangeVisibility = (visible) => {
-    if (visible) {
-      props.setActiveSection("our fleet");
-    }
-  };
-  const { ref, visible } = useVisibility({
-    onChangeVisibility: handleChangeVisibility,
-    options,
-  });
   const [selected, setSelected] = useState(fleet[0]);
-  // console.log(selected.id, (selected.id + 1) % (fleet.length - 1));
+
   return (
     <div
       id="our-fleet"
-      ref={ref}
       className="  py-8 lg:pt-24 px-3 lg:px-20  mx-auto  grid-cols-4 lg:flex lg:flex-col lg:items-center justify-center w-full  lg:mt-10 lg:h-90vh "
     >
       <div className="font-leagueSpartan  text-4xl lg:text-6xl font-bold w-full text-left">

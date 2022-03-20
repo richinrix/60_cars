@@ -105,6 +105,7 @@ const Booking = () => {
         setPickup("");
         setDrop("");
         setPhoneNumber("");
+        setBookingTime("now");
       }, 10000);
     }
   };

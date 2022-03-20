@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Nav, HeaderAnnouncement, Brands, Header } from "./components/";
+import { Nav, HeaderAnnouncement, Brands } from "./components/";
 import {
   LandingSection,
   OurFleet,
@@ -9,25 +9,43 @@ import {
   Contact,
   Clients,
 } from "./sections/";
-import { VisibilityObserver, useVisibility } from "reactjs-visibility";
 // aos animation
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { act } from "react-dom/test-utils";
 
 function App() {
   const [activeSection, setActiveSection] = useState("home");
+  let options = {
+    root: document.querySelector("#sections"),
+    rootMargin: "0px",
+    threshold: 0.6, // percentage of the element that is visible for triggering the callback for nav
+  };
+  useEffect(() => {
+    let callback = (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+    // targets
+    let observer = new IntersectionObserver(callback, options);
+    let home = document.querySelector("#home");
+    let ourFleet = document.querySelector("#our-fleet");
+    let keyFeatures = document.querySelector("#key-features");
+    let services = document.querySelector("#our-services");
+    let contact = document.querySelector("#contact");
+    // observers
+    observer.observe(home);
+    observer.observe(ourFleet);
+    observer.observe(keyFeatures);
+    observer.observe(services);
+    observer.observe(contact);
+  }, []);
 
   useEffect(() => {
     AOS.init();
   });
-  useEffect(() => {
-    console.log(activeSection);
-  }, [activeSection]);
-  const check = (section) => {
-    // setActiveSection(section);
-    console.log("check", section);
-  };
 
   const Header = () => (
     <>
@@ -53,17 +71,15 @@ function App() {
   return (
     <div className=" overflow-x-clip ">
       {Header()}
-      <div class="   lg:px-0 mx-auto ">
+      <div id="sections" class="   lg:px-0 mx-auto ">
         <LandingSection setActiveSection={setActiveSection} />
         <OurFleet setActiveSection={setActiveSection} />
         <Brands setActiveSection={setActiveSection} />
-        <div>
-          <Features setActiveSection={setActiveSection} />
-        </div>
+        <Features setActiveSection={setActiveSection} />
         <Services setActiveSection={setActiveSection} />
         <Clients setActiveSection={setActiveSection} />
-        <div class="bg-black">
-          <Contact setActiveSection={setActiveSection} check={check} />
+        <div class="bg-gray-800">
+          <Contact setActiveSection={setActiveSection} />
         </div>
       </div>
     </div>

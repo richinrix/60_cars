@@ -1,108 +1,17 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay, Pagination } from "swiper";
-import { useVisibility } from "reactjs-visibility";
+import { Autoplay } from "swiper";
 
 // json importing
 import clients from "../JSON/clients.json";
-// const clients = [
-//   {
-//     name: "CAT",
-//     logo: "images/clientsLogos/caterpillar.png",
-//   },
-//   {
-//     name: "Reliance Industry",
-//     logo: "images/clientsLogos/reliance-industry.jpg",
-//   },
-//   {
-//     name: "viacom18",
-//     logo: "images/clientsLogos/viacom18.png",
-//   },
-
-//   {
-//     name: "Reliance Fresh",
-//     logo: "images/clientsLogos/reliance-fresh.jpg",
-//   },
-//   {
-//     name: "essel group",
-//     logo: "images/clientsLogos/essel-group.jpg",
-//   },
-
-//   {
-//     name: "Make My Trip",
-//     logo: "images/clientsLogos/makemytripBlue.png",
-//   },
-//   {
-//     name: "CAT",
-//     logo: "images/clientsLogos/caterpillar.png",
-//   },
-//   {
-//     name: "Reliance Industry",
-//     logo: "images/clientsLogos/reliance-industry.jpg",
-//   },
-//   {
-//     name: "viacom18",
-//     logo: "images/clientsLogos/viacom18.png",
-//   },
-
-//   {
-//     name: "Reliance Fresh",
-//     logo: "images/clientsLogos/reliance-fresh.jpg",
-//   },
-//   {
-//     name: "essel group",
-//     logo: "images/clientsLogos/essel-group.jpg",
-//   },
-
-//   {
-//     name: "Make My Trip",
-//     logo: "images/clientsLogos/makemytripBlue.png",
-//   },
-//   {
-//     name: "CAT",
-//     logo: "images/clientsLogos/caterpillar.png",
-//   },
-//   {
-//     name: "Reliance Industry",
-//     logo: "images/clientsLogos/reliance-industry.jpg",
-//   },
-//   {
-//     name: "viacom18",
-//     logo: "images/clientsLogos/viacom18.png",
-//   },
-
-//   {
-//     name: "Reliance Fresh",
-//     logo: "images/clientsLogos/reliance-fresh.jpg",
-//   },
-//   {
-//     name: "essel group",
-//     logo: "images/clientsLogos/essel-group.jpg",
-//   },
-
-//   {
-//     name: "Make My Trip",
-//     logo: "images/clientsLogos/makemytripBlue.png",
-//   },
-// ];
 
 const Clients = (props) => {
   const isPhone = window.innerWidth < 768;
-  const options = {};
 
-  const handleChangeVisibility = (visible) => {
-    if (visible) {
-      props.setActiveSection("contact");
-    }
-  };
-  const { ref, visible } = useVisibility({
-    onChangeVisibility: handleChangeVisibility,
-    options,
-  });
   return (
-    <div ref={ref} className=" px-3 lg:px-20 my-10 ">
+    <div className=" px-3 lg:px-20 my-10 ">
       <div class="text-4xl lg:text-7xl font-leagueSpartan font-bold">
         Clients we are proud to serve
       </div>

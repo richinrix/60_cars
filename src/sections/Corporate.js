@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, HeaderAnnouncement } from "../components/";
+import { Nav } from "../components/";
 
 const Corporate = () => {
   return (

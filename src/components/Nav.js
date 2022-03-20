@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef, Children } from "react";
-import $ from "jquery";
 // icons
 import { AiFillHome } from "react-icons/ai";
 import { IoIosCall } from "react-icons/io";
@@ -11,50 +10,56 @@ const categories = [
   {
     name: "About",
     slug: "about",
+    origin: "about",
   },
   {
     name: "Contact Us",
+    origin: "contact",
     slug: "#contact",
   },
   {
     name: "Our Services",
+    origin: "our-services",
     slug: "#our-services",
   },
   {
     name: "Key Features",
+    origin: "key-features",
     slug: "#key-features",
   },
   {
     name: "Our Fleet",
+    origin: "our-fleet",
     slug: "#our-fleet",
   },
   {
     name: "Home",
+    origin: "home",
     slug: "#",
   },
 ];
 const mobNavOptions = [
   {
     name: "Home",
-    origin: "Home",
+    origin: "home",
     slug: "#",
     icon: <AiFillHome />,
   },
   {
     name: "Fleet",
-    origin: "Our Fleet",
+    origin: "our-fleet",
     slug: "#our-fleet",
     icon: <AiOutlineCar />,
   },
   {
     name: "Services",
-    origin: "Our Services",
+    origin: "our-services",
     slug: "#our-services",
     icon: <MdOutlineFeaturedPlayList />,
   },
   {
     name: "Contact",
-    origin: "Contact Us",
+    origin: "contact",
     slug: "#contact",
     icon: <IoIosCall />,
   },
@@ -66,18 +71,9 @@ const mobNavOptions = [
   },
 ];
 const Nav = (props) => {
-  // const [activeSection, setActiveSection] = useState(props.current);
   const activeSection = props.current;
 
-  // Functions for mobile navbar slider button
-  const handleToggle = () => {
-    $("#sideMenu").toggleClass("translate-x-full");
-    $("#sideButton").toggleClass("active");
-  };
-  const resize = () => {
-    $("#sideMenu").addClass("translate-x-full");
-    // handleToggle();
-  };
+  console.log(activeSection);
 
   return (
     <div className="    lg:px-20 mx-auto   ">
@@ -97,7 +93,7 @@ const Nav = (props) => {
                 className={`
               mt-2 ml-7 px-1  cursor-pointer font-semibold md:float-right 
               ${
-                activeSection.toLowerCase() === category.name.toLowerCase()
+                activeSection.toLowerCase() === category.origin.toLowerCase()
                   ? " text-red-500"
                   : " text-gray-700"
               }
@@ -134,7 +130,7 @@ const Nav = (props) => {
                 className={` mx-1
                
               ${
-                activeSection.toLowerCase() === category.name.toLowerCase()
+                activeSection.toLowerCase() === category.origin.toLowerCase()
                   ? " text-black font-bold"
                   : " text-gray-700 "
               }

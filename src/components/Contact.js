@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Nav, HeaderAnnouncement } from "../components/";
 import axios from "axios";
-// import { generalContact, companyContact } from "./ContactContent";
-import generalContact from "./ContactContent";
+
 import { useForm } from "react-hook-form";
 
 const Contact = () => {
   let params = useParams();
-  const content = params.type === "company" ? generalContact : generalContact;
+
   const [sent, setSent] = useState(false);
   const {
     register,

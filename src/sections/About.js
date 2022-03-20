@@ -1,6 +1,5 @@
 import React from "react";
 import { Nav, HeaderAnnouncement, Team } from "../components/";
-import { Contact } from "../sections/";
 
 const About = () => {
   const Tab = () => <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>;
@@ -34,8 +33,14 @@ const About = () => {
         <div class="px-3 lg:px-20 pt-32 lg:pt-0  mx-auto w-full  relative">
           {/* landing section */}
           <div class="h-auto lg:h-90vh flex flex-col justify-between   py-6 lg:py-20 w-full relative">
-            <div class="text-xl lg:text-9xl font-bold w-1/2 font-leagueSpartan ">
-              About Us
+            <div class="text-xl lg:text-8xl items-center flex justify-between font-bold w-fulllg:w-1/2 font-leagueSpartan ">
+              <div class="w-1/2">About</div>
+              <div
+                class="w-32 h-32 rounded-md bg-cover bg-no-repeat bg-center lg:hidden"
+                style={{
+                  backgroundImage: `url("/images/about/car-transport.png")`,
+                }}
+              ></div>
             </div>
 
             <div class="flex justify-between w-full">
@@ -67,9 +72,17 @@ const About = () => {
           </div>
           {/* section 2 */}
           <div class=" h-auto lg:h-screen   flex flex-col justify-between py-6 lg:py-20 w-full relative">
-            <div class=" font-leagueSpartan text-xl lg:text-9xl font-bold w-full text-right ">
-              Why We Do <br />
-              What We Do
+            <div class=" justify-between flex items-center lg:block font-leagueSpartan text-xl lg:text-8xl font-bold w-full text-right ">
+              <div
+                class="w-32 h-32 rounded-md bg-cover bg-no-repeat bg-center lg:hidden"
+                style={{
+                  backgroundImage: `url("/images/about/key-exchange.jpg")`,
+                }}
+              ></div>
+              <div className="w-1/2 lg:w-full">
+                Why We Do <br />
+                What We Do
+              </div>
             </div>
             <div class="flex justify-between w-full">
               <div className="my-6 text-xs pr-5 lg:pr-0 lg:text-xl w-full lg:w-3/5 self-start text-justify py-10 border-t-2 border-black">
@@ -98,8 +111,14 @@ const About = () => {
           </div>
           {/* section 3 :tech */}
           <div class="h-auto lg:h-screen flex flex-col justify-between py-6 lg:py-20 w-full relative">
-            <div class=" font-leagueSpartan text-xl lg:text-9xl font-bold w-full ">
-              Payments
+            <div class="flex lg:block justify-between items-center font-leagueSpartan text-xl lg:text-8xl font-bold w-full my-3 lg:my-0 ">
+              <div>Payments</div>
+              <div
+                class=" lg:hidden w-32 h-32 rounded-md bg-cover bg-no-repeat bg-left"
+                style={{
+                  backgroundImage: `url("/images/about/about-payments.jpg")`,
+                }}
+              ></div>
             </div>
             <div class="w-full flex items-center justify-between">
               <div class="lg:w-1/3  h-full  p-5 my-6 ">
@@ -131,8 +150,14 @@ const About = () => {
           </div>
           {/* section 4 : mission and vision */}
           <div class="h-auto lg:h-screen flex flex-col justify-between py-6 lg:py-20 w-full relative">
-            <div class="text-xl lg:text-9xl font-bold w-full text-right ">
-              What We Beleive In
+            <div class="text-xl lg:text-8xl flex lg:block items-center justify-between font-bold w-full text-right ">
+              <div
+                class="w-32 h-32 lg:hidden rounded-md bg-cover bg-no-repeat bg-center"
+                style={{
+                  backgroundImage: `url("/images/about/dart-target.jpg")`,
+                }}
+              ></div>
+              <div className="lg:w-full">What We Beleive In</div>
             </div>
             <div class="flex justify-between">
               <div className="my-6 text-xs lg:text-xl w-full lg:w-3/5 pr-5  lg:pr-0 self-start text-justify py-10 border-t-2 border-black">
@@ -161,7 +186,15 @@ const About = () => {
           </div>
           {/* south network */}
           <div class="h-auto lg:h-screen  flex flex-col justify-between py-6 lg:py-20 w-full relative">
-            <div class="text-xl lg:text-9xl font-bold w-full ">Our Network</div>
+            <div class="text-xl lg:text-8xl font-bold w-full lg:block flex items-center justify-between my-3 ">
+              <div>Our Network</div>
+              <div
+                class="w-32 h-32 lg:hidden rounded-md bg-cover bg-no-repeat bg-center"
+                style={{
+                  backgroundImage: `url("/images/about/about-network.jpg")`,
+                }}
+              ></div>
+            </div>
             <div class="w-full flex items-center justify-between">
               <div class="lg:w-1/3  h-full  p-5 my-6 ">
                 <div
@@ -204,8 +237,14 @@ const About = () => {
           </div>
           {/* head offices */}
           <div class="h-auto lg:h-80vh  flex flex-col justify-between py-6  w-full relative">
-            <div class="text-xl lg:text-9xl font-bold w-full text-right ">
-              Our Head Offices
+            <div class="text-xl lg:text-8xl font-bold w-full text-right flex lg:block items-center justify-between  ">
+              <div
+                class="w-32 h-32 lg:hidden rounded-md bg-cover bg-no-repeat bg-center"
+                style={{
+                  backgroundImage: `url("/images/about/about-location.jpg")`,
+                }}
+              ></div>
+              <div className="lg:w-full"> Our Head Offices</div>
             </div>
             <div class="flex justify-between">
               <div className="my-6 text-xs lg:text-xl w-full lg:w-3/5 pr-5  lg:pr-0 self-start text-justify py-10 border-t-2 border-black">
@@ -244,7 +283,7 @@ const About = () => {
           </div>
         </div>
         {/* team section */}
-        <div class="px-3 lg:px-20 pb-20 lg:pb-0 mx-auto w-full  relative bg-black">
+        <div class="px-3 lg:px-20 pb-20 lg:pb-0 mx-auto w-full  relative bg-gray-800">
           <Team />
         </div>
 
