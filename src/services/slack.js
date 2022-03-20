@@ -1,16 +1,9 @@
 import axios from "axios";
 // import md5 from "crypto-js";
 import { submitOrder } from "./graphCMS";
-
-// ! dev webhook
-const citryRideWebhook =
-  "https://hooks.slack.com/services/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";
-
-// ! official webhook
-// const citryRideWebhook =
-//   "https://hooks.slack.com/services/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";
-const outstationWebhook =
-  "https://hooks.slack.com/services/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";
+const citryRideWebhook = process.env.REACT_APP_CITYRIDE_SLACK_WEBHOOK;
+const outstationWebhook = process.env.REACT_APP_OUTSTATION_SLACK_WEBHOOK;
+const corporateSignUpWebhook = process.env.REACT_APP_CONTACT_SLACK_WEBHOOK;
 export const submitSlack = async (content) => {
   const {
     pickup,
@@ -73,9 +66,85 @@ export const submitSlack = async (content) => {
 
   //   console.log("phone", md5.createHash("md5"));
 
-  if (res.status === 200) {
-    //    success
-  } else {
-    //   there was an error
-  }
+  // if (res.status === 200) {
+  //    success
+  // } else {
+  //   there was an error
+  // }
+};
+export const submitCorporateSignUp = async (content) => {
+  const {
+    email,
+    phoneNumber,
+    companyName,
+    companyEmail,
+    companyState,
+    department,
+    NumberOfEmployees,
+  } = content;
+  let date = new Date();
+  let dateString = date.toLocaleDateString();
+  let timeString = date.toLocaleTimeString();
+  const data = {
+    text: `\n>*New Corporate Sign Up*
+      -\` Email: \` ${email}
+      -\` Phone: \` ${phoneNumber}
+      -\` Company Name: \` ${companyName}
+      -\` Company Email: \` ${companyEmail}
+      -\` Company State: \` ${companyState}
+      -\` Department: \` ${department}
+      -\` Number of Employees: \` ${NumberOfEmployees}
+     -:date: Booking Date: ${dateString}
+      -:clock1: Booking Time: ${timeString}`,
+  };
+
+  //* slack webhook
+  let res = await axios.post(corporateSignUpWebhook, JSON.stringify(data), {
+    withCredentials: false,
+    transformRequest: [
+      (data, headers) => {
+        delete headers.post["Content-Type"];
+        return data;
+      },
+    ],
+  });
+};
+export const submitGeneralContact = async (content) => {
+  const {
+    type,
+    email,
+    phoneNumber,
+    companyName,
+    companyState,
+    department,
+    NumberOfEmployees,
+    Message,
+  } = content;
+  let date = new Date();
+  let dateString = date.toLocaleDateString();
+  let timeString = date.toLocaleTimeString();
+  const data = {
+    text: `\n>*New Corporate Sign Up*
+    \n Type: ${type}
+      -\` Email: \` ${email}
+      -\` Phone: \` ${phoneNumber}
+      -\` Company Name: \` ${companyName}
+      -\` Company State: \` ${companyState}
+      -\` Department: \` ${department}
+      -\` Number of Employees: \` ${NumberOfEmployees}
+      -\` Message: \` ${Message}
+     -:date: Booking Date: ${dateString}
+      -:clock1: Booking Time: ${timeString}`,
+  };
+
+  //* slack webhook
+  let res = await axios.post(corporateSignUpWebhook, JSON.stringify(data), {
+    withCredentials: false,
+    transformRequest: [
+      (data, headers) => {
+        delete headers.post["Content-Type"];
+        return data;
+      },
+    ],
+  });
 };

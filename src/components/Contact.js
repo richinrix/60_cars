@@ -1,34 +1,32 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Nav, HeaderAnnouncement } from "../components/";
-import axios from "axios";
-
-import { useForm } from "react-hook-form";
-
+import { submitGeneralContact, submitCorporateSignUp } from "../services/slack";
 const Contact = () => {
   let params = useParams();
-
   const [sent, setSent] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  // input fields
+  const [content, setContent] = useState({
+    type: params.type,
+    email: "",
+    phoneNumber: "",
+    companyName: "",
+    companyState: "",
+    department: "Admin",
+    NumberOfEmployees: "Less than 50",
+    Message: "",
+  });
 
-  const onSubmit = (data) => {
-    // let formData = {
-    //   Name: data["First Name"] + " " + data["Last Name"],
-    //   Subject: data["Subject"],
-    //   Email: data["Email"],
-    //   Message: data["Message"],
-    //   Phone: data["Phone Number"],
-    // };
-    // PostData(formData);
+  const onSubmit = () => {
+    if (params.type === "general") {
+      submitGeneralContact(content);
+    } else {
+      submitCorporateSignUp(content);
+    }
+
     setSent(true);
-
     setTimeout(() => {
       setSent(false);
-
       document.getElementById("contactForm").reset();
     }, 1000);
   };
@@ -63,7 +61,6 @@ const Contact = () => {
           {/* form */}
           <form
             id="contactForm"
-            onSubmit={handleSubmit(onSubmit)}
             class=" mx-auto   lg:w-3/5 self-center  border-2 border-black rounded-xl py-5 px-3 lg:p-10 "
           >
             <div class="text-center text-2xl lg:text-5xl my-3 font-bold font-leagueSpartan">
@@ -76,6 +73,9 @@ const Contact = () => {
                   type="text"
                   className="border-2 border-black w-full py-1 px-2  rounded-md "
                   placeholder="you@company.com"
+                  onChange={(e) =>
+                    setContent({ ...content, email: e.target.value })
+                  }
                 />
               </div>
               <div>
@@ -84,6 +84,9 @@ const Contact = () => {
                   type="text"
                   placeholder="Company Name"
                   className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
+                  onChange={(e) =>
+                    setContent({ ...content, companyName: e.target.value })
+                  }
                 />
               </div>
               <div class="flex w-full justify-between my-2">
@@ -91,29 +94,32 @@ const Contact = () => {
                   <div class="font-bold">Department</div>
                   <select
                     className="outline-none border-2 w-full  border-black rounded-md px-2 py-1"
-                    name=""
-                    id=""
-                    // onChange={(e) => setCarType(e.target.value)}
+                    onChange={(e) =>
+                      setContent({ ...content, department: e.target.value })
+                    }
                   >
-                    <option value="Standard">Admin</option>
-                    <option value="Sedan">Travel Desk</option>
-                    <option value="MUV">Finance</option>
-                    <option value="Premium">HR</option>
-                    <option value="Luxury">Others</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Travel">Travel Desk</option>
+                    <option value="Finance">Finance</option>
+                    <option value="HR">HR</option>
+                    <option value="Others">Others</option>
                   </select>
                 </div>
                 <div className=" pl-1 lg:w-1/2 ">
                   <div class="font-bold">Number of Employees</div>
                   <select
                     className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
-                    name=""
-                    id=""
-                    // onChange={(e) => setCarType(e.target.value)}
+                    onChange={(e) =>
+                      setContent({
+                        ...content,
+                        NumberOfEmployees: e.target.value,
+                      })
+                    }
                   >
-                    <option value="Standard">Less than 50</option>
-                    <option value="Sedan">5 to 200</option>
-                    <option value="MUV">200-2000</option>
-                    <option value="Premium">More than 2000</option>
+                    <option value="Less than 50">Less than 50</option>
+                    <option value="50 to 200">50 to 200</option>
+                    <option value="200-2000">200-1000</option>
+                    <option value="More than 1000">More than 1000</option>
                   </select>
                 </div>
               </div>
@@ -122,9 +128,9 @@ const Contact = () => {
                 <input
                   className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
                   placeholder="State"
-                  name=""
-                  id=""
-                  // onChange={(e) => setCarType(e.target.value)}
+                  onChange={(e) =>
+                    setContent({ ...content, companyState: e.target.value })
+                  }
                 />
               </div>
               <div className="w-full my-2">
@@ -133,9 +139,9 @@ const Contact = () => {
                   className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
                   type="number"
                   placeholder="Phone Number"
-                  name=""
-                  id=""
-                  // onChange={(e) => setCarType(e.target.value)}
+                  onChange={(e) =>
+                    setContent({ ...content, phoneNumber: e.target.value })
+                  }
                 />
                 <div class="text-xs">
                   We wil get in contact with you on this number.
@@ -149,9 +155,9 @@ const Contact = () => {
                     className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
                     type="number"
                     placeholder="Enter your mesage here"
-                    name=""
-                    id=""
-                    // onChange={(e) => setCarType(e.target.value)}
+                    onChange={(e) =>
+                      setContent({ ...content, Message: e.target.value })
+                    }
                   />
                   <div class="text-xs">
                     We wil get in contact with you on this number.

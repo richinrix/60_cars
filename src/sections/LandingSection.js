@@ -1,6 +1,6 @@
 import React from "react";
 // car image
-import CarImg from "../images/car8.png";
+import CarImg from "../images/car3.png";
 import WheelImg from "../images/wheel.png";
 import { Booking, Brands } from "../components/";
 

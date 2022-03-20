@@ -73,8 +73,6 @@ const mobNavOptions = [
 const Nav = (props) => {
   const activeSection = props.current;
 
-  console.log(activeSection);
-
   return (
     <div className="    lg:px-20 mx-auto   ">
       <div className=" hidden lg:inline-block w-full  py-3">

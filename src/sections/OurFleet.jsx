@@ -5,12 +5,13 @@ import { FaFan } from "react-icons/fa";
 import { BsFillCreditCard2BackFill } from "react-icons/bs";
 // tooltip
 import ReactTooltip from "react-tooltip";
+import $ from "jquery";
 const fleet = [
   {
     id: 1,
     name: "Sedan",
     icon: "/images/fleet-icons/sedan.svg",
-    image: "/images/fleet-cars/dezire-min.webp",
+    image: "/images/fleet-cars/dzire.webp",
     tagline: "The Sedan is a compact car that is great for the city.",
     features: "ac, cashless",
     description:
@@ -51,7 +52,7 @@ const fleet = [
     id: 5,
     name: "Luxury",
     icon: "/images/fleet-icons/luxury.svg",
-    image: "/images/fleet-cars/audi.webp",
+    image: "/images/fleet-cars/audiBlue.webp",
     features: "ac, cashless",
 
     tagline: "Experience luxury at foot steps .",
@@ -62,6 +63,9 @@ const fleet = [
 const OurFleet = (props) => {
   const [selected, setSelected] = useState(fleet[0]);
 
+  $("#fleet-car-image").bind("load", function () {
+    $(this).fadeIn(10000);
+  });
   return (
     <div
       id="our-fleet"
@@ -113,6 +117,7 @@ const OurFleet = (props) => {
           className=" hidden lg:block self-center hover:bg-black rounded-full hover:text-white  m-5 lg:mr-4  h-5 w-5 lg:h-10 lg:w-10 p-1 lg:p-2  cursor-pointer"
         />
         <div
+          id="fleet-car-image"
           className="lg:w-1/2 w-full h-52 lg:h-full  rounded-xl lg:mb-0 mb-3 bg-contain bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${selected.image})`,
