@@ -188,7 +188,7 @@ const Booking = () => {
             type="text"
             value={pickup}
             onFocus={(e) => setSuggestDrop(false)}
-            // onBlur={(e) => setSuggestPickup(false)}
+            onBlur={(e) => setSuggestPickup(false)}
             onChange={(e) => {
               setSuggestPickup(true);
               setPickup(e.target.value);
@@ -247,7 +247,7 @@ const Booking = () => {
             type="text"
             value={drop}
             onFocus={(e) => setSuggestPickup(false)}
-            // onBlur={(e) => setSuggestDrop(false)}
+            onBlur={(e) => setSuggestDrop(false)}
             onChange={(e) => {
               setSuggestDrop(true);
               setDrop(e.target.value);

@@ -11,7 +11,7 @@ const Corporate = () => {
       <div className="fixed bottom-0 lg:sticky  lg:top-0 z-10">
         {/* <HeaderAnnouncement /> */}
         <div class=" mx-auto bg-white lg:bg-opacity-50 lg:backdrop-blur-sm w-full">
-          <Nav current="about" />
+          <Nav current="" />
         </div>
       </div>
       {/* end nav */}

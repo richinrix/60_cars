@@ -44,7 +44,11 @@ export const submitSlack = async (content) => {
       -:clock1: Booking Time: ${timeString}`,
   };
   //* slack webhook
-  console.log(citryRideWebhook, outstationWebhook, corporateSignUpWebhook);
+  console.log(
+    bookingOption.toLowerCase() === "cityride"
+      ? citryRideWebhook
+      : outstationWebhook
+  );
   const postSlack = async () => {
     let res = await axios.post(
       bookingOption.toLowerCase() === "citryride"
