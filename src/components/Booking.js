@@ -26,6 +26,31 @@ const Booking = () => {
   const [bookingLaterDate, setBookingLaterDate] = useState();
   const [pickup, setPickup] = useState("");
   const [drop, setDrop] = useState("");
+  // * selected coords
+  const [pickupData, setPickupData] = useState({
+    addressLine2: "",
+    stateCode: "",
+    coordinates: {
+      lat: "",
+      lon: "",
+    },
+  });
+  const [dropData, setDropData] = useState({
+    addressLine2: "",
+    stateCode: "",
+    coordinates: {
+      lat: "",
+      lon: "",
+    },
+  });
+  const [pickupCoords, setpickupCoords] = useState({
+    lat: "",
+    lon: "",
+  });
+  const [dropCoords, setdropCoords] = useState({
+    lat: "",
+    lon: "",
+  });
   // * auto suggestions
   const [suggestPickup, setSuggestPickup] = useState(false);
   const [suggestDrop, setSuggestDrop] = useState(false);
@@ -65,6 +90,7 @@ const Booking = () => {
       axios(config)
         .then(function (response) {
           setDropSuggestions(response.data.features);
+          console.log(response.data.features);
         })
         .catch(function (error) {
           console.log(error);
@@ -94,11 +120,16 @@ const Booking = () => {
         bookingTime,
         bookingLaterTime,
         bookingLaterDate,
+        pickupCoords,
+        dropCoords,
+        pickupData,
+        dropData,
       };
 
       setShowQuerySent(true);
-      // submitting to slack
+      //* submitting to slack
       submitSlack(data);
+
       setTimeout(() => {
         setShowQuerySent(false);
         document.getElementById("bookingForm").reset();
@@ -156,7 +187,7 @@ const Booking = () => {
             className="   col-span-5 mx-2 my-1 py-1 bg-opacity-90 outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
             type="text"
             value={pickup}
-            // onFocus={(e) => setSuggestPickup(true)}
+            onFocus={(e) => setSuggestDrop(false)}
             // onBlur={(e) => setSuggestPickup(false)}
             onChange={(e) => {
               setSuggestPickup(true);
@@ -169,18 +200,35 @@ const Booking = () => {
               style={{ top: "90%" }}
             >
               {pickupSuggestions.map((result) => {
-                let suggestion = result.properties;
-                if (suggestion.state_code == "KA")
+                let {
+                  name,
+                  address_line2,
+                  country_code,
+                  state_code,
+                  lat,
+                  lon,
+                } = result.properties;
+                if (country_code == "in")
                   return (
                     <div
-                      className="flex  justify-between cursor-pointer "
+                      className="flex leading-4  justify-between cursor-pointer w-full mb-2  "
                       onClick={(e) => {
-                        setPickup(suggestion.name);
+                        setPickup(name);
                         setSuggestPickup(false);
+                        setpickupCoords({ lat, lon });
+                        setPickupData({
+                          addressLine2: address_line2,
+                          stateCode: state_code,
+                          coordinates: { lat, lon },
+                        });
                       }}
                     >
-                      <div>{suggestion.name}</div>
-                      <div>{suggestion.address_line2}</div>
+                      <div className="w-2/5">{name}</div>
+                      <div className="text-right">
+                        {address_line2.length > 5
+                          ? address_line2.slice(0, address_line2.length - 5)
+                          : state_code}
+                      </div>
                     </div>
                   );
               })}
@@ -198,7 +246,7 @@ const Booking = () => {
             className=" col-span-5 mx-2 my-1 py-1  outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
             type="text"
             value={drop}
-            // onFocus={(e) => setSuggestDrop(true)}
+            onFocus={(e) => setSuggestPickup(false)}
             // onBlur={(e) => setSuggestDrop(false)}
             onChange={(e) => {
               setSuggestDrop(true);
@@ -211,19 +259,35 @@ const Booking = () => {
               style={{ top: "90%" }}
             >
               {dropSuggestions.map((result) => {
-                let suggestion = result.properties;
-                if (suggestion.state_code == "KA")
+                let {
+                  name,
+                  address_line2,
+                  country_code,
+                  state_code,
+                  lat,
+                  lon,
+                } = result.properties;
+                if (country_code == "in")
                   return (
                     <div
-                      // value={suggestion.name}
-                      className="flex  justify-between cursor-pointer "
+                      className="flex leading-4  justify-between cursor-pointer w-full mb-2  "
                       onClick={(e) => {
-                        setDrop(suggestion.name);
+                        setDrop(name);
                         setSuggestDrop(false);
+                        setdropCoords({ lat, lon });
+                        setDropData({
+                          addressLine2: address_line2,
+                          stateCode: state_code,
+                          coordinates: { lat, lon },
+                        });
                       }}
                     >
-                      <div>{suggestion.name}</div>
-                      <div>{suggestion.address_line2}</div>
+                      <div className="w-2/5">{name}</div>
+                      <div className="text-right">
+                        {address_line2.length > 5
+                          ? address_line2.slice(0, address_line2.length - 5)
+                          : state_code}
+                      </div>
                     </div>
                   );
               })}
@@ -245,6 +309,10 @@ const Booking = () => {
             name=""
             id=""
             onChange={(e) => setBookingTime(e.target.value)}
+            onFocus={(e) => {
+              setSuggestPickup(false);
+              setSuggestDrop(false);
+            }}
           >
             <option value="now">Now</option>
             <option value="later">Later</option>
@@ -265,12 +333,20 @@ const Booking = () => {
               className=" px-2 col-span-4 lg:col-span-3 mx-2 my-1 py-1 pr-2  rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
               type="time"
               placeholder="Time"
+              onFocus={() => {
+                setSuggestPickup(false);
+                setSuggestDrop(false);
+              }}
               onChange={(e) => setBookingLaterTime(e.target.value)}
             />
             <div class="col-span-1 lg:col-span-3 "></div>
             <input
               className="   col-span-5 lg:col-span-4 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
               type="date"
+              onFocus={() => {
+                setSuggestPickup(false);
+                setSuggestDrop(false);
+              }}
               onChange={(e) => setBookingLaterDate(e.target.value)}
               min={new Date().toISOString().split("T")[0]}
               max={maxDate}
@@ -291,6 +367,10 @@ const Booking = () => {
             onClick={(e) => {
               setSuggestDrop(false);
               setSuggestPickup(false);
+            }}
+            onFocus={() => {
+              setSuggestPickup(false);
+              setSuggestDrop(false);
             }}
             className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full  hover:bg-gray-200 focus:bg-gray-200"
 
@@ -317,6 +397,10 @@ const Booking = () => {
             className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
             type=""
             onChange={(e) => setPhoneNumber(e.target.value)}
+            onFocus={() => {
+              setSuggestPickup(false);
+              setSuggestDrop(false);
+            }}
           />
         </div>
         <div class="text-xs text-red-500">

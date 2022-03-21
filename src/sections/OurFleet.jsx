@@ -11,7 +11,7 @@ const fleet = [
     id: 1,
     name: "Sedan",
     icon: "/images/fleet-icons/sedan.svg",
-    image: "/images/fleet-cars/dzire.webp",
+    image: "/images/fleet-cars/swift-white.png",
     tagline: "The Sedan is a compact car that is great for the city.",
     features: "ac, cashless",
     description:
@@ -44,7 +44,7 @@ const fleet = [
     features: "ac, cashless",
 
     tagline: "The Mini is a compact car that is great for the city.",
-    image: "/images/fleet-cars/toyota--corolla.webp",
+    image: "/images/fleet-cars/toyoto-white.png",
     description:
       "    A regular comfortable AC hatchback that becomes your everyday dependable ride. An economical option for daily commute.",
   },
@@ -52,7 +52,7 @@ const fleet = [
     id: 5,
     name: "Luxury",
     icon: "/images/fleet-icons/luxury.svg",
-    image: "/images/fleet-cars/audiBlue.webp",
+    image: "/images/fleet-cars/audi-white.png",
     features: "ac, cashless",
 
     tagline: "Experience luxury at foot steps .",
@@ -62,6 +62,7 @@ const fleet = [
 ];
 const OurFleet = (props) => {
   const [selected, setSelected] = useState(fleet[0]);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   $("#fleet-car-image").bind("load", function () {
     $(this).fadeIn(10000);
@@ -118,7 +119,9 @@ const OurFleet = (props) => {
         />
         <div
           id="fleet-car-image"
-          className="lg:w-1/2 w-full h-52 lg:h-full  rounded-xl lg:mb-0 mb-3 bg-contain bg-center bg-no-repeat"
+          // onLoadedData={() => console.log("load")}
+          className={` 
+            transition-opacity  lg:w-1/2 w-full  h-52 lg:h-full lg:mb-0 mb-3 bg-contain bg-center bg-no-repeat `}
           style={{
             backgroundImage: `url(${selected.image})`,
           }}

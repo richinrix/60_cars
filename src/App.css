@@ -1,11 +1,11 @@
 /* fonts */
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&family=Montserrat:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&family=Montserrat:wght@500&display=swap");
 
 .font-montserrat {
   font-family: "Montserrat", sans-serif;
 }
-.font-leagueSpartan{
-  font-family: 'League Spartan', sans-serif;
+.font-leagueSpartan {
+  font-family: "League Spartan", sans-serif;
 }
 /* general */
 img,
@@ -131,12 +131,12 @@ path:nth-child(6) {
 }
 @keyframes moveWheel {
   from {
-    /* transform: translateX(700px);
-    transform: rotate(360deg); */
+    transform: translateX(700px);
+    /* transform: rotate(360deg); */
   }
   to {
-    transform: translateX(110px);
-    transform: rotate(0deg);
+    transform: translateX(-90px);
+    /* transform: rotate(0deg); */
   }
 }
 .spin {

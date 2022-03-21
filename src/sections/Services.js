@@ -54,9 +54,10 @@ const Services = (props) => {
         Our Services
       </div>
       <div className="text-sm lg:text-xl text-left w-full my-3 lg:my-8 lg:w-3/5">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
-        pariatur neque fugiat praesentium optio commodi tempora odit inventore
-        consequuntur veniam.
+        India's best known car rental company with a wide national footprint.
+        Right from adhering to a stringent process covering vendor, vehicle and
+        chauffeur quality to a safe, reliable and extensive fleet of cars, we're
+        equipped to provide you with an unmatched experience.
       </div>
       <div className="flex  lg:flex-row lg:items-center flex-wrap justify-between w-full lg:h-full lg:mt-3 ">
         {services.map((feature, index) => {

@@ -13,43 +13,56 @@ export const submitSlack = async (content) => {
     bookingTime,
     bookingLaterTime,
     bookingLaterDate,
+    pickupData,
+    dropData,
   } = content;
   let date = new Date();
   let dateString = date.toLocaleDateString();
   let timeString = date.toLocaleTimeString();
   const data = {
-    text: `\n>*New Booking*
+    text: `\n>*--------New Booking--------*
     -\` Booking Option: \` ${bookingOption.toUpperCase()}
-      -\` Pickup: \` ${pickup}
-      -\` Drop: \` ${drop}
-      -\` Phone: \` ${phoneNumber}
-      -\` Booking Time: \` ${bookingTime}
+    -\` Pickup: \` ${pickup}
+    -\` Pickup Complete Address: \` ${pickupData.addressLine2}
+    -\` Drop: \` ${drop}
+    -\` Drop Complete Address: \` ${dropData.addressLine2}
+    -\` Phone: \` ${phoneNumber}
+    -\` Booking Time: \` ${bookingTime}
        ${
          bookingTime === "later"
            ? `-\` Booking Later Time: \` ${bookingLaterTime}
-      -\` Booking Later Date: \` ${bookingLaterDate}`
+    -\` Booking Later Date: \` ${bookingLaterDate}`
            : ""
        }
+    -\`Pickup Coordinates: \` ${
+      "\n " + pickupData.coordinates.lat + "," + pickupData.coordinates.lon
+    }
+    -\`Drop Coordinates: \` ${
+      "\n " + dropData.coordinates.lat + "," + dropData.coordinates.lon
+    }
       -:date: Booking Date: ${dateString}
       -:clock1: Booking Time: ${timeString}`,
   };
-
   //* slack webhook
-  let res = await axios.post(
-    bookingOption.toLowerCase() === "citryride"
-      ? citryRideWebhook
-      : outstationWebhook,
-    JSON.stringify(data),
-    {
-      withCredentials: false,
-      transformRequest: [
-        (data, headers) => {
-          delete headers.post["Content-Type"];
-          return data;
-        },
-      ],
-    }
-  );
+  console.log(citryRideWebhook, outstationWebhook, corporateSignUpWebhook);
+  const postSlack = async () => {
+    let res = await axios.post(
+      bookingOption.toLowerCase() === "citryride"
+        ? citryRideWebhook
+        : outstationWebhook,
+      JSON.stringify(data),
+      {
+        withCredentials: false,
+        transformRequest: [
+          (data, headers) => {
+            delete headers.post["Content-Type"];
+            return data;
+          },
+        ],
+      }
+    );
+  };
+  postSlack();
   //*  graphcms webhook
   //   const orderObject = {
   //     pickup: location,

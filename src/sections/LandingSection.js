@@ -42,14 +42,14 @@ const LandingSection = (props) => {
             src={CarImg}
             width="250%"
             alt="car"
-            className="  moveCar bottom-20  absolute   object-contain"
+            className="  moveCar bottom-0  absolute   object-contain"
           />
           {/* <img
-          src={WheelImg}
-          width="200px"
-          alt=""
-          className="  moveWheel  bottom-36    absolute   object-contain"
-        /> */}
+            src={WheelImg}
+            width="180px"
+            alt=""
+            className="  moveWheel  bottom-14 left-16      absolute   object-contain"
+          /> */}
         </div>
       </div>
     </div>
