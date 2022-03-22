@@ -24,7 +24,6 @@ export const submitSlack = async (content) => {
     bookingOption.toLowerCase() == "cityride"
       ? citryRideWebhook
       : outstationWebhook;
-  console.log(webhook);
   const data = {
     text: `\n>*--------New Booking--------*
     -\` Booking Option: \` ${bookingOption.toUpperCase()}
@@ -69,7 +68,9 @@ export const submitSlack = async (content) => {
         },
       ],
     });
-    console.log(res.status);
+    if (res.status == 200) {
+      // console.log(res.er)
+    }
   };
   postSlack();
   //*  graphcms webhook

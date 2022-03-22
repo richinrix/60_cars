@@ -73,7 +73,7 @@ const Booking = () => {
           // console.log(pickup, pickupSuggestions);
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
         });
     } else {
       setPickupSuggestions([]);
@@ -89,10 +89,9 @@ const Booking = () => {
       axios(config)
         .then(function (response) {
           setDropSuggestions(response.data.features);
-          console.log(response.data.features);
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
         });
     } else {
       setDropSuggestions([]);
@@ -104,7 +103,6 @@ const Booking = () => {
     pickup !== "" && drop !== "" && phoneNumber.match(phoneRegex);
   const submitQuery = (e) => {
     e.preventDefault();
-    // console.log(checkForm(), pickup, drop, phoneNumber);
     if (checkForm()) {
       const data = {
         pickup,
