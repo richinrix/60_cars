@@ -1,10 +1,19 @@
 import React from "react";
 // icons
-import { AiFillHome } from "react-icons/ai";
-import { IoIosCall } from "react-icons/io";
-import { AiOutlineCar } from "react-icons/ai";
-import { MdOutlineFeaturedPlayList } from "react-icons/md";
+import { AiFillHome, AiOutlineHome } from "react-icons/ai";
+import { AiOutlineCar, AiFillCar } from "react-icons/ai";
+import { MdOutlineFeaturedPlayList, MdFeaturedPlayList } from "react-icons/md";
 import { MdInfo } from "react-icons/md";
+import {
+  BsBookmark,
+  BsTelephone,
+  BsTelephoneFill,
+  BsBookmarkFill,
+} from "react-icons/bs";
+import {
+  IoIosInformationCircleOutline,
+  IoMdInformationCircle,
+} from "react-icons/io";
 const categories = [
   {
     name: "About",
@@ -42,31 +51,43 @@ const mobNavOptions = [
     name: "Home",
     origin: "home",
     slug: "#",
-    icon: <AiFillHome />,
+    icon1: <AiOutlineHome />,
+    icon2: <AiFillHome />,
   },
   {
     name: "Fleet",
     origin: "our-fleet",
     slug: "#our-fleet",
-    icon: <AiOutlineCar />,
+    icon1: <AiOutlineCar />,
+    icon2: <AiFillCar />,
+  },
+  {
+    name: "Features",
+    origin: "key-features",
+    slug: "#key-features",
+    icon1: <BsBookmark />,
+    icon2: <BsBookmarkFill />,
   },
   {
     name: "Services",
     origin: "our-services",
     slug: "#our-services",
-    icon: <MdOutlineFeaturedPlayList />,
+    icon1: <MdOutlineFeaturedPlayList />,
+    icon2: <MdFeaturedPlayList />,
   },
   {
     name: "Contact",
     origin: "contact",
     slug: "#contact",
-    icon: <IoIosCall />,
+    icon1: <BsTelephone />,
+    icon2: <BsTelephoneFill />,
   },
   {
     name: "About",
     origin: "About",
     slug: "about",
-    icon: <MdInfo />,
+    icon1: <IoIosInformationCircleOutline />,
+    iocn2: <IoMdInformationCircle />,
   },
 ];
 const Nav = (props) => {
@@ -121,7 +142,9 @@ const Nav = (props) => {
               }
                 `}
               >
-                {category.icon}
+                {activeSection.toLowerCase() == category.origin.toLowerCase()
+                  ? category.icon2
+                  : category.icon1}
               </div>
               <span
                 className={` mx-1

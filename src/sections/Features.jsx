@@ -80,10 +80,10 @@ const Features = () => {
               data-aos-offset={cardAnimate.offset}
               data-aos-duration={!isPhone ? cardAnimate.duration : 1000}
             >
-              <div className="  w-full bg-gray-800 text-white  p-4 lg:p-5 rounded-xl h-48 lg:h-64 flex flex-col justify-between lg:shadow-xl">
+              <div className="  w-full bg-gray-900 text-white  p-4 lg:p-5 rounded-xl h-48 lg:h-64 flex flex-col justify-between lg:shadow-xl">
                 <div
                   className={`" text-4xl p-2 rounded-full w-min bg-opacity-50 " ${
-                    feature.id % 2 == 0 ? "bg-blue-200" : "bg-red-200"
+                    index % 2 == 0 ? "bg-blue-400" : "bg-red-400"
                   } `}
                 >
                   {feature.icon}

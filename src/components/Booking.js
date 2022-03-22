@@ -9,7 +9,7 @@ const axios = require("axios");
 const Booking = () => {
   const bookingDateRange = 60;
   // date
-  const currentDay = new Date();
+  // const currentDay = new Date();
   // let maxDate =
   //   currentDay.getFullYear() +
   //   "-" +
@@ -183,7 +183,6 @@ const Booking = () => {
             type="text"
             value={pickup}
             onFocus={(e) => setSuggestDrop(false)}
-            onBlur={(e) => setSuggestPickup(false)}
             onChange={(e) => {
               setSuggestPickup(true);
               setPickup(e.target.value);
@@ -210,7 +209,6 @@ const Booking = () => {
                       onClick={(e) => {
                         setPickup(name);
                         setSuggestPickup(false);
-                        setpickupCoords({ lat, lon });
                         setPickupData({
                           addressLine2: address_line2,
                           stateCode: state_code,
@@ -242,7 +240,6 @@ const Booking = () => {
             type="text"
             value={drop}
             onFocus={(e) => setSuggestPickup(false)}
-            onBlur={(e) => setSuggestDrop(false)}
             onChange={(e) => {
               setSuggestDrop(true);
               setDrop(e.target.value);
@@ -269,7 +266,6 @@ const Booking = () => {
                       onClick={(e) => {
                         setDrop(name);
                         setSuggestDrop(false);
-                        setdropCoords({ lat, lon });
                         setDropData({
                           addressLine2: address_line2,
                           stateCode: state_code,

@@ -11,7 +11,7 @@ const fleet = [
     id: 1,
     name: "Sedan",
     icon: "/images/fleet-icons/sedan.svg",
-    image: "/images/fleet-cars/dzire-white.png",
+    image: "/images/fleet-cars/swift-dezire-white.png",
     tagline: "The Sedan is a compact car that is great for the city.",
     features: "ac, cashless",
     description:
