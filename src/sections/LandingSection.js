@@ -24,7 +24,7 @@ const LandingSection = (props) => {
         }}
       >
         <div class="flex flex-col justify-center  lg:justify-start ">
-          <div class=" font-leagueSpartan text-4xl my-10 mt-20 lg:mt-10 lg:mb-0 md:text-6xl font-bold ">
+          <div class=" font-leagueSpartan text-4xl my-10 mt-20 lg:mt-0 lg:mb-0 md:text-6xl font-bold ">
             Premium <br /> Car Rentals
           </div>
           <div className="  mt-5 mx-auto  flex justify-center lg:justify-start items-center w-full ">

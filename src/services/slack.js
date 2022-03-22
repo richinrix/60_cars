@@ -29,16 +29,21 @@ export const submitSlack = async (content) => {
     -\` Phone: \` ${phoneNumber}
     -\` Booking Time: \` ${bookingTime}
        ${
-         bookingTime === "later"
-           ? `-\` Booking Later Time: \` ${bookingLaterTime}
+         bookingTime === "later" &&
+         `-\` Booking Later Time: \` ${bookingLaterTime}
     -\` Booking Later Date: \` ${bookingLaterDate}`
-           : ""
        }
-    -\`Pickup Coordinates: \` ${
-      "\n " + pickupData.coordinates.lat + "," + pickupData.coordinates.lon
+    ${
+      pickupData.coordinates.lat !== "" &&
+      `-\`Pickup Coordinates: \` ${
+        "\n " + pickupData.coordinates.lat + "," + pickupData.coordinates.lon
+      }`
     }
-    -\`Drop Coordinates: \` ${
-      "\n " + dropData.coordinates.lat + "," + dropData.coordinates.lon
+    ${
+      dropData.coordinates.lat !== "" &&
+      `-\`Drop Coordinates: \` ${
+        "\n " + dropData.coordinates.lat + "," + dropData.coordinates.lon
+      }`
     }
       -:date: Booking Date: ${dateString}
       -:clock1: Booking Time: ${timeString}`,
@@ -65,6 +70,7 @@ export const submitSlack = async (content) => {
         ],
       }
     );
+    console.log(res.status);
   };
   postSlack();
   //*  graphcms webhook

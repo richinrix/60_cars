@@ -1,4 +1,5 @@
 import React from "react";
+// images
 import Person1 from "../images/person/man1.png";
 import Person2 from "../images/person/man2.png";
 import Person3 from "../images/person/woman.png";
@@ -8,7 +9,6 @@ const Team = () => {
       <div class=" font-leagueSpartan text-2xl lg:text-7xl font-bold mb-5 lg:mb-10">
         Directors
       </div>
-      {/* <div class="text-xl lg:text-4xl font-leagueSpartan">Directors</div> */}
       <div class="flex flex-wrap items-end lg:flex-row justify-between w-full">
         <div class="my-2  mx-auto ">
           <div class="text-center lg:text-left text-base lg:text-2xl  font-bold">

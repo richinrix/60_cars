@@ -11,7 +11,7 @@ const fleet = [
     id: 1,
     name: "Sedan",
     icon: "/images/fleet-icons/sedan.svg",
-    image: "/images/fleet-cars/swift-white.png",
+    image: "/images/fleet-cars/dzire-white.png",
     tagline: "The Sedan is a compact car that is great for the city.",
     features: "ac, cashless",
     description:
@@ -23,7 +23,7 @@ const fleet = [
     icon: "/images/fleet-icons/sedan.svg",
     features: "ac, cashless",
     tagline: "The Mini is a compact car that is great for the city.",
-    image: "/images/fleet-cars/mini/mini-accent.png",
+    image: "/images/fleet-cars/mini-accent.png",
     description:
       "    A regular comfortable AC hatchback that becomes your everyday dependable ride. An economical option for daily commute.",
   },
@@ -62,11 +62,7 @@ const fleet = [
 ];
 const OurFleet = (props) => {
   const [selected, setSelected] = useState(fleet[0]);
-  const [imageLoaded, setImageLoaded] = useState(false);
 
-  $("#fleet-car-image").bind("load", function () {
-    $(this).fadeIn(10000);
-  });
   return (
     <div
       id="our-fleet"
@@ -94,7 +90,6 @@ const OurFleet = (props) => {
                 : "border-white"
             }
             `}
-                // width="85px"
                 onClick={() => setSelected(car)}
               />
               <label

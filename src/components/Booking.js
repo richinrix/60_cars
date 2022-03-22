@@ -1,23 +1,22 @@
-// TODO
-// auto suggestions
-//  Graphcms query triggers
-//  Slack integration
-import moment from "moment";
+// TODO Graphcms posts
+// TODO slack api bug
+
+// import moment from "moment";
 import React, { useState, useEffect } from "react";
 import { submitSlack } from "../services/slack";
 import { submitOrder } from "../services/graphCMS";
 const axios = require("axios");
 const Booking = () => {
-  const bookingDateRange = 14;
+  const bookingDateRange = 60;
   // date
   const currentDay = new Date();
-  let maxDate =
-    currentDay.getFullYear() +
-    "-" +
-    (parseInt(currentDay.getMonth()) + 1) +
-    "-" +
-    (parseInt(currentDay.getDate()) + bookingDateRange);
-  maxDate = moment(maxDate).format("YYYY-MM-DD");
+  // let maxDate =
+  //   currentDay.getFullYear() +
+  //   "-" +
+  //   (parseInt(currentDay.getMonth()) + 1) +
+  //   "-" +
+  //   (parseInt(currentDay.getDate()) + bookingDateRange);
+  // maxDate = moment(maxDate).format("YYYY-MM-DD");
   // * inputs
   const [bookingOption, setBookingOption] = useState("cityride"); // citry ride or outstation
   const [bookingTime, setBookingTime] = useState("now"); //now or later
@@ -26,7 +25,7 @@ const Booking = () => {
   const [bookingLaterDate, setBookingLaterDate] = useState();
   const [pickup, setPickup] = useState("");
   const [drop, setDrop] = useState("");
-  // * selected coords
+  //  selected location data
   const [pickupData, setPickupData] = useState({
     addressLine2: "",
     stateCode: "",
@@ -56,9 +55,10 @@ const Booking = () => {
   const [suggestDrop, setSuggestDrop] = useState(false);
   const [pickupSuggestions, setPickupSuggestions] = useState([]);
   const [dropSuggestions, setDropSuggestions] = useState([]);
-  // *query message
+  // * Displaying Query sent
   const [showQuerySent, setShowQuerySent] = useState(false);
 
+  // auto suggestions for pickup and drop fields
   useEffect(() => {
     let config = {
       method: "get",
@@ -85,7 +85,6 @@ const Booking = () => {
       url: `https://api.geoapify.com/v1/geocode/autocomplete?text=${drop}&apiKey=553b89f8b0fa4d209a2641bc8afb2cda`,
       headers: {},
     };
-
     if (drop.trim() !== "") {
       axios(config)
         .then(function (response) {
@@ -99,15 +98,10 @@ const Booking = () => {
       setDropSuggestions([]);
     }
   }, [drop]);
-  // * form submit\
+  // * form submit
   const phoneRegex = "^[+]?[(]?[0-9]{3}[)]?[-s.]?[0-9]{3}[-s.]?[0-9]{4,6}$";
-  const checkForm = () => {
-    if (pickup !== "" && drop !== "" && phoneNumber.match(phoneRegex)) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  const checkForm = () =>
+    pickup !== "" && drop !== "" && phoneNumber.match(phoneRegex);
   const submitQuery = (e) => {
     e.preventDefault();
     // console.log(checkForm(), pickup, drop, phoneNumber);
@@ -125,11 +119,12 @@ const Booking = () => {
         pickupData,
         dropData,
       };
-
       setShowQuerySent(true);
       //* submitting to slack
       submitSlack(data);
-
+      // * submitting to graphcms
+      // submitOrder(data);
+      // displaying query sent and resetting form
       setTimeout(() => {
         setShowQuerySent(false);
         document.getElementById("bookingForm").reset();
@@ -349,7 +344,6 @@ const Booking = () => {
               }}
               onChange={(e) => setBookingLaterDate(e.target.value)}
               min={new Date().toISOString().split("T")[0]}
-              max={maxDate}
             />
           </div>
         ) : null}
@@ -395,7 +389,7 @@ const Booking = () => {
           </div>
           <input
             className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
-            type=""
+            type="number"
             onChange={(e) => setPhoneNumber(e.target.value)}
             onFocus={() => {
               setSuggestPickup(false);

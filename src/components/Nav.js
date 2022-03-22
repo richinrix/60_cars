@@ -1,11 +1,10 @@
-import React, { useEffect, useState, useRef, Children } from "react";
+import React from "react";
 // icons
 import { AiFillHome } from "react-icons/ai";
 import { IoIosCall } from "react-icons/io";
 import { AiOutlineCar } from "react-icons/ai";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
 import { MdInfo } from "react-icons/md";
-// import { getCategories } from '../services';
 const categories = [
   {
     name: "About",

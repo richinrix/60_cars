@@ -13,7 +13,6 @@ const Header = () => {
         <div class="hidden lg:block">
           <HeaderAnnouncement />
         </div>
-
         <div class=" mx-auto bg-white lg:bg-opacity-50 lg:backdrop-blur-sm w-full">
           <Nav current="home" />
         </div>
