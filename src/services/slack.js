@@ -1,9 +1,10 @@
 import axios from "axios";
 // import md5 from "crypto-js";
 import { submitOrder } from "./graphCMS";
-// const citryRideWebhook = process.env.REACT_APP_CITYRIDE_SLACK_WEBHOOK;
-const citryRideWebhook =
-  "https://hooks.slack.com/services/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";
+// dev webhook
+// const citryRideWebhook =
+//   "https://hooks.slack.com/services/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";
+const citryRideWebhook = process.env.REACT_APP_CITYRIDE_SLACK_WEBHOOK;
 const outstationWebhook = process.env.REACT_APP_OUTSTATION_SLACK_WEBHOOK;
 const corporateSignUpWebhook = process.env.REACT_APP_CONTACT_SLACK_WEBHOOK;
 export const submitSlack = async (content) => {
