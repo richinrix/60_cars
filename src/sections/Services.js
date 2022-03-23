@@ -68,6 +68,7 @@ const Services = (props) => {
           };
           return (
             <div
+              key={index}
               className={`" w-1/2 px-2 lg:w-1/6 lg:h-full flex  flex-col my-2 lg:pr-3  "
                 ${index === 0 ? "lg:pr-3 " : "  lg:pr-3"}
 

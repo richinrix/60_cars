@@ -5,7 +5,6 @@ import { FaFan } from "react-icons/fa";
 import { BsFillCreditCard2BackFill } from "react-icons/bs";
 // tooltip
 import ReactTooltip from "react-tooltip";
-import $ from "jquery";
 const fleet = [
   {
     id: 1,
@@ -76,6 +75,7 @@ const OurFleet = (props) => {
         {fleet.map((car) => {
           return (
             <div
+              key={car.id}
               id={`ourfleet-car-selection-${car.name}`}
               className="w-full flex flex-col items-center lg:mx-10"
             >

@@ -11,6 +11,7 @@ const Contact = () => {
     email: "",
     phoneNumber: "",
     companyName: "",
+    companyEmail: "",
     companyState: "",
     department: "Admin",
     NumberOfEmployees: "Less than 50",
@@ -32,20 +33,20 @@ const Contact = () => {
   };
   const Header = () => (
     <>
-      <div class="fixed z-50 lg:hidden">
-        <div class="   lg:hidden ">
+      <div className="fixed z-50 lg:hidden">
+        <div className="   lg:hidden ">
           <HeaderAnnouncement />
         </div>
-        <div class="  py-2 font-leagueSpartan  font-extrabold bg-gray-400 bg-opacity-40 backdrop-blur-md   text-4xl w-screen flex lg:hidden justify-center items-center ">
+        <div className="  py-2 font-leagueSpartan  font-extrabold bg-gray-400 bg-opacity-40 backdrop-blur-md   text-4xl w-screen flex lg:hidden justify-center items-center ">
           60 Cars
         </div>
       </div>
       <div className="fixed bottom-0 lg:sticky  lg:top-0 z-10">
-        <div class="hidden lg:block">
+        <div className="hidden lg:block">
           <HeaderAnnouncement />
         </div>
 
-        <div class=" mx-auto bg-white lg:bg-opacity-50 lg:backdrop-blur-sm w-full">
+        <div className=" mx-auto bg-white lg:bg-opacity-50 lg:backdrop-blur-sm w-full">
           <Nav current="" />
         </div>
       </div>
@@ -56,19 +57,19 @@ const Contact = () => {
       {/* nav */}
       {Header()}
 
-      <div class="lg:px-0 mx-auto ">
-        <div class="px-3 lg:px-20 py-32 lg:pt-0  mx-auto w-full  relative">
+      <div className="lg:px-0 mx-auto ">
+        <div className="px-3 lg:px-20 py-32 lg:pt-0  mx-auto w-full  relative">
           {/* form */}
           <form
             id="contactForm"
-            class=" mx-auto   lg:w-3/5 self-center  border-2 border-black rounded-xl py-5 px-3 lg:p-10 "
+            className=" mx-auto   lg:w-3/5 self-center  border-2 border-black rounded-xl py-5 px-3 lg:p-10 "
           >
-            <div class="text-center text-2xl lg:text-5xl my-3 font-bold font-leagueSpartan">
+            <div className="text-center text-2xl lg:text-5xl my-3 font-bold font-leagueSpartan">
               {params.type === "company" ? "Company Sign Up" : "Contact Us"}
             </div>
-            <div class="lg:w-1/2 flex flex-col mx-auto ">
+            <div className="lg:w-1/2 flex flex-col mx-auto ">
               <div className="w-full">
-                <div class="font-bold my-2 ">Email Address</div>
+                <div className="font-bold my-2 ">Email Address</div>
                 <input
                   type="text"
                   className="border-2 border-black w-full py-1 px-2  rounded-md "
@@ -79,7 +80,7 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <div class="font-bold my-2">Compay Name</div>
+                <div className="font-bold my-2">Compay Name</div>
                 <input
                   type="text"
                   placeholder="Company Name"
@@ -89,9 +90,20 @@ const Contact = () => {
                   }
                 />
               </div>
-              <div class="flex w-full justify-between my-2">
+              <div>
+                <div className="font-bold my-2">Compay Email Adress</div>
+                <input
+                  type="text"
+                  placeholder="Company Email Address"
+                  className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
+                  onChange={(e) =>
+                    setContent({ ...content, companyEmail: e.target.value })
+                  }
+                />
+              </div>
+              <div className="flex w-full justify-between my-2">
                 <div className=" pr-1 lg:w-1/2 ">
-                  <div class="font-bold">Department</div>
+                  <div className="font-bold">Department</div>
                   <select
                     className="outline-none border-2 w-full  border-black rounded-md px-2 py-1"
                     onChange={(e) =>
@@ -106,7 +118,7 @@ const Contact = () => {
                   </select>
                 </div>
                 <div className=" pl-1 lg:w-1/2 ">
-                  <div class="font-bold">Number of Employees</div>
+                  <div className="font-bold">Number of Employees</div>
                   <select
                     className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
                     onChange={(e) =>
@@ -118,13 +130,13 @@ const Contact = () => {
                   >
                     <option value="Less than 50">Less than 50</option>
                     <option value="50 to 200">50 to 200</option>
-                    <option value="200-2000">200-1000</option>
+                    <option value="200-1000">200-1000</option>
                     <option value="More than 1000">More than 1000</option>
                   </select>
                 </div>
               </div>
               <div className="w-full my-2 ">
-                <div class="font-bold">Enter the State</div>
+                <div className="font-bold">Enter the State</div>
                 <input
                   className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
                   placeholder="State"
@@ -134,7 +146,7 @@ const Contact = () => {
                 />
               </div>
               <div className="w-full my-2">
-                <div class="font-bold">Mobile Number</div>
+                <div className="font-bold">Mobile Number</div>
                 <input
                   className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
                   type="number"
@@ -143,13 +155,13 @@ const Contact = () => {
                     setContent({ ...content, phoneNumber: e.target.value })
                   }
                 />
-                <div class="text-xs">
-                  We wil get in contact with you on this number.
+                <div className="text-xs">
+                  We will get in contact with you on this number.
                 </div>
               </div>
               {params.type === "general" && (
                 <div className="w-full my-2">
-                  <div class="font-bold">Message</div>
+                  <div className="font-bold">Message</div>
                   <textarea
                     rows={3}
                     className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
@@ -159,19 +171,19 @@ const Contact = () => {
                       setContent({ ...content, Message: e.target.value })
                     }
                   />
-                  <div class="text-xs">
+                  <div className="text-xs">
                     We wil get in contact with you on this number.
                   </div>
                 </div>
               )}
               <div
                 onClick={onSubmit}
-                class=" hover:bg-gray-600 cursor-pointer w-full text-center rounded-md mx-auto my-2 bg-black text-white px-3 py-2 font-bold"
+                className=" hover:bg-gray-600 cursor-pointer w-full text-center rounded-md mx-auto my-2 bg-black text-white px-3 py-2 font-bold"
               >
                 Submit
               </div>
               {sent && (
-                <div class="bg-green-400 rounded-md px-2 py-1 text-sm text-center mx-auto">
+                <div className="bg-green-400 rounded-md px-2 py-1 text-sm text-center mx-auto">
                   Submitted Successfully
                 </div>
               )}

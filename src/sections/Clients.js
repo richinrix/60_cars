@@ -12,7 +12,7 @@ const Clients = (props) => {
 
   return (
     <div className=" px-3 lg:px-20 my-10 ">
-      <div class="text-4xl lg:text-7xl font-leagueSpartan font-bold">
+      <div className="text-4xl lg:text-7xl font-leagueSpartan font-bold">
         Clients we are proud to serve
       </div>
       <Swiper
@@ -25,9 +25,9 @@ const Clients = (props) => {
           disableOnInteraction: false,
         }}
       >
-        {clients.map((client) => (
-          <SwiperSlide>
-            <div class="h-20vh lg:h-30vh flex justify-center items-center">
+        {clients.map((client, index) => (
+          <SwiperSlide key={index}>
+            <div className="h-20vh lg:h-30vh flex justify-center items-center">
               <img
                 width={isPhone ? "100px" : "200px"}
                 src={client.logo}

@@ -49,20 +49,20 @@ function App() {
 
   const Header = () => (
     <>
-      <div class="fixed z-50 lg:hidden">
-        <div class="   lg:hidden ">
+      <div className="fixed z-50 lg:hidden">
+        <div className="   lg:hidden ">
           <HeaderAnnouncement />
         </div>
-        <div class="  py-2 font-leagueSpartan  font-extrabold bg-gray-400 bg-opacity-40 backdrop-blur-md   text-4xl w-screen flex lg:hidden justify-center items-center ">
+        <div className="  py-2 font-leagueSpartan  font-extrabold bg-gray-400 bg-opacity-40 backdrop-blur-md   text-4xl w-screen flex lg:hidden justify-center items-center ">
           60 Cars
         </div>
       </div>
       <div className="fixed bottom-0 lg:sticky  lg:top-0 z-10">
-        <div class="hidden lg:block">
+        <div className="hidden lg:block">
           <HeaderAnnouncement />
         </div>
 
-        <div class=" mx-auto bg-white lg:bg-opacity-50 lg:backdrop-blur-sm w-full">
+        <div className=" mx-auto bg-white lg:bg-opacity-50 lg:backdrop-blur-sm w-full">
           <Nav current={activeSection} />
         </div>
       </div>
@@ -71,14 +71,14 @@ function App() {
   return (
     <div className=" overflow-x-clip ">
       {Header()}
-      <div id="sections" class="   lg:px-0 mx-auto ">
+      <div id="sections" className="   lg:px-0 mx-auto ">
         <LandingSection setActiveSection={setActiveSection} />
         <OurFleet setActiveSection={setActiveSection} />
         <Brands setActiveSection={setActiveSection} />
         <Features setActiveSection={setActiveSection} />
         <Services setActiveSection={setActiveSection} />
         <Clients setActiveSection={setActiveSection} />
-        <div class="bg-gray-800">
+        <div className="bg-gray-800">
           <Contact setActiveSection={setActiveSection} />
         </div>
       </div>

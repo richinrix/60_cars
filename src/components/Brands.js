@@ -41,6 +41,7 @@ const Brands = () => {
       {bransd.map((brand) => {
         return (
           <div
+            key={brand.name}
             id={brand.name}
             className=" h-10 lg:h-16 my-2 lg:my-0  w-10 lg:w-16 px-10 py-5 lg:px-20 lg:py-8  bg-contain bg-center bg-no-repeat col-span-1"
             style={{ backgroundImage: `url('${brand.image}')` }}

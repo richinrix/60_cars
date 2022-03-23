@@ -51,7 +51,7 @@ const SearchSuggestions = () => {
         <button className="mt-4 shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
           Search
         </button>
-        <div class="mx-auto text-center">{}</div>
+        <div className="mx-auto text-center">{}</div>
       </form>
       <div className="text-white">
         {SearchResults.length > 0 ? (

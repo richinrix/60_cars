@@ -1,7 +1,9 @@
 import axios from "axios";
 // import md5 from "crypto-js";
 import { submitOrder } from "./graphCMS";
-const citryRideWebhook = process.env.REACT_APP_CITYRIDE_SLACK_WEBHOOK;
+// const citryRideWebhook = process.env.REACT_APP_CITYRIDE_SLACK_WEBHOOK;
+const citryRideWebhook =
+  "https://hooks.slack.com/services/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";
 const outstationWebhook = process.env.REACT_APP_OUTSTATION_SLACK_WEBHOOK;
 const corporateSignUpWebhook = process.env.REACT_APP_CONTACT_SLACK_WEBHOOK;
 export const submitSlack = async (content) => {
@@ -11,6 +13,7 @@ export const submitSlack = async (content) => {
     phoneNumber,
     bookingOption,
     bookingTime,
+    bookingDate,
     bookingLaterTime,
     bookingLaterDate,
     pickupData,
@@ -35,8 +38,11 @@ export const submitSlack = async (content) => {
     ${
       bookingTime === "now"
         ? `-\` Booking Time: \` ${bookingTime}`
-        : `-\` Booking Later Time: \` ${bookingLaterTime}
-    -\` Booking Later Date: \` ${bookingLaterDate}`
+        : `-\` Booking Later Date and Time: \` ${
+            bookingDate
+              ? bookingDate + " " + bookingLaterTime
+              : bookingLaterDate
+          }`
     }
     ${
       pickupData.coordinates.lat == ""
@@ -73,6 +79,7 @@ export const submitSlack = async (content) => {
     }
   };
   postSlack();
+
   //*  graphcms webhook
   //   const orderObject = {
   //     pickup: location,
@@ -97,6 +104,7 @@ export const submitSlack = async (content) => {
 };
 export const submitCorporateSignUp = async (content) => {
   const {
+    type,
     email,
     phoneNumber,
     companyName,
@@ -109,7 +117,7 @@ export const submitCorporateSignUp = async (content) => {
   let dateString = date.toLocaleDateString();
   let timeString = date.toLocaleTimeString();
   const data = {
-    text: `\n>*New Corporate Sign Up*
+    text: `\n>----------*New Corporate Sign Up*----------
       -\` Email: \` ${email}
       -\` Phone: \` ${phoneNumber}
       -\` Company Name: \` ${companyName}
@@ -118,7 +126,7 @@ export const submitCorporateSignUp = async (content) => {
       -\` Department: \` ${department}
       -\` Number of Employees: \` ${NumberOfEmployees}
      -:date: Booking Date: ${dateString}
-      -:clock1: Booking Time: ${timeString}`,
+     -:clock1: Booking Time: ${timeString}`,
   };
 
   //* slack webhook
@@ -138,6 +146,7 @@ export const submitGeneralContact = async (content) => {
     email,
     phoneNumber,
     companyName,
+    companyEmail,
     companyState,
     department,
     NumberOfEmployees,
@@ -147,17 +156,17 @@ export const submitGeneralContact = async (content) => {
   let dateString = date.toLocaleDateString();
   let timeString = date.toLocaleTimeString();
   const data = {
-    text: `\n>*New Corporate Sign Up*
-    \n Type: ${type}
+    text: `\n>----------*New Genneral Sign Up*----------
       -\` Email: \` ${email}
       -\` Phone: \` ${phoneNumber}
       -\` Company Name: \` ${companyName}
+      -\` Company Email: \` ${companyEmail}
       -\` Company State: \` ${companyState}
       -\` Department: \` ${department}
       -\` Number of Employees: \` ${NumberOfEmployees}
       -\` Message: \` ${Message}
      -:date: Booking Date: ${dateString}
-      -:clock1: Booking Time: ${timeString}`,
+     -:clock1: Booking Time: ${timeString}`,
   };
 
   //* slack webhook

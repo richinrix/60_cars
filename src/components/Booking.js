@@ -1,30 +1,36 @@
 // TODO Graphcms posts
 // TODO slack api bug
 
-// import moment from "moment";
+import moment from "moment";
 import React, { useState, useEffect } from "react";
 import { submitSlack } from "../services/slack";
 import { submitOrder } from "../services/graphCMS";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { stringify } from "postcss";
+
 const axios = require("axios");
+
 const Booking = () => {
   const bookingDateRange = 60;
   // date
-  // const currentDay = new Date();
-  // let maxDate =
-  //   currentDay.getFullYear() +
-  //   "-" +
-  //   (parseInt(currentDay.getMonth()) + 1) +
-  //   "-" +
-  //   (parseInt(currentDay.getDate()) + bookingDateRange);
-  // maxDate = moment(maxDate).format("YYYY-MM-DD");
+  const currentDay = new Date();
+  let maxDate =
+    currentDay.getFullYear() +
+    "-" +
+    (parseInt(currentDay.getMonth()) + 1) +
+    "-" +
+    (parseInt(currentDay.getDate()) + bookingDateRange);
+  maxDate = moment(maxDate).format("YYYY-MM-DD");
   // * inputs
   const [bookingOption, setBookingOption] = useState("cityride"); // citry ride or outstation
   const [bookingTime, setBookingTime] = useState("now"); //now or later
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [bookingLaterTime, setBookingLaterTime] = useState();
-  const [bookingLaterDate, setBookingLaterDate] = useState();
+  const [bookingLaterTime, setBookingLaterTime] = useState("");
+  const [bookingLaterDate, setBookingLaterDate] = useState("");
   const [pickup, setPickup] = useState("");
   const [drop, setDrop] = useState("");
+  const [bookingDate, setBookingDate] = useState(false);
   //  selected location data
   const [pickupData, setPickupData] = useState({
     addressLine2: "",
@@ -110,8 +116,11 @@ const Booking = () => {
         phoneNumber,
         bookingOption,
         bookingTime,
+        bookingDate,
         bookingLaterTime,
-        bookingLaterDate,
+        bookingLaterDate: moment(bookingLaterDate).format(
+          "DD-MM-YYYY HH:mm:ss"
+        ),
         pickupCoords,
         dropCoords,
         pickupData,
@@ -137,14 +146,14 @@ const Booking = () => {
   return (
     <div className="   rounded-md py-3 px-3 flex flex-col md:w-4/5  backdrop-blur-sm   bg-white/30">
       {/* nav */}
-      <div class="justify-around flex border-b pb-3 border-black mb-5 text-sm lg:text-lg">
+      <div className="justify-around flex border-b pb-3 border-black mb-5 text-sm lg:text-lg">
         <div
           onClick={(e) => setBookingOption("cityride")}
           className={`  flex items-center text-center border-2 border-black cursor-pointer rounded-l-full rounded-r-full mx-2 p-1 lg:mx-4 lg:px-3     ${
             bookingOption == "cityride" ? "bg-black  text-white " : ""
           }`}
         >
-          <div class="  my-auto">City Ride</div>
+          <div className="  my-auto">City Ride</div>
         </div>
         <div
           onClick={(e) => setBookingOption("outstation")}
@@ -158,7 +167,7 @@ const Booking = () => {
         </div>
         <a
           href="/corporate"
-          className=" flex items-center text-center border-black border-2 rounded-l-full rounded-r-full mx-2 p-1 lg:mx-4 lg:px-3 "
+          className=" text-black flex items-center text-center border-black border-2 rounded-l-full rounded-r-full mx-2 p-1 lg:mx-4 lg:px-3 "
         >
           Corporate
         </a>
@@ -188,7 +197,7 @@ const Booking = () => {
           />
           {suggestPickup && pickupSuggestions.length > 0 && (
             <div
-              class="absolute bg-gray-100  py-2 z-10  px-3  w-full flex flex-col"
+              className="absolute bg-gray-100  py-2 z-10  px-3  w-full flex flex-col"
               style={{ top: "90%" }}
             >
               {pickupSuggestions.map((result) => {
@@ -245,7 +254,7 @@ const Booking = () => {
           />
           {suggestDrop && dropSuggestions.length > 0 && (
             <div
-              class="absolute bg-gray-100  py-2 z-10  px-3  w-full flex flex-col"
+              className="absolute bg-gray-100  py-2 z-10  px-3  w-full flex flex-col"
               style={{ top: "90%" }}
             >
               {dropSuggestions.map((result) => {
@@ -307,38 +316,61 @@ const Booking = () => {
             <option value="later">Later</option>
           </select>
         </div>
+        {/* time and date picker */}
         {bookingTime == "later" ? (
-          <div
-            onClick={(e) => {
-              setSuggestDrop(false);
-              setSuggestPickup(false);
-            }}
-            className=" grid grid-cols-12 mt-2 items-center  bg-white rounded-md px-3 hover:bg-gray-200 focus:bg-gray-200"
-          >
-            <div className="uppercase col-span-2 border-black border-r-1 pr-3">
-              Date
+          <div>
+            <div
+              onClick={(e) => {
+                setSuggestDrop(false);
+                setSuggestPickup(false);
+              }}
+              className=" grid grid-cols-12 mt-2 items-center  bg-white rounded-md px-3 hover:bg-gray-200 focus:bg-gray-200"
+            >
+              <div className="uppercase col-span-2 border-black border-r-1 pr-3">
+                Date
+              </div>
+              <input
+                className=" lg:hidden px-2 col-span-4 lg:col-span-3 mx-2 my-1 py-1 pr-2  rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
+                type="time"
+                // value={bookingLaterTime}
+                placeholder="Time"
+                onFocus={() => {
+                  setSuggestPickup(false);
+                  setSuggestDrop(false);
+                }}
+                onChange={(e) => setBookingLaterTime(e.target.value)}
+              />
+
+              <div className="col-span-1 lg:col-span-3 lg:hidden "></div>
+              <input
+                className=" lg:hidden   col-span-5 lg:col-span-4 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
+                type="date"
+                // value={bookingLaterDate}
+                onFocus={() => {
+                  setSuggestPickup(false);
+                  setSuggestDrop(false);
+                }}
+                min={new Date().toISOString().split("T")[0]}
+                onChange={(e) => {
+                  // console.log(e.target.value);
+                  setBookingDate(moment(e.target.value).format("DD-MM-YYYY"));
+                }}
+              />
+              <div className="hidden lg:flex  lg:col-span-10 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200">
+                <DatePicker
+                  showTimeSelect
+                  className=" w-full px-2 outline-none rounded-md "
+                  // selected={bookingLaterDate}
+                  selected={bookingLaterDate}
+                  startDate={bookingLaterDate}
+                  dateFormat="dd/MM/yyyy h:mm aa"
+                  // endDate={"2022/10/10"}
+                  onChange={(date) => {
+                    setBookingLaterDate(date);
+                  }}
+                />
+              </div>
             </div>
-            <input
-              className=" px-2 col-span-4 lg:col-span-3 mx-2 my-1 py-1 pr-2  rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
-              type="time"
-              placeholder="Time"
-              onFocus={() => {
-                setSuggestPickup(false);
-                setSuggestDrop(false);
-              }}
-              onChange={(e) => setBookingLaterTime(e.target.value)}
-            />
-            <div class="col-span-1 lg:col-span-3 "></div>
-            <input
-              className="   col-span-5 lg:col-span-4 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
-              type="date"
-              onFocus={() => {
-                setSuggestPickup(false);
-                setSuggestDrop(false);
-              }}
-              onChange={(e) => setBookingLaterDate(e.target.value)}
-              min={new Date().toISOString().split("T")[0]}
-            />
           </div>
         ) : null}
         <div
@@ -391,7 +423,7 @@ const Booking = () => {
             }}
           />
         </div>
-        <div class="text-xs text-red-500">
+        <div className="text-xs text-red-500">
           {phoneNumber &&
             (phoneNumber.match(phoneRegex)
               ? null
