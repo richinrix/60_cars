@@ -14,6 +14,7 @@ import {
   IoIosInformationCircleOutline,
   IoMdInformationCircle,
 } from "react-icons/io";
+import { RiFunctionFill, RiFunctionLine } from "react-icons/ri";
 const categories = [
   {
     name: "About",
@@ -65,8 +66,8 @@ const mobNavOptions = [
     name: "Features",
     origin: "key-features",
     slug: "#key-features",
-    icon1: <BsBookmark />,
-    icon2: <BsBookmarkFill />,
+    icon1: <RiFunctionLine />,
+    icon2: <RiFunctionFill />,
   },
   {
     name: "Services",
@@ -87,7 +88,7 @@ const mobNavOptions = [
     origin: "About",
     slug: "about",
     icon1: <IoIosInformationCircleOutline />,
-    iocn2: <IoMdInformationCircle />,
+    icon2: <IoMdInformationCircle />,
   },
 ];
 const Nav = (props) => {

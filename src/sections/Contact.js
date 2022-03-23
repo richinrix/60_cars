@@ -72,9 +72,12 @@ const Contact = (props) => {
             <div class="flex items-center my-2  ">
               <AiOutlinePhone className="text-xl mx-2" />
               Phone:
-              <a href="tel:8722620158" className="ml-2">
+              <a href="tel:8722620158" className="ml-2 text-xs lg:text-sm">
                 {" "}
                 +91-(0)8722620158
+              </a>
+              <a href="tel:91481 22012" className="ml-2 text-xs lg:text-sm">
+                / +91 9148122012
               </a>
             </div>
             <div class="flex items-center my-2 ">
@@ -90,9 +93,12 @@ const Contact = (props) => {
             <div class="flex items-center my-2  ">
               <AiOutlinePhone className="text-xl mx-2" />
               Phone:
-              <a href="tel:8722620158" className="ml-2">
+              <a href="tel:8722620158" className="ml-2 text-xs lg:text-sm">
                 {" "}
                 +91-(0)8722620158
+              </a>
+              <a href="tel:91481 22012" className="ml-2 text-xs lg:text-sm">
+                / +91 9148122012
               </a>
             </div>
             <div class="flex items-center my-2 ">

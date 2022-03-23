@@ -15,7 +15,8 @@ const HeaderAnnouncement = () => {
           </span>
           <span className=" hidden lg:flex ml-20 lg:ml-96">
             24x7 Online Centralized Reservation Desk{" "}
-            <span class=" w-6">{Tab()}</span> Book Now : +91 87226 20158
+            <span class=" w-6">{Tab()}</span> Book Now : +91 87226 20158/+91
+            91481 22012
           </span>
         </div>
       </marquee>
