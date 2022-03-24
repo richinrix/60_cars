@@ -262,7 +262,7 @@ const About = () => {
                   href="#940/103/1612, Marutinagar,Kogilu Main Road,Opp. indian Oil
                 Petrol Bunk, Yelehanka, Bengaluru -560064"
                   target="_blank"
-                  noopener={true}
+                  noopener="true"
                   rel="noopener noreferrer"
                   className="font-bold font-leagueSpartan mr-2"
                 >

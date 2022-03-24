@@ -359,7 +359,7 @@ const Booking = () => {
               <div className="hidden lg:flex  lg:col-span-10 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200">
                 <DatePicker
                   showTimeSelect
-                  className=" w-full px-2 outline-none rounded-md "
+                  className=" w-full px-2 outline-none rounded-md bg-transparent  focus:bg-gray-200 "
                   // selected={bookingLaterDate}
                   selected={bookingLaterDate}
                   startDate={bookingLaterDate}

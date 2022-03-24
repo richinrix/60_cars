@@ -8,7 +8,7 @@ const HeaderAnnouncement = () => {
   return (
     <div className=" bg-black text-white lg:flex items-center">
       <marquee>
-        <div className="flex justify-end py-1  ">
+        <div className="flex  py-1  ">
           <span>
             24x7 Online Centralized Reservation Desk{" "}
             <span className=" w-6">{Tab()}</span> Book Now : +91 87226 20158 /

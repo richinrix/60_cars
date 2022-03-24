@@ -57,7 +57,7 @@ function App() {
           60 Cars
         </div>
       </div>
-      <div className="fixed bottom-0 lg:sticky  lg:top-0 z-10">
+      <div className="fixed bottom-0 lg:sticky  lg:top-0 z-50">
         <div className="hidden lg:block">
           <HeaderAnnouncement />
         </div>

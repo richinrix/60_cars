@@ -41,7 +41,7 @@ const Contact = (props) => {
           <a
             // href="https://maps.google.com/maps?q=13.1042887%2C77.6025789&z=17&hl=en"
             target="_blank"
-            noopener={true}
+            noopener="true"
             rel="noopener noreferrer"
             className="text-sm my-2 "
           >
