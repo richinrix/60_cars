@@ -1,12 +1,20 @@
 import axios from "axios";
 // import md5 from "crypto-js";
 import { submitOrder } from "./graphCMS";
+
 // dev webhook
-// const citryRideWebhook =
-//   "https://hooks.slack.com/services/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";
-const citryRideWebhook = process.env.REACT_APP_CITYRIDE_SLACK_WEBHOOK;
+const citryRideWebhook =
+  "https://hooks.slack.com/services/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";
 const outstationWebhook = process.env.REACT_APP_OUTSTATION_SLACK_WEBHOOK;
 const corporateSignUpWebhook = process.env.REACT_APP_CONTACT_SLACK_WEBHOOK;
+//  // dev hook const citryRideWebhook = process.env.REACT_APP_CITYRIDE_SLACK_WEBHOOK;
+// * discord webhooks
+const citryRideDiscordWebhook = process.env.REACT_APP_CITYRIDE_DISCORD_WEBHOOK;
+const outstationDiscordWebhook =
+  process.env.REACT_APP_OUTSTATION_DISCORD_WEBHOOK;
+const contactDiscordWebhook = process.env.REACT_APP_CONTACT_DISCORD_WEBHOOK;
+// const devDiscordHook =
+//   "";
 export const submitSlack = async (content) => {
   const {
     pickup,
@@ -19,18 +27,25 @@ export const submitSlack = async (content) => {
     bookingLaterDate,
     pickupData,
     dropData,
+    carType,
   } = content;
   let date = new Date();
   let dateString = date.toLocaleDateString();
   let timeString = date.toLocaleTimeString();
   // deciding webhook for city or outstation
-  const webhook =
+  // const webhook =
+  //   bookingOption.toLowerCase() == "cityride"
+  //     ? citryRideWebhook
+  //     : outstationWebhook;
+  // * choosing webhook
+  const webhookDiscord =
     bookingOption.toLowerCase() == "cityride"
-      ? citryRideWebhook
-      : outstationWebhook;
+      ? citryRideDiscordWebhook
+      : outstationDiscordWebhook;
   const data = {
     text: `\n>*--------New Booking--------*
     -\` Booking Option: \` ${bookingOption.toUpperCase()}
+    -\` Car Type: \` ${carType.toUpperCase()}
     -\` Pickup: \` ${pickup}
     -\` Pickup Complete Address: \` ${pickupData.addressLine2}
     -\` Drop: \` ${drop}
@@ -64,22 +79,93 @@ export const submitSlack = async (content) => {
       -:date: Booking Date: ${dateString}
       -:clock1: Booking Time: ${timeString}`,
   };
-  //* slack webhook
-  const postSlack = async () => {
-    let res = await axios.post(webhook, JSON.stringify(data), {
-      withCredentials: false,
-      transformRequest: [
-        (data, headers) => {
-          delete headers.post["Content-Type"];
-          return data;
+
+  // * discord posting
+  const postDiscord = async () => {
+    const data = {
+      content: "",
+      embeds: [
+        {
+          title: "New Booking",
+          description: `\n>*----------------*`,
+          color: "16711680",
+        },
+        {
+          title: `:taxi:  ${bookingOption.toUpperCase()}`,
+          description: "",
+          color: "16776960",
+        },
+        {
+          title: ":telephone: Phone Number",
+          description: `\n${phoneNumber}\n`,
+          color: "5814783",
+        },
+        {
+          title: "",
+          description: `
+          **Booking Details**
+          **Car Type:** ${carType.toUpperCase()}
+          **Pickup** : ${pickup}
+          **Drop** : ${drop}
+          **Pickup Complete Address** : ${pickup} , ${pickupData.addressLine2}
+          **Drop Complete Address** : ${drop} , ${dropData.addressLine2}
+          ${
+            bookingTime === "now"
+              ? `**Booking Time** : ${bookingTime}\n`
+              : `**Booking Later Date and Time** : ${
+                  bookingDate
+                    ? bookingDate + " " + bookingLaterTime
+                    : bookingLaterDate
+                }\n`
+          }
+          
+          
+            `,
+          color: "16777215",
+          // fields: [
+          //   {
+          //     name: "Mentioning users, roles, channels, and using emojis",
+          //     value: "test",
+          //   },
+          // ],
+        },
+        {
+          title: "Pickup Coordinates",
+          description: `${pickupData.coordinates.lat},${pickupData.coordinates.lon}`,
+          color: "16777215",
+        },
+        {
+          title: "Drop Coordinates",
+          description: `${dropData.coordinates.lat},${dropData.coordinates.lon}`,
+          color: "16777215",
+        },
+        {
+          title: "",
+          description: `:date: **Booking Date** : ${dateString}
+          \n:clock1: **Booking Time** : ${timeString}\n`,
         },
       ],
-    });
-    if (res.status == 200) {
-      // console.log(res.er)
-    }
+    };
+    let res = await axios.post(webhookDiscord, data);
   };
-  postSlack();
+  postDiscord();
+
+  // ! slack webhook disabled for now
+  // const postSlack = async () => {
+  //   let res = await axios.post(webhook, JSON.stringify(data), {
+  //     withCredentials: false,
+  //     transformRequest: [
+  //       (data, headers) => {
+  //         delete headers.post["Content-Type"];
+  //         return data;
+  //       },
+  //     ],
+  //   });
+  //   if (res.status == 200) {
+  //     // console.log(res.er)
+  //   }
+  // };
+  // postSlack();
 
   //*  graphcms webhook
   //   const orderObject = {
@@ -119,27 +205,72 @@ export const submitCorporateSignUp = async (content) => {
   let timeString = date.toLocaleTimeString();
   const data = {
     text: `\n>----------*New Corporate Sign Up*----------
-      -\` Email: \` ${email}
-      -\` Phone: \` ${phoneNumber}
-      -\` Company Name: \` ${companyName}
-      -\` Company Email: \` ${companyEmail}
-      -\` Company State: \` ${companyState}
-      -\` Department: \` ${department}
-      -\` Number of Employees: \` ${NumberOfEmployees}
+      Email:  ${email}
+      Phone:  ${phoneNumber}
+      Company Name:  ${companyName}
+      Company Email:  ${companyEmail}
+      Company State:  ${companyState}
+      Department:  ${department}
+      Number of Employees:  ${NumberOfEmployees}
      -:date: Booking Date: ${dateString}
      -:clock1: Booking Time: ${timeString}`,
   };
-
+  const postDiscord = async () => {
+    const data = {
+      content: "",
+      embeds: [
+        {
+          title: "New Form Submission",
+          description: `\n>*----------------*`,
+          color: "16711680",
+        },
+        {
+          title: `:telephone:  ${type.toUpperCase()}`,
+          description: "",
+          color: "16776960",
+        },
+        {
+          title: ":call_me: Phone Number",
+          description: `\n${phoneNumber}\n`,
+          color: "5814783",
+        },
+        {
+          title: ":email: Email",
+          description: `\n${email}\n`,
+          color: "5814783",
+        },
+        {
+          title: "",
+          description: `
+          **Company Details**
+          Company Name:  ${companyName}
+          Company Email:  ${companyEmail}
+          Company State:  ${companyState}
+          Department:  ${department}
+          Number of Employees:  ${NumberOfEmployees}
+            `,
+          color: "16777215",
+        },
+        {
+          title: "",
+          description: `:date: **Contact Submission Date** : ${dateString}
+          \n:clock1: **Booking Submission Time** : ${timeString}\n`,
+        },
+      ],
+    };
+    let res = await axios.post(contactDiscordWebhook, data);
+  };
+  postDiscord();
   //* slack webhook
-  let res = await axios.post(corporateSignUpWebhook, JSON.stringify(data), {
-    withCredentials: false,
-    transformRequest: [
-      (data, headers) => {
-        delete headers.post["Content-Type"];
-        return data;
-      },
-    ],
-  });
+  // let res = await axios.post(corporateSignUpWebhook, JSON.stringify(data), {
+  //   withCredentials: false,
+  //   transformRequest: [
+  //     (data, headers) => {
+  //       delete headers.post["Content-Type"];
+  //       return data;
+  //     },
+  //   ],
+  // });
 };
 export const submitGeneralContact = async (content) => {
   const {
@@ -169,15 +300,65 @@ export const submitGeneralContact = async (content) => {
      -:date: Booking Date: ${dateString}
      -:clock1: Booking Time: ${timeString}`,
   };
-
-  //* slack webhook
-  let res = await axios.post(corporateSignUpWebhook, JSON.stringify(data), {
-    withCredentials: false,
-    transformRequest: [
-      (data, headers) => {
-        delete headers.post["Content-Type"];
-        return data;
-      },
-    ],
-  });
+  const postDiscord = async () => {
+    const data = {
+      content: "",
+      embeds: [
+        {
+          title: "New Form Submission",
+          description: `\n>*----------------*`,
+          color: "16711680",
+        },
+        {
+          title: `:telephone: Contact Type`,
+          description: `${type.toUpperCase()}`,
+          color: "16776960",
+        },
+        {
+          title: ":call_me: Phone Number",
+          description: `\n${phoneNumber}\n`,
+          color: "5814783",
+        },
+        {
+          title: ":email: Email",
+          description: `\n${email}\n`,
+          color: "5814783",
+        },
+        {
+          title: "",
+          description: `
+          **Company Details**
+          Company Name:  ${companyName}
+          Company Email:  ${companyEmail}
+          Company State:  ${companyState}
+          Department:  ${department}
+          Number of Employees:  ${NumberOfEmployees}
+            `,
+          color: "16777215",
+        },
+        {
+          title: "Message",
+          description: `${Message}`,
+          color: "16777215",
+        },
+        {
+          title: "",
+          description: `:date: **Contact Submission Date** : ${dateString}
+          \n:clock1: **Booking Submission Time** : ${timeString}\n`,
+        },
+      ],
+    };
+    let res = await axios.post(contactDiscordWebhook, data);
+  };
+  postDiscord();
+  // //slack webhook
+  // //let res = await axios.post(corporateSignUpWebhook, JSON.stringify(data), {
+  // //withCredentials: false,
+  // //  transformRequest: [
+  // //    (data, headers) => {
+  //  //     delete headers.post["Content-Type"];
+  //  //     return data;
+  //  //   },
+  //  //  ],
+  // // });
 };

@@ -28,6 +28,7 @@ const Booking = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [bookingLaterTime, setBookingLaterTime] = useState("");
   const [bookingLaterDate, setBookingLaterDate] = useState("");
+  const [carType, setCarType] = useState("Standard");
   const [pickup, setPickup] = useState("");
   const [drop, setDrop] = useState("");
   const [bookingDate, setBookingDate] = useState(false);
@@ -118,14 +119,14 @@ const Booking = () => {
         bookingTime,
         bookingDate,
         bookingLaterTime,
-        bookingLaterDate: moment(bookingLaterDate).format(
-          "DD-MM-YYYY HH:mm:ss"
-        ),
+        bookingLaterDate: moment(bookingLaterDate).format("DD-MM-YYYY HH:mm"),
         pickupCoords,
         dropCoords,
         pickupData,
         dropData,
+        carType,
       };
+      console.log(data);
       setShowQuerySent(true);
       //* submitting to slack
       submitSlack(data);
@@ -135,6 +136,9 @@ const Booking = () => {
       setTimeout(() => {
         setShowQuerySent(false);
         document.getElementById("bookingForm").reset();
+        setBookingDate(false);
+        setBookingLaterDate("");
+        setBookingLaterTime("");
         setPickup("");
         setDrop("");
         setPhoneNumber("");
@@ -393,8 +397,7 @@ const Booking = () => {
               setSuggestDrop(false);
             }}
             className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full  hover:bg-gray-200 focus:bg-gray-200"
-
-            // onChange={(e) => setCarType(e.target.value)}
+            onChange={(e) => setCarType(e.target.value)}
           >
             <option value="Standard">Standard</option>
             <option value="Sedan">Sedan</option>
