@@ -126,7 +126,6 @@ const Booking = () => {
         dropData,
         carType,
       };
-      console.log(data);
       setShowQuerySent(true);
       //* submitting to slack
       submitSlack(data);

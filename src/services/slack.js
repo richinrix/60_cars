@@ -87,7 +87,7 @@ export const submitSlack = async (content) => {
       embeds: [
         {
           title: "New Booking",
-          description: `\n>*----------------*`,
+          description: "",
           color: "16711680",
         },
         {
@@ -221,7 +221,7 @@ export const submitCorporateSignUp = async (content) => {
       embeds: [
         {
           title: "New Form Submission",
-          description: `\n>*----------------*`,
+          description: ``,
           color: "16711680",
         },
         {
@@ -306,7 +306,7 @@ export const submitGeneralContact = async (content) => {
       embeds: [
         {
           title: "New Form Submission",
-          description: `\n>*----------------*`,
+          description: ``,
           color: "16711680",
         },
         {
