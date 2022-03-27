@@ -98,7 +98,7 @@ const Booking = () => {
           setDropSuggestions(response.data.features);
         })
         .catch(function (error) {
-          // console.log(error);
+          //  console.log(error);
         });
     } else {
       setDropSuggestions([]);
@@ -398,11 +398,11 @@ const Booking = () => {
             className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full  hover:bg-gray-200 focus:bg-gray-200"
             onChange={(e) => setCarType(e.target.value)}
           >
-            <option value="Standard">Standard</option>
-            <option value="Sedan">Sedan</option>
-            <option value="MUV">MUV</option>
-            <option value="Premium">Premium</option>
-            <option value="Luxury">Luxury</option>
+            <option value="Standard">Standard ( Honda City/Ciaz )</option>
+            <option value="Sedan">Sedan ( Dzire/Xcent) </option>
+            <option value="MUV">MUV ( Toyota Innova/Crysta) </option>
+            <option value="Premium">Premium ( Toyota Corolla/Camry) </option>
+            <option value="Luxury">Luxury ( Mercedes Benz/Audi) </option>
           </select>
         </div>
         <div
