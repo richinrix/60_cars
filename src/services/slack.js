@@ -139,11 +139,11 @@ export const submitSlack = async (content) => {
           description: `${dropData.coordinates.lat},${dropData.coordinates.lon}`,
           color: "16777215",
         },
-        {
-          title: "",
-          description: `:date: **Booking Date** : ${dateString}
-          \n:clock1: **Booking Time** : ${timeString}\n`,
-        },
+        // {
+        //   title: "",
+        //   description: `:date: **Booking Date** : ${dateString}
+        //   \n:clock1: **Booking Time** : ${timeString}\n`,
+        // },
       ],
     };
     let res = await axios.post(webhookDiscord, data);
@@ -251,11 +251,11 @@ export const submitCorporateSignUp = async (content) => {
             `,
           color: "16777215",
         },
-        {
-          title: "",
-          description: `:date: **Contact Submission Date** : ${dateString}
-          \n:clock1: **Booking Submission Time** : ${timeString}\n`,
-        },
+        // {
+        //   title: "",
+        //   description: `:date: **Contact Submission Date** : ${dateString}
+        //   \n:clock1: **Booking Submission Time** : ${timeString}\n`,
+        // },
       ],
     };
     let res = await axios.post(contactDiscordWebhook, data);
@@ -341,11 +341,11 @@ export const submitGeneralContact = async (content) => {
           description: `${Message}`,
           color: "16777215",
         },
-        {
-          title: "",
-          description: `:date: **Contact Submission Date** : ${dateString}
-          \n:clock1: **Booking Submission Time** : ${timeString}\n`,
-        },
+        // {
+        //   title: "",
+        //   description: `:date: **Contact Submission Date** : ${dateString}
+        //   \n:clock1: **Booking Submission Time** : ${timeString}\n`,
+        // },
       ],
     };
     let res = await axios.post(contactDiscordWebhook, data);
