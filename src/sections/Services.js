@@ -53,7 +53,7 @@ const Services = (props) => {
       <div className="font-montserrat text-4xl lg:text-6xl font-bold w-full text-left">
         Our Services
       </div>
-      <div className="text-sm lg:text-xl text-left w-full my-3 lg:my-8 lg:w-3/5">
+      <div className="text-sm lg:text-xl text-left w-full my-3 lg:my-8 lg:w-9/10">
         Our Qualified and Reliable Team Offers you Great Tours & Travel
         Experiences As Well as Solving All your Questions in your preferred
         language such As English, Kannada, Hindi, Tamil, Telugu. We have Wide
