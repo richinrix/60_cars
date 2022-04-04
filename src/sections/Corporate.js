@@ -22,11 +22,9 @@ const Corporate = () => {
           </div>
           <div className="w-full flex justify-center my-4 text-sm lg:text-base leadin text-justify lg:text-center">
             <div className="w-full lg:w-2/3">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Reiciendis molestiae sint aliquid. Temporibus at commodi, nisi
-              quibusdam similique unde repudiandae.Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Reiciendis molestiae sint aliquid.
-              Temporibus at commodi, nisi quibusdam similique unde repudiandae.
+              Let 60 Cars take care of your enterprise travel. The future of
+              corporate travel lies in simplicity and convenience. You are one
+              tap away from trying it out.
             </div>
           </div>
           <div className="lg:py-10 flex lg:flex-row flex-col items-center justify-center">

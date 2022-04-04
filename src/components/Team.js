@@ -13,7 +13,7 @@ const Team = () => {
       <div className="flex flex-wrap items-end lg:flex-row justify-between w-full">
         <div className="my-2  mx-auto ">
           <div className="text-center lg:text-left text-base lg:text-2xl  font-bold">
-            Primary Director
+            CEO & Director
           </div>
           <img
             src={Person1}
@@ -26,7 +26,7 @@ const Team = () => {
         </div>
         <div className="my-2  mx-auto">
           <div className="text-center lg:text-left text-base lg:text-2xl font-bold">
-            Secondary Director
+            Director
           </div>
           <img
             src={Person3}

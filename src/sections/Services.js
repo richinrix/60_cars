@@ -54,10 +54,14 @@ const Services = (props) => {
         Our Services
       </div>
       <div className="text-sm lg:text-xl text-left w-full my-3 lg:my-8 lg:w-3/5">
-        India's best known car rental company with a wide national footprint.
-        Right from adhering to a stringent process covering vendor, vehicle and
-        chauffeur quality to a safe, reliable and extensive fleet of cars, we're
-        equipped to provide you with an unmatched experience.
+        Our Qualified and Reliable Team Offers you Great Tours & Travel
+        Experiences As Well as Solving All your Questions in your preferred
+        language such As English, Kannada, Hindi, Tamil, Telugu. We have Wide
+        Range of Effective Solutions with Years of Experience and Great Skills
+        to Perform the Movement Smoothly with Maximum Safety done with the help
+        of Our Especially Assigned Client Executive. Our Customer Executives Are
+        Trained as well as Experienced to Give Disposable and Break up Travels
+        Quotation for All Kind of Vehicles at the Spot. Monday – Sunday (24*7)
       </div>
       <div className="flex  lg:flex-row lg:items-center flex-wrap justify-between w-full lg:h-full lg:mt-3 ">
         {services.map((feature, index) => {
