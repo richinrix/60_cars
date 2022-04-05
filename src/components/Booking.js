@@ -109,8 +109,8 @@ const Booking = () => {
     pickup !== "" && drop !== "" && phoneNumber.match(phoneRegex);
   const submitQuery = (e) => {
     e.preventDefault();
-    // replace with checkForm()
-    if (true) {
+
+    if (checkForm()) {
       const data = {
         pickup,
         drop,
