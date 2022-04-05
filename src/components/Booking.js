@@ -28,7 +28,7 @@ const Booking = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [bookingLaterTime, setBookingLaterTime] = useState("");
   const [bookingLaterDate, setBookingLaterDate] = useState("");
-  const [carType, setCarType] = useState("Standard");
+  const [carType, setCarType] = useState("Sedan");
   const [pickup, setPickup] = useState("");
   const [drop, setDrop] = useState("");
   const [bookingDate, setBookingDate] = useState(false);

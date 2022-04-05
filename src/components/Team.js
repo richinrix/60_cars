@@ -12,7 +12,7 @@ const Team = () => {
       </div>
       <div className="flex flex-wrap items-end lg:flex-row justify-between w-full">
         <div className="my-2  mx-auto ">
-          <div className="text-center lg:text-left text-base lg:text-2xl  font-bold">
+          <div className="text-center  text-base lg:text-2xl  font-bold">
             CEO & Director
           </div>
           <img
@@ -25,7 +25,7 @@ const Team = () => {
           </div>
         </div>
         <div className="my-2  mx-auto">
-          <div className="text-center lg:text-left text-base lg:text-2xl font-bold">
+          <div className="text-center  text-base lg:text-2xl font-bold">
             Director
           </div>
           <img
@@ -56,10 +56,10 @@ const Team = () => {
       </div> */}
       <div className="flex flex-wrap items-end lg:flex-row justify-between w-full">
         <div className="my-2  mx-auto ">
-          <div className="hidden lg:flex text-center lg:text-left text-base lg:text-2xl  font-bold">
+          <div className="hidden lg:flex text-center  text-base lg:text-2xl  font-bold">
             Chief Operating Officer
           </div>
-          <div className="lg:hidden tracking-wider text-center lg:text-left text-base lg:text-2xl  font-bold">
+          <div className="lg:hidden tracking-wider text-center  text-base lg:text-2xl  font-bold">
             COO
           </div>
           <img
@@ -72,7 +72,7 @@ const Team = () => {
           </div>
         </div>
         <div className="my-2  mx-auto">
-          <div className="hidden lg:flex text-center lg:text-left text-base lg:text-2xl font-bold">
+          <div className="hidden lg:flex text-center  text-base lg:text-2xl font-bold">
             Head of Information Technology
           </div>
           <div className="text-center lg:hidden lg:text-left text-base lg:text-2xl font-bold">

@@ -171,9 +171,6 @@ const Contact = () => {
                       setContent({ ...content, Message: e.target.value })
                     }
                   />
-                  <div className="text-xs">
-                    We wil get in contact with you on this number.
-                  </div>
                 </div>
               )}
               <div
