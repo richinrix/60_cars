@@ -145,7 +145,7 @@ const Booking = () => {
         setPhoneNumber("");
         setBookingTime("now");
         setCarType("Sedan");
-      }, 10000);
+      }, 5000);
     }
   };
 
