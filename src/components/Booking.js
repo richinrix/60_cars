@@ -1,13 +1,12 @@
 // TODO Graphcms posts
-// TODO slack api bug
+// TODO alternate for discord
 
 import moment from "moment";
 import React, { useState, useEffect } from "react";
 import { submitSlack } from "../services/slack";
-import { submitOrder } from "../services/graphCMS";
+// import { submitOrder } from "../services/graphCMS";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { stringify } from "postcss";
 
 const axios = require("axios");
 
@@ -110,7 +109,8 @@ const Booking = () => {
     pickup !== "" && drop !== "" && phoneNumber.match(phoneRegex);
   const submitQuery = (e) => {
     e.preventDefault();
-    if (checkForm()) {
+    // replace with checkForm()
+    if (true) {
       const data = {
         pickup,
         drop,
@@ -128,7 +128,9 @@ const Booking = () => {
       };
       setShowQuerySent(true);
       //* submitting to slack
+      // console.log(data.carType, data.pickup);
       submitSlack(data);
+
       // * submitting to graphcms
       // submitOrder(data);
       // displaying query sent and resetting form
@@ -142,6 +144,7 @@ const Booking = () => {
         setDrop("");
         setPhoneNumber("");
         setBookingTime("now");
+        setCarType("Sedan");
       }, 10000);
     }
   };
@@ -395,6 +398,7 @@ const Booking = () => {
               setSuggestPickup(false);
               setSuggestDrop(false);
             }}
+            value={carType}
             className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full  hover:bg-gray-200 focus:bg-gray-200"
             onChange={(e) => setCarType(e.target.value)}
           >
