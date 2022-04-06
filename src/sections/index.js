@@ -6,3 +6,4 @@ export { default as Services } from "./Services";
 export { default as Contact } from "./Contact";
 export { default as Corporate } from "./Corporate";
 export { default as Clients } from "./Clients";
+export { default as Error } from "./404";

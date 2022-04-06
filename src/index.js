@@ -4,7 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 // routes
 import App from "./App";
-import { About, Corporate } from "./sections/";
+import { About, Corporate, Error } from "./sections/";
 import { Contact } from "./components/";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 ReactDOM.render(
@@ -19,6 +19,7 @@ ReactDOM.render(
         <Route path="corporate" element={<Corporate />} />
 
         <Route path="contact/:type" element={<Contact />} />
+        <Route path="*" element={<Error />} />
       </Routes>
     </BrowserRouter>
   </>,
