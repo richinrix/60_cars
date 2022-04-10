@@ -113,7 +113,7 @@ const Nav = (props) => {
               mt-2 ml-7 px-1  cursor-pointer font-semibold md:float-right 
               ${
                 activeSection.toLowerCase() === category.origin.toLowerCase()
-                  ? " text-red-500"
+                  ? " text-blue-500"
                   : " text-gray-700"
               }
               `}
@@ -138,7 +138,7 @@ const Nav = (props) => {
                   
               ${
                 activeSection.toLowerCase() === category.origin.toLowerCase()
-                  ? " text-brandRed"
+                  ? "  text-blue-500"
                   : " text-black "
               }
                 `}
@@ -152,7 +152,7 @@ const Nav = (props) => {
                
               ${
                 activeSection.toLowerCase() === category.origin.toLowerCase()
-                  ? " text-brandRed "
+                  ? "  text-blue-500"
                   : " text-black "
               }
               `}
