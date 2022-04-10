@@ -125,8 +125,8 @@ const Nav = (props) => {
         </div>
       </div>
       {/* mobile nav */}
-      <div className="  lg:hidden flex items-center  w-screen  p-3">
-        <div className=" text-xs w-full flex justify-between ">
+      <div className="  lg:hidden flex items-center  w-screen  p-3 backdrop-blur-sm  bg-gray-400 bg-opacity-70 ">
+        <div className=" text-xs w-full flex justify-between   ">
           {mobNavOptions.map((category, index) => (
             <a
               className="flex flex-col items-center"
@@ -139,7 +139,7 @@ const Nav = (props) => {
               ${
                 activeSection.toLowerCase() === category.origin.toLowerCase()
                   ? " text-brandRed"
-                  : " text-gray-700 "
+                  : " text-black "
               }
                 `}
               >
@@ -152,8 +152,8 @@ const Nav = (props) => {
                
               ${
                 activeSection.toLowerCase() === category.origin.toLowerCase()
-                  ? " text-black font-bold"
-                  : " text-gray-700 "
+                  ? " text-brandRed "
+                  : " text-black "
               }
               `}
               >

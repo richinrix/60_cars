@@ -62,7 +62,7 @@ function App() {
           <HeaderAnnouncement />
         </div>
 
-        <div className=" mx-auto bg-white lg:bg-opacity-50 lg:backdrop-blur-sm w-full">
+        <div className=" mx-auto lg:bg-white lg:bg-opacity-50 lg:backdrop-blur-sm w-full">
           <Nav current={activeSection} />
         </div>
       </div>

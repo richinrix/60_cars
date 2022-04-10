@@ -150,13 +150,15 @@ const Booking = () => {
   };
 
   return (
-    <div className="   rounded-md py-3 px-3 flex flex-col md:w-4/5  backdrop-blur-sm   bg-white/30">
+    <div className="   rounded-md py-3 px-3 flex flex-col md:w-4/5  backdrop-blur-sm  bg-gray-700 bg-opacity-40">
       {/* nav */}
       <div className="justify-around flex border-b pb-3 border-black mb-5 text-sm lg:text-lg">
         <div
           onClick={(e) => setBookingOption("cityride")}
           className={`  flex items-center text-center border-2 border-black cursor-pointer rounded-l-full rounded-r-full mx-2 p-1 lg:mx-4 lg:px-3     ${
-            bookingOption == "cityride" ? "bg-black  text-white " : ""
+            bookingOption == "cityride"
+              ? "bg-black  text-white "
+              : " text-white"
           }`}
         >
           <div className="  my-auto">City Ride</div>
@@ -166,14 +168,14 @@ const Booking = () => {
           className={`flex items-center text-center cursor-pointer  border-2 rounded-l-full rounded-r-full mx-2 p-1 lg:mx-4 lg:px-3  ${
             bookingOption == "outstation"
               ? "bg-black  text-white border-black"
-              : "border-black"
+              : "border-black text-white"
           }`}
         >
           Outstation
         </div>
         <a
           href="/corporate"
-          className=" text-black flex items-center text-center border-black border-2 rounded-l-full rounded-r-full mx-2 p-1 lg:mx-4 lg:px-3 "
+          className="  text-white flex items-center text-center border-black border-2 rounded-l-full rounded-r-full mx-2 p-1 lg:mx-4 lg:px-3 "
         >
           Corporate
         </a>
