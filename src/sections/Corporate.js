@@ -37,13 +37,13 @@ const Corporate = () => {
           <div className="lg:py-10 flex lg:flex-row flex-col items-center justify-center">
             <a
               href="/contact/company"
-              className="bg-black text-white px-3 py-2 my-4 lg:mx-10 rounded-md text-xl lg:text-2xl"
+              className="backdrop-blur-sm  bg-black bg-opacity-50 text-white px-3 py-2 my-4 lg:mx-10 rounded-md text-xl lg:text-2xl"
             >
               Sign Up For your company
             </a>
             <a
               href="/contact/general"
-              className="bg-black text-white px-3 py-2 my-4 lg:mx-10 rounded-md text-xl lg:text-2xl"
+              className="backdrop-blur-sm  bg-black bg-opacity-50 text-white px-3 py-2 my-4 lg:mx-10 rounded-md text-xl lg:text-2xl"
             >
               Contact Us For More Information
             </a>
