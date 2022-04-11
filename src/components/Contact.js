@@ -17,6 +17,17 @@ const Contact = () => {
     NumberOfEmployees: "Less than 50",
     Message: "",
   });
+  // validations
+  const [validation, setValidation] = useState({
+    email: false,
+    phoneNumber: false,
+    companyName: false,
+    companyEmail: false,
+    companyState: false,
+    Message: false,
+  });
+  // validation helpers
+  // const handleValidation = (field) => {
 
   const onSubmit = () => {
     if (params.type === "general") {
@@ -34,17 +45,13 @@ const Contact = () => {
   const Header = () => (
     <>
       <div className="fixed z-50 lg:hidden">
-        <div className="   lg:hidden ">
-          <HeaderAnnouncement />
-        </div>
+        <div className="   lg:hidden ">{/* <HeaderAnnouncement /> */}</div>
         <div className="  py-2 font-leagueSpartan  font-extrabold bg-gray-400 bg-opacity-40 backdrop-blur-md   text-4xl w-screen flex lg:hidden justify-center items-center ">
           60 Cars
         </div>
       </div>
       <div className="fixed bottom-0 lg:sticky  lg:top-0 z-10">
-        <div className="hidden lg:block">
-          <HeaderAnnouncement />
-        </div>
+        <div className="hidden lg:block">{/* <HeaderAnnouncement /> */}</div>
 
         <div className=" mx-auto bg-white lg:bg-opacity-50 lg:backdrop-blur-sm w-full">
           <Nav current="" />
@@ -57,12 +64,19 @@ const Contact = () => {
       {/* nav */}
       {Header()}
 
-      <div className="lg:px-0 mx-auto ">
-        <div className="px-3 lg:px-20 py-32 lg:pt-0  mx-auto w-full  relative">
+      <div className="lg:px-0 mx-auto relative  ">
+        <div
+          class="w-full h-full bg-red-100 absolute brightness-75 lg:brightness-50 bg-right lg:bg-bottom bg-cover bg-no-repeat "
+          style={{
+            backgroundImage: `url(/images/contact/contact_bg2.jpg)`,
+          }}
+        />
+
+        <div className="px-3 lg:px-20 py-32 lg:pt-10  mx-auto w-full  relative">
           {/* form */}
           <form
             id="contactForm"
-            className=" mx-auto   lg:w-3/5 self-center  border-2 border-black rounded-xl py-5 px-3 lg:p-10 "
+            className=" text-white backdrop-blur-sm mx-auto bg-cover bg-center bg-no-repeat   lg:w-3/5 self-center  border-2 border-black rounded-xl py-5 px-3 lg:p-10 "
           >
             <div className="text-center text-2xl lg:text-5xl my-3 font-bold font-leagueSpartan">
               {params.type === "company" ? "Company Sign Up" : "Contact Us"}
@@ -72,7 +86,7 @@ const Contact = () => {
                 <div className="font-bold my-2 ">Email Address</div>
                 <input
                   type="text"
-                  className="border-2 border-black w-full py-1 px-2  rounded-md "
+                  className=" text-black border-2 border-black w-full py-1 px-2  rounded-md outline-none "
                   placeholder="you@company.com"
                   onChange={(e) =>
                     setContent({ ...content, email: e.target.value })
@@ -84,7 +98,7 @@ const Contact = () => {
                 <input
                   type="text"
                   placeholder="Company Name"
-                  className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
+                  className=" text-black outline-none border-2 w-full border-black rounded-md px-2 py-1"
                   onChange={(e) =>
                     setContent({ ...content, companyName: e.target.value })
                   }
@@ -95,7 +109,7 @@ const Contact = () => {
                 <input
                   type="text"
                   placeholder="Company Email Address"
-                  className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
+                  className=" text-black outline-none border-2 w-full border-black rounded-md px-2 py-1"
                   onChange={(e) =>
                     setContent({ ...content, companyEmail: e.target.value })
                   }
@@ -105,7 +119,7 @@ const Contact = () => {
                 <div className=" pr-1 lg:w-1/2 ">
                   <div className="font-bold">Department</div>
                   <select
-                    className="outline-none border-2 w-full  border-black rounded-md px-2 py-1"
+                    className=" text-black outline-none border-2 w-full  border-black rounded-md px-2 py-1"
                     onChange={(e) =>
                       setContent({ ...content, department: e.target.value })
                     }
@@ -120,7 +134,7 @@ const Contact = () => {
                 <div className=" pl-1 lg:w-1/2 ">
                   <div className="font-bold">Number of Employees</div>
                   <select
-                    className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
+                    className=" text-black outline-none border-2 w-full border-black rounded-md px-2 py-1"
                     onChange={(e) =>
                       setContent({
                         ...content,
@@ -138,7 +152,7 @@ const Contact = () => {
               <div className="w-full my-2 ">
                 <div className="font-bold">Enter the State</div>
                 <input
-                  className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
+                  className=" text-black outline-none border-2 w-full border-black rounded-md px-2 py-1"
                   placeholder="State"
                   onChange={(e) =>
                     setContent({ ...content, companyState: e.target.value })
@@ -148,7 +162,7 @@ const Contact = () => {
               <div className="w-full my-2">
                 <div className="font-bold">Mobile Number</div>
                 <input
-                  className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
+                  className=" text-black outline-none border-2 w-full border-black rounded-md px-2 py-1"
                   type="number"
                   placeholder="Phone Number"
                   onChange={(e) =>
@@ -164,7 +178,7 @@ const Contact = () => {
                   <div className="font-bold">Message</div>
                   <textarea
                     rows={3}
-                    className="outline-none border-2 w-full border-black rounded-md px-2 py-1"
+                    className=" text-black outline-none border-2 w-full border-black rounded-md px-2 py-1"
                     type="number"
                     placeholder="Enter your mesage here"
                     onChange={(e) =>

@@ -39,7 +39,7 @@ input[type="number"] {
 }
 
 /*Hides the blue highlight on mobile devices*/
-* {
+*:not(input.field) {
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;

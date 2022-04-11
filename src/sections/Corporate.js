@@ -15,8 +15,15 @@ const Corporate = () => {
         </div>
       </div>
       {/* end nav */}
-      <div className="lg:px-0 mx-auto ">
-        <div className="px-3 lg:px-0 lg:container mx-auto w-full  relative lg:py-10">
+
+      <div className="lg:px-0 mx-auto  ">
+        <div
+          class="absolute bg-cover bg-bottom brightness-50 bg-no-repeat w-full h-full"
+          style={{
+            backgroundImage: `url(/images/contact/contact_bg3.jpg)`,
+          }}
+        />
+        <div className="px-3 lg:px-0 lg:container mx-auto w-full  relative py-10 lg:py-10 text-white">
           <div className="text-2xl lg:text-6xl font-bold font-leagueSpartan text-center">
             Corporate Travel Management
           </div>
