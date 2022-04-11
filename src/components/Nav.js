@@ -125,7 +125,7 @@ const Nav = (props) => {
         </div>
       </div>
       {/* mobile nav */}
-      <div className="  lg:hidden flex items-center  w-screen  p-3 backdrop-blur-sm  bg-gray-400 bg-opacity-70 ">
+      <div className="  lg:hidden flex items-center  w-screen  p-3 backdrop-blur-sm  bg-gray-500 bg-opacity-70 ">
         <div className=" text-xs w-full flex justify-between   ">
           {mobNavOptions.map((category, index) => (
             <a
