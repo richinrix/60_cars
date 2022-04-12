@@ -8,9 +8,9 @@ const LandingSection = (props) => {
   return (
     <div className="relative ">
       <div
-        className="bg-no-repeat bg-cover w-screen h-90vh lg:h-90vh absolute"
+        className="bg-no-repeat bg-cover bg-bottom lg:bg-top w-screen h-90vh lg:h-90vh absolute"
         style={{
-          backgroundImage: `url("./images/map.png")`,
+          backgroundImage: `url("./images/map3.png")`,
           zIndex: "-1",
         }}
       />

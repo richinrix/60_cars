@@ -32,7 +32,7 @@ const Contact = (props) => {
       <div
         // ref={ref}
         id="contact"
-        className="lg:px-20 mb-5  mx-auto lg:py-20 py-7   flex flex-col lg:flex-row px-3 lg:items-center   justify-between text-white  "
+        className="lg:px-20   mx-auto lg:py-20 pt-7 pb-12   flex flex-col lg:flex-row px-3 lg:items-center   justify-between text-white  "
       >
         <div className="flex flex-col w-full lg:w-5/12 justify-center">
           <div className="  font-bold text-xl lg:text-5xl font-leagueSpartan">
