@@ -12,11 +12,17 @@ const Clients = (props) => {
 
   return (
     <div className=" px-3 lg:px-20 my-10 ">
-      <div className="text-4xl lg:text-7xl font-leagueSpartan font-bold">
+      <div className="text-4xl lg:text-6xl font-leagueSpartan font-bold">
         Clients we are proud to serve
       </div>
       <Swiper
-        slidesPerView={isPhone ? 2 : 4}
+        slidesPerView={
+          isPhone
+            ? 2
+            : window.innerWidth >= 768 && window.innerWidth < 900
+            ? 3
+            : 4
+        }
         spaceBetween={30}
         modules={[Autoplay]}
         className="mySwiper"
@@ -29,7 +35,13 @@ const Clients = (props) => {
           <SwiperSlide key={index}>
             <div className="h-20vh lg:h-30vh flex justify-center items-center">
               <img
-                width={isPhone ? "100px" : "200px"}
+                width={
+                  isPhone
+                    ? "100px"
+                    : window.innerWidth >= 768 && window.innerWidth < 900
+                    ? "150px"
+                    : "200px"
+                }
                 src={client.logo}
                 alt={client.name}
               />

@@ -1,23 +1,21 @@
 import React from "react";
 // car image
 import CarImg from "../images/car3.png";
-import WheelImg from "../images/wheel.png";
-import { Booking, Brands } from "../components/";
+import { Booking } from "../components/";
 
-const LandingSection = (props) => {
+const LandingSection = () => {
   return (
     <div className="relative ">
       <div
-        className="bg-no-repeat bg-cover bg-bottom lg:bg-top w-screen h-90vh lg:h-90vh absolute"
+        className="bg-no-repeat bg-cover bg-bottom lg:bg-top w-screen h-90vh md:h-screen  lg:h-90vh absolute"
         style={{
-          backgroundImage: `url("./images/map3.png")`,
+          backgroundImage: `url("./images/map.png")`,
           zIndex: "-1",
         }}
       />
-
       <div
         id="home"
-        className=" px-3 lg:px-20  mx-auto   h-screen lg:h-90vh lg:grid lg:grid-cols-2 bg-no-repeat bg-cover py-12 "
+        className=" px-3 lg:px-20  mx-auto   h-screen  lg:h-90vh lg:grid lg:grid-cols-2 bg-no-repeat bg-cover py-12 "
         style={
           {
             // backgroundImage: `url("./images/map.png")`,
@@ -26,7 +24,7 @@ const LandingSection = (props) => {
         }
       >
         <div className="flex flex-col justify-center  lg:justify-start ">
-          <div className=" font-leagueSpartan text-4xl my-10 mt-20 lg:mt-0 lg:mb-0 md:text-6xl font-bold ">
+          <div className=" font-leagueSpartan text-4xl my-10 mt-20 md:mt-14 lg:mt-0 md:mb-0 md:text-6xl font-bold ">
             Premium <br /> Car Rentals
           </div>
           <div className=" z-40  mt-5 mx-auto  flex justify-center lg:justify-start items-center w-full ">

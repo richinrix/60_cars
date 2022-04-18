@@ -1,5 +1,5 @@
 // TODO Graphcms posts
-// TODO alternate for discord
+// TODO form regex checking
 
 import moment from "moment";
 import React, { useState, useEffect } from "react";
@@ -48,14 +48,7 @@ const Booking = () => {
       lon: "",
     },
   });
-  const [pickupCoords, setpickupCoords] = useState({
-    lat: "",
-    lon: "",
-  });
-  const [dropCoords, setdropCoords] = useState({
-    lat: "",
-    lon: "",
-  });
+
   // * auto suggestions
   const [suggestPickup, setSuggestPickup] = useState(false);
   const [suggestDrop, setSuggestDrop] = useState(false);
@@ -63,6 +56,53 @@ const Booking = () => {
   const [dropSuggestions, setDropSuggestions] = useState([]);
   // * Displaying Query sent
   const [showQuerySent, setShowQuerySent] = useState(false);
+  const [wrongInputs, setWrongInputs] = useState(false);
+  // current location
+  // useEffect(() => {
+  //   console.log("test");
+  //   if (navigator.geolocation) {
+  //     navigator.permissions
+  //       .query({ name: "geolocation" })
+  //       .then(function (result) {
+  //         function error(err) {
+  //           console.warn(`ERROR(${err.code}): ${err.message}`);
+  //         }
+  //         if (result.state === "granted") {
+  //           console.log(result.state);
+  //           navigator.geolocation.getCurrentPosition((pos) => {
+  //             console.log(pos.coords);
+  //             alert(pos.coords.latitude);
+  //           }, error);
+
+  //           //If granted then you can directly call your function here
+  //         } else if (result.state === "prompt") {
+  //           console.log(result.state);
+  //         } else if (result.state === "denied") {
+  //           //If denied then you have to show instructions to enable location
+  //         }
+  //         result.onchange = function () {
+  //           console.log(result.state);
+  //         };
+  //       });
+
+  // navigator.query({name:'location'}).
+  // then(({latitude, longitude}) => {
+  // navigator.geolocation.getCurrentPosition((position) => {
+  //   const { latitude, longitude } = position.coords;
+  //   console.log(latitude, longitude);
+  //   setPickupData({
+  //     ...pickupData,
+  //     coordinates: {
+  //       lat: latitude,
+  //       lon: longitude,
+  //     },
+  //   });
+  // setPickup(`${latitude},${longitude}`);
+  // });
+  //   } else {
+  //     console.log("Geolocation is not supported by this browser.");
+  //   }
+  // }, []);
 
   // auto suggestions for pickup and drop fields
   useEffect(() => {
@@ -111,6 +151,7 @@ const Booking = () => {
     e.preventDefault();
 
     if (checkForm()) {
+      setWrongInputs(false);
       const data = {
         pickup,
         drop,
@@ -120,8 +161,6 @@ const Booking = () => {
         bookingDate,
         bookingLaterTime,
         bookingLaterDate: moment(bookingLaterDate).format("DD-MM-YYYY HH:mm"),
-        pickupCoords,
-        dropCoords,
         pickupData,
         dropData,
         carType,
@@ -146,6 +185,8 @@ const Booking = () => {
         setBookingTime("now");
         setCarType("Sedan");
       }, 5000);
+    } else {
+      setWrongInputs(true);
     }
   };
 
@@ -424,6 +465,10 @@ const Booking = () => {
           <input
             className=" col-span-5 mx-2 my-1 py-1 rounded-md outline-none w-full hover:bg-gray-200 focus:bg-gray-200"
             type="number"
+            onKeyDown={(e) =>
+              ["e", "E", "-"].includes(e.key) && e.preventDefault()
+            }
+            pattern="^[\+]?[(]?[0-9]{3}[)]?[0-9]{3}[-\s\.]?[0-9]{4,6}$"
             onChange={(e) => setPhoneNumber(e.target.value)}
             onFocus={() => {
               setSuggestPickup(false);
@@ -438,6 +483,12 @@ const Booking = () => {
               : "Phone number is not valid")}
         </div>
       </form>
+      {/* wrong inputs */}
+      {/* {wrongInputs && (
+        <div className=" font-bold w-full text-left self-center  text-red-600 px-2 my-1">
+          Invalid Inputs
+        </div>
+      )} */}
       {/* button */}
       <div
         onClick={(e) => {
@@ -453,6 +504,7 @@ const Booking = () => {
           Send Enquiry
         </button>
       </div>
+
       {showQuerySent && (
         <div className=" max-w-max self-center text-center bg-green-600 px-2 text-white rounded-md my-2">
           We will get back to you in 5-10 minutes!

@@ -52,7 +52,7 @@ const Features = () => {
       id="key-features"
       className="px-3 overflow-y-clip w-full lg:px-20 mx-auto flex flex-col lg:min-h-screen  justify-center pt-8 lg:pt-0 "
     >
-      <div className="font-montserrat text-4xl lg:text-6xl font-bold w-full text-left">
+      <div className="font-leagueSpartan text-4xl lg:text-6xl font-bold w-full text-left">
         Key Features
       </div>
       <div className="text-sm lg:text-xl text-left w-full my-3 lg:my-8 lg:w-3/5">

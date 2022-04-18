@@ -50,18 +50,18 @@ const Services = (props) => {
       id="our-services"
       className="px-3 w-full lg:px-20 mx-auto flex flex-col lg:min-h-screen overflow-y-clip justify-center pt-20 lg:pt-0 "
     >
-      <div className="font-montserrat text-4xl lg:text-6xl font-bold w-full text-left">
+      <div className=" font-leagueSpartan text-4xl lg:text-6xl font-bold w-full text-left">
         Our Services
       </div>
       <div className="text-sm lg:text-xl text-left w-full my-3 lg:my-8 lg:w-9/10">
-        Our Qualified and Reliable Team Offers you Great Tours & Travel
-        Experiences As Well as Solving All your Questions in your preferred
-        language such As English, Kannada, Hindi, Tamil, Telugu. We have Wide
-        Range of Effective Solutions with Years of Experience and Great Skills
-        to Perform the Movement Smoothly with Maximum Safety done with the help
-        of Our Especially Assigned Client Executive. Our Customer Executives Are
-        Trained as well as Experienced to Give Disposable and Break up Travels
-        Quotation for All Kind of Vehicles at the Spot. Monday – Sunday (24*7)
+        Our qualified and reliable team offers you great tours & travel
+        experiences as well as solving all your questions in your preferred
+        language such As english, kannada, hindi, tamil, telugu. We have wide
+        range of effective solutions with years of experience and great skills
+        to perform the movement smoothly with maximum safety done with the help
+        of our especially assigned client executive. Our customer executives are
+        trained as well as experienced to give disposable and break up travels
+        quotation for all kind of vehicles at the spot. Monday – Sunday ( 24/7 )
       </div>
       <div className="flex  lg:flex-row lg:items-center flex-wrap justify-between w-full lg:h-full lg:mt-3 ">
         {services.map((feature, index) => {

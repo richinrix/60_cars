@@ -462,6 +462,7 @@ module.exports = {
       "70vh": "70vh",
       "80vh": "80vh",
       "90vh": "90vh",
+
       full: "100%",
       screen: "100vh",
       "ahum-contact-screen": "60vh",

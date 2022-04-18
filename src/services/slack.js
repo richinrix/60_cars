@@ -9,10 +9,17 @@ const outstationWebhook = process.env.REACT_APP_OUTSTATION_SLACK_WEBHOOK;
 const corporateSignUpWebhook = process.env.REACT_APP_CONTACT_SLACK_WEBHOOK;
 //  // dev hook const citryRideWebhook = process.env.REACT_APP_CITYRIDE_SLACK_WEBHOOK;
 // * discord webhooks
-const citryRideDiscordWebhook = process.env.REACT_APP_CITYRIDE_DISCORD_WEBHOOK;
+const citryRideDiscordWebhook =
+  "https://discord.com/api/webhooks/956998991285989426/GsV-1JlUbj2tAVINSzMHPth-PC3nDLacpt1TN_Atpe3MTzHlxD9iMOSkhfZKm__4hk62";
 const outstationDiscordWebhook =
-  process.env.REACT_APP_OUTSTATION_DISCORD_WEBHOOK;
-const contactDiscordWebhook = process.env.REACT_APP_CONTACT_DISCORD_WEBHOOK;
+  "https://discord.com/api/webhooks/956999193346596916/e6wVxiTL_koTXWDG_UQGDDg-8CrRLb1GnD2TBeJzEDhz_zGp-8cA4p_BrO3L1PHpHXzC";
+const contactDiscordWebhook =
+  "https://discord.com/api/webhooks/957004029454614548/hHSpbIROKOXWIVDlnZvDD6YfqzGN0BA8_sToXf_rkQCpLKVlC_GngmKbDHXl08hxZw3p";
+// REACT_APP_CITYRIDE_DISCORD_WEBHOOK='https://discord.com/api/webhooks/956998991285989426/GsV-1JlUbj2tAVINSzMHPth-PC3nDLacpt1TN_Atpe3MTzHlxD9iMOSkhfZKm__4hk62'
+// REACT_APP_OUTSTATION_DISCORD_WEBHOOK='https://discord.com/api/webhooks/956999193346596916/e6wVxiTL_koTXWDG_UQGDDg-8CrRLb1GnD2TBeJzEDhz_zGp-8cA4p_BrO3L1PHpHXzC'
+// REACT_APP_CONTACT_DISCORD_WEBHOOK='https://discord.com/api/webhooks/957004029454614548/hHSpbIROKOXWIVDlnZvDD6YfqzGN0BA8_sToXf_rkQCpLKVlC_GngmKbDHXl08hxZw3p'
+// REACT_APP_DEV_DISCORD_WEBHOOK='https://discord.com/api/webhooks/956745688186773535/kiC0QUzLbp5U64GPjAdjRwL_3kaV37OCxgcxvOlgwElz1iOtAd0jR8B9bh_527dQmPlS'
+
 // const devDiscordHook =
 //   "";
 export const submitSlack = async (content) => {
