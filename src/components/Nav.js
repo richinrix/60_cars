@@ -3,13 +3,7 @@ import React from "react";
 import { AiFillHome, AiOutlineHome } from "react-icons/ai";
 import { AiOutlineCar, AiFillCar } from "react-icons/ai";
 import { MdOutlineFeaturedPlayList, MdFeaturedPlayList } from "react-icons/md";
-import { MdInfo } from "react-icons/md";
-import {
-  BsBookmark,
-  BsTelephone,
-  BsTelephoneFill,
-  BsBookmarkFill,
-} from "react-icons/bs";
+import { BsTelephone, BsTelephoneFill } from "react-icons/bs";
 import {
   IoIosInformationCircleOutline,
   IoMdInformationCircle,

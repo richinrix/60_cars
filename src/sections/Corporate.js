@@ -5,12 +5,16 @@ const Corporate = () => {
   return (
     <div>
       {/* nav */}
-      <div className="py-4 font-extrabold bg-white text-4xl w-screen flex lg:hidden justify-center items-center ">
-        60 Cars
+      <div className="fixed z-50 lg:hidden">
+        <div className="   lg:hidden ">{/* <HeaderAnnouncement /> */}</div>
+        <div className="  py-2 font-leagueSpartan  font-extrabold bg-white bg-opacity-30 backdrop-blur-md   text-4xl w-screen flex lg:hidden justify-center items-center ">
+          60 Cars
+        </div>
       </div>
       <div className="fixed bottom-0 lg:sticky  lg:top-0 z-10">
-        {/* <HeaderAnnouncement /> */}
-        <div className=" mx-auto bg-white lg:bg-opacity-50 lg:backdrop-blur-sm w-full">
+        <div className="hidden lg:block">{/* <HeaderAnnouncement /> */}</div>
+
+        <div className=" mx-auto lg:bg-white lg:bg-opacity-50 lg:backdrop-blur-sm w-full">
           <Nav current="" />
         </div>
       </div>
@@ -18,12 +22,12 @@ const Corporate = () => {
 
       <div className="lg:px-0 mx-auto  ">
         <div
-          class="absolute bg-cover bg-bottom brightness-50 bg-no-repeat w-full h-full"
+          class="w-full h-full bg-red-100 absolute lg:fixed lg:top-0 brightness-75 lg:brightness-50 bg-right lg:bg-bottom bg-cover bg-no-repeat "
           style={{
             backgroundImage: `url(/images/contact/contact_bg3.jpg)`,
           }}
         />
-        <div className="px-3 lg:px-0 lg:container mx-auto w-full  relative py-10 lg:py-10 text-white">
+        <div className="px-3 lg:px-0 lg:container mx-auto w-full  relative pt-28 lg:py-10 text-white">
           <div className="text-2xl lg:text-6xl font-bold font-leagueSpartan text-center">
             Corporate Travel Management
           </div>

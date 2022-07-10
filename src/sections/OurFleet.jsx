@@ -114,7 +114,6 @@ const OurFleet = (props) => {
         />
         <div
           id="fleet-car-image"
-          // onLoadedData={() => console.log("load")}
           className={` 
             transition-opacity  lg:w-1/2 w-full  h-52 lg:h-full lg:mb-0 mb-3 bg-contain bg-center bg-no-repeat `}
           style={{

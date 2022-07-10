@@ -1,18 +1,20 @@
 import axios from "axios";
 // import md5 from "crypto-js";
-import { submitOrder } from "./graphCMS";
+// import { submitOrder } from "./graphCMS";
 
 // dev webhook
-const citryRideWebhook =
-  "https://hooks.slack.com/services/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";
-const outstationWebhook = process.env.REACT_APP_OUTSTATION_SLACK_WEBHOOK;
-const corporateSignUpWebhook = process.env.REACT_APP_CONTACT_SLACK_WEBHOOK;
+// const citryRideWebhook =
+//   "https://hooks.slack.com/services/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";
+// const outstationWebhook = process.env.REACT_APP_OUTSTATION_SLACK_WEBHOOK;
+// const corporateSignUpWebhook = process.env.REACT_APP_CONTACT_SLACK_WEBHOOK;
 //  // dev hook const citryRideWebhook = process.env.REACT_APP_CITYRIDE_SLACK_WEBHOOK;
 // * discord webhooks
-const citryRideDiscordWebhook = process.env.REACT_APP_CITYRIDE_DISCORD_WEBHOOK;
+const citryRideDiscordWebhook =
+  "https://discord.com/api/webhooks/956998991285989426/GsV-1JlUbj2tAVINSzMHPth-PC3nDLacpt1TN_Atpe3MTzHlxD9iMOSkhfZKm__4hk62";
 const outstationDiscordWebhook =
-  process.env.REACT_APP_OUTSTATION_DISCORD_WEBHOOK;
-const contactDiscordWebhook = process.env.REACT_APP_CONTACT_DISCORD_WEBHOOK;
+  "https://discord.com/api/webhooks/956999193346596916/e6wVxiTL_koTXWDG_UQGDDg-8CrRLb1GnD2TBeJzEDhz_zGp-8cA4p_BrO3L1PHpHXzC";
+const contactDiscordWebhook =
+  "https://discord.com/api/webhooks/957004029454614548/hHSpbIROKOXWIVDlnZvDD6YfqzGN0BA8_sToXf_rkQCpLKVlC_GngmKbDHXl08hxZw3p";
 
 // const devDiscordHook =
 //   "";

@@ -23,7 +23,7 @@ export const submitOrder = async (orderDetails) => {
       $orderId: Int!
       $pickup: String!
       $drop: String!
-      $when: String!+
+      $when: String!
       $departTime: String!
       $departDate: String!
       $pickupCoordinates: String!

@@ -54,7 +54,7 @@ const Team = () => {
           Mr Salman Shariff
         </div>
       </div> */}
-      <div className="flex flex-wrap items-end lg:flex-row justify-between w-full">
+      <div className="flex flex-wrap items-end lg:flex-row justify-center w-full">
         <div className="my-2  mx-auto ">
           <div className="hidden lg:flex text-center  text-base lg:text-2xl  font-bold">
             Chief Operating Officer
@@ -71,7 +71,7 @@ const Team = () => {
             Mr Salman Shariff
           </div>
         </div>
-        <div className="my-2  mx-auto">
+        {/* <div className="my-2  mx-auto">
           <div className="hidden lg:flex text-center  text-base lg:text-2xl font-bold">
             Head of Information Technology
           </div>
@@ -86,7 +86,7 @@ const Team = () => {
             {" "}
             Mr Vishal Unnikrishnan
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

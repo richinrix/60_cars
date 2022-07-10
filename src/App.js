@@ -78,7 +78,7 @@ function App() {
         <Features setActiveSection={setActiveSection} />
         <Services setActiveSection={setActiveSection} />
         <Clients setActiveSection={setActiveSection} />
-        <div className="bg-gray-800">
+        <div className="bg-black">
           <Contact setActiveSection={setActiveSection} />
         </div>
       </div>

@@ -283,7 +283,7 @@ const About = () => {
           </div>
         </div>
         {/* team section */}
-        <div className="px-3 lg:px-20 pb-20 lg:pb-0 mx-auto w-full  relative bg-gray-800">
+        <div className="px-3 lg:px-20 pb-20 lg:pb-0 mx-auto w-full  relative bg-black">
           <Team />
         </div>
 
